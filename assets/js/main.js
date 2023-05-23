@@ -10,9 +10,7 @@ function typing(elt,text) {
         elt.innerHTML = text.substring(0, Math.abs(i));
         i += 1;
         if (i >= n) {
-            i = 0
-            elt.innerHTML =''
-            // i *= -1;
+            i *= -1;
         }
     }, delay)
 }
