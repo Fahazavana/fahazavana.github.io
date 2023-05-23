@@ -1,9 +1,42 @@
-.line::after{
-    content: '';
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 100%;
-      height: 2px;
-      background-color: #000;
+.text-justify {
+  text-align: justify;
+}
+
+/* *{
+    border: 1px green dashed;
+} */
+
+.bannerc {
+  background-image: url(../img/bgBanner.jpg);
+}
+.banner {
+  height: 25vh;
+}
+
+
+
+@keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    25% {
+        opacity: 0.5;
+      }
+    50% {
+      opacity: 0;
+    }
+    75% {
+        opacity: 0.5;
+      }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+#name::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-right: 2px solid white;
+    animation: blink 500ms infinite;
 }
