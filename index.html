@@ -7,7 +7,7 @@
   <title>Jean Lucien Randrianatenaina</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-    <link rel="stylesheet" href="assets/css/styles.css"/>
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
 <body>
@@ -29,16 +29,16 @@
       <div class="collapse navbar-collapse end-0" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a id="link-home" class="nav-link active" aria-current="page" href="#" onclick="getContent('home')">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">CV</a>
+            <a id="link-cv" class="nav-link" href="#" onclick="getContent('cv')">CV</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">My work</a>
+            <a id="link-work" class="nav-link" href="#" onclick="getContent('work')">My work</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a id="link-contact" class="nav-link" href="#" onclick="getContent('contact')">Contact</a>
           </li>
         </ul>
       </div>
@@ -50,24 +50,8 @@
       <div class="col-sm-4">
         <img src="assets/img/photo.jpg" class="rounded-circle img-fluid  p-4 d-block m-auto" alt="Jean Lucien Picture">
       </div>
-      <div class="col-sm-8 p-4">
-        <h1 class="h2">Welcome</h1>
-        <p>
-          I am a mathematician and passionate about computer science.
-        </p>
-        <div>
-          <span class="h3">Field of my Interest</span>
-          <ul>
-            <li>Number Theory</li>
-            <li>Cryptography</li>
-            <li>Combinatorics</li>
-            <li>Algorithmics</li>
-            <li>Computer Science</li>
-          </ul>
-        </div>
-        <div>
-          <span class="h3"> My Academic adventure</span>
-        </div>
+      <div id="mainContainer" class="col-sm-8 p-4" onload="getContent('home')">
+
       </div>
     </div>
   </main>
@@ -75,5 +59,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
+  <script src="assets/js/main.js"></script>
 </body>
+
 </html>
