@@ -7,8 +7,9 @@
 } */
 
 .bannerc {
-  background-image: url(../img/bgBanner.jpg);
-  background-color: black;
+  /* background-image: url(../img/bgBanner.jpg); */
+  background-blend-mode: overlay;
+  /* background-color: black; */
   background-size: auto;
   background-position: top center;
   background-repeat: repeat-x;
@@ -60,11 +61,13 @@
 }
 
 #canvas1 {
+  background-image: url(../img/bgBanner.jpg);
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   left: 0;
-  top: 30vh;
-  width: auto;
-  min-height: 90vh;
+  top: 0;
+  width: 100%;
+  height: 25vh;
   z-index: -2;
 }
 main .row{

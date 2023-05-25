@@ -59,12 +59,12 @@ function getContent(request) {
 }
 
 
-
+const banner = document.getElementById("bannerc")
 const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext('2d');
 let particleArray;
-canvas.width = innerWidth;
-canvas.height = innerHeight;
+canvas.width = banner.clientWidth;
+canvas.height = banner.clientHeight;
 
 let mouse = {
     x: null,
@@ -92,7 +92,7 @@ class Particle {
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 5, false);
-        ctx.fillStyle = '#000';
+        ctx.fillStyle = this.col;
         ctx.fill()
     }
 
@@ -102,9 +102,11 @@ class Particle {
         // is particle in the canvas
         if (this.x > canvas.width || this.x < 0) {
             this.dirX = - this.dirX;
+            this.col = randomColor()
         }
         if (this.y > canvas.height || this.y < 0) {
             this.dirY = - this.dirY;
+            this.col = randomColor()
         }
         // colision detection
         let dx = mouse.x - this.x;
@@ -137,14 +139,14 @@ class Particle {
 // Particle array
 function init() {
     particleArray = [];
-    let numberOfParticle = (canvas.height * canvas.width) / 20000;
+    let numberOfParticle = (canvas.height * canvas.width) / 9000;
     for (let i = 0; i < numberOfParticle; i++) {
-        let size = (Math.random() * 10) + 1;
+        let size = (Math.random() * 5) + 5;
         let x = Math.random() * ((canvas.width - size * 2) - (size * 2)) + size * 2;
         let y = Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2;
         let dirX = Math.random() * 5 - 2.5;
         let dirY = Math.random() * 5 - 2.5;
-        let color = '#ff0000';
+        let color = '#000';
         particleArray.push(new Particle(x, y, dirX, dirY, size, color))
     }
 }
@@ -153,7 +155,7 @@ function init() {
 
 function animate() {
     requestAnimationFrame(animate);
-    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    ctx.clearRect(0, 0, banner.clientWidth, banner.clientHeight);
     for (let i = 0; i < particleArray.length; i++) {
         particleArray[i].update()
     }
@@ -169,7 +171,7 @@ function connect() {
         for (let b = 0; b < particleArray.length; b++) {
             let dist = (particleArray[a].x - particleArray[b].x) * (particleArray[a].x - particleArray[b].x) + (particleArray[a].y - particleArray[b].y) * (particleArray[a].y - particleArray[b].y)
             if (dist < (canvas.width / 7) * (canvas.height / 7)) {
-                ctx.strokeStyle = `#000`
+                ctx.strokeStyle = `#fff`
                 ctx.lineWidth = 1;
                 ctx.beginPath();
                 ctx.moveTo(particleArray[a].x, particleArray[a].y)
@@ -181,8 +183,8 @@ function connect() {
 }
 
 window.addEventListener('resize', () => {
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
+    canvas.width = banner.clientWidth;
+    canvas.height = banner.clientHeight;    
     mouse.radius = (canvas.width / 100) * (canvas.height / 100)
     init()
 })
@@ -191,3 +193,12 @@ window.addEventListener('mouseout', () => {
     mouse.x = undefined;
     mouse.y = undefined;
 })
+
+
+function randomColor() {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+  
+    return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`;
+  }
