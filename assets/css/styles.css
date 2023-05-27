@@ -6,14 +6,7 @@
     border: 1px green dashed;
 } */
 
-.bannerc {
-  /* background-image: url(../img/bgBanner.jpg); */
-  background-blend-mode: overlay;
-  /* background-color: black; */
-  background-size: auto;
-  background-position: top center;
-  background-repeat: repeat-x;
-}
+
 .banner {
   height: 25vh;
 }
@@ -61,8 +54,11 @@
 }
 
 #canvas1 {
-  background-image: url(../img/bgBanner.jpg);
+  background-image: url(../img/bgBanner.webp);
   background-color: rgba(0, 0, 0, 0.5);
+  background-size: auto;
+  background-position: top center;
+  background-repeat: repeat-x;
   position: absolute;
   left: 0;
   top: 0;
