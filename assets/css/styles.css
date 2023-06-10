@@ -75,3 +75,53 @@ main .row{
   background-color: rgba(255, 255, 255, 0.884) !important;
   z-index: 100;
 }
+
+
+#pdf-modal .modal-dialog {
+  max-width: 90%;
+}
+
+@media (min-width: 992px) {
+  #pdf-modal .modal-dialog {
+    max-width: 800px;
+  }
+}
+
+#pdf-iframe {
+  width: 100%;
+  height: 500px;
+}
+
+.skilc{
+    width: 100%; /* Full width */
+    background-color: #ddd; /* Grey background */
+}
+.skills {
+  text-align: right; /* Right-align text */
+  padding-top: 2px; /* Add top padding */
+  padding-bottom: 2px; /* Add bottom padding */
+  color: white; /* White text color */
+  font-size: 10pt;
+}
+
+.s90 {width: 90%;}
+.s80 {width: 80%;}
+.s65 {width: 65%;} 
+.s60 {width: 60%;} 
+.s50 {width: 50%;}
+
+.b1 {
+  background-color: #E44D26;
+}
+
+.b2 {
+  background-color: #264DE4;
+}
+
+.b3 {
+  background-color: #306998;
+}
+
+.b4 {
+  background-color: #F0DB4F;
+}
