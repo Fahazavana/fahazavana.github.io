@@ -35,9 +35,9 @@ window.addEventListener("scroll", function() {
   });
 
 
-  document.querySelectorAll('*').forEach(el => {
-    if (el.offsetWidth > document.documentElement.offsetWidth) {
-        console.log(el.style.backgroundColor='#f00')
-        console.log('Found the worst element ever: ', el);
-    }
-  });
+//   document.querySelectorAll('*').forEach(el => {
+//     if (el.offsetWidth > document.documentElement.offsetWidth) {
+//         el.style.backgroundColor='#f00'
+//         console.log('Found the worst element ever: ', el);
+//     }
+//   });
