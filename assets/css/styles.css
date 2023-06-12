@@ -276,37 +276,36 @@ body {
   }
 
   .left-arrow {
-    border: inherit;
+    border: none;
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
     border-right: 15px solid white;
-    left: -16px;
+    left: -15px;
   }
 
   .right-arrow {
-    border: inherit;
+    border: none;
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
     border-right: 15px solid white;
-    left: -16px;
+    left: -15px;
   }
 
   .conteneur {
-    padding: inherit;
+    padding: none;
     padding-left: 30px;
     width: 100%;
     margin-bottom: 50px;
   }
 
   .left-conteneur {
-    padding: inherit;
-    padding-left: 35px;
+    padding-right: 0;
     left: 0;
   }
 
   .right-conteneur {
     left: 0;
-    padding: inherit;
+    padding: none;
     padding-left: 35px;
   }
 
