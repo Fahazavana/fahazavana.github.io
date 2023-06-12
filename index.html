@@ -7,27 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Discover Jean Lucien Randrianantenaina personal Home page.">
   <title>Jean Lucien Randrianatenaina</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <script>
-    /*to prevent Firefox FOUC, this must be here*/
-    let FF_FOUC_FIX;
-  </script>
 </head>
 
 <body>
-  <header class="container-fluid bannerc" id="bannerc">
-    <canvas id="canvas1"></canvas>
-    <div class="row">
-      <div class="text-white d-flex d-flex justify-content-center align-items-center banner">
-        <span id="name" class="align-self-center h1 font-monospace">Jean Lucien Randrianatenaina</span>
-      </div>
-    </div>
-  </header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
+  <nav id="navbar" class="navbar navbar-expand-lg sticky-top">
+    <div class="container-fluid px-5">
       <a class="navbar-brand" href="#"><span>JL</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,55 +40,183 @@
     </div>
   </nav>
 
-  
-  <main class="container mt-5 p-sm-5">
-    <div class="row border border-1 rounded shadow">
-      <div class="col-sm-4">
-        <img src="assets/img/photo.webp" class="rounded-circle img-fluid  p-4 d-block m-auto" alt="Jean Lucien Picture">
-        <div class="m-3 card">
-          <img class="w-100" src="assets/img/aims-logo.webp" alt="">
-        </div>
-        <div class="card m-3">
-          <div class="row">
-            <div class="col-6 p-0 m-0">
-              <img src="assets/img/UF.webp" class="d-block col-6 mx-auto img-fluid h-75 mt-3" alt="">
-            </div>
-            <div class="col-6 p-0 m-0 ">
-              <img src="assets/img/science.webp" class="d-block col-6 mx-auto img-fluid mt-3" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="mainContainer" class="col-sm-8 p-4" onload="getContent('home')">
-        <div class="d-flex justify-content-center show" id="spiner">
-          <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
 
-  <div class="bg-dark mt-4">
-    <div class="container">
-      <footer class="d-flex flex-wrap d-flex justify-content-between align-items-center py-5">
-        <div class=" col-12 col-md-4 d-flex align-items-center justify-content-center justify-content-md-start">
-          <a class="navbar-brand" href="#">JL</a>
-          <span class="mb-3 mb-md-0 text-white"> © May 2023</span>
+  <main class="mt-5">
+    <div class="container p-0">
+      <div class="d-flex flex-wrap justify-items-center justify-content-center p-0 mycard">
+        <div class="col-md-4 text-center p-5">
+          <img id="profil" class="img-fluid" src="assets/img/photo.webp" alt="">
         </div>
-        <ul class="nav col-12 col-md-4 justify-content-center list-unstyled d-flex">
-          <li class="ms-3"><a class="text-decoration-none text-white" href="https://www.facebook.com/lucienaina.rj" target="_blank"><i class="bi-facebook" style="font-size:2.5rem;"></i></a></li>
-          <li class="ms-3"><a class="text-decoration-none text-white" href="https://github.com/Fahazavana" style="font-size:2.5rem" target="_blank"><i class="bi-github"></i></a></li>
-          <li class="ms-3"><a class="text-decoration-none text-white" href="https://mg.linkedin.com/in/randrianantenaina-jean-lucien-82b98622b" style="font-size:2.5rem" target="_blank"><i class="bi-linkedin" style="font-size:2.5rem;"> </i></a></li>
+        <div class="col-md-8 p-5">
+          <div class="fs-3 text-center">
+            I'm <span id='name' class="fw-bold">Jean Lucien Randrianantenaina</span>
+          </div>
+          <hr>
+          <div class="fs-5">
+            <div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><i class="bi-envelope" style="font-size: 1.5rem;"> </i><a
+                    href="mailto:rjlucienaina@gmail.com">rjlucienaina@gmail.com</a></li>
+                <li class="list-group-item"><i class="bi-envelope" style="font-size: 1.5rem;"> </i><a
+                    href="mailto:lucien.randrianantenaina@aims-cameroon.org">lucien.randrianantenaina@aims-cameroon.org</a>
+                </li>
+                <li class="list-group-item"><i class="bi-telephone" style="font-size: 1.5rem;"> </i><a
+                    href="tel:+261345898164">+261 345 898 164</a></li>
+                <li class="list-group-item"><i class="bi-geo-alt-fill" style="font-size: 1.5rem;"> </i> Crystal Garden,
+                  Cameroon, P.O BOX 306.</li>
+                <li class="list-group-item"><i class="bi-geo-alt-fill" style="font-size: 1.5rem;"> </i>Lot 03A/BA
+                  Beravina Fianarantsoa, Madagascar.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <ul class="nav bg-dark col-12 justify-content-center list-unstyled d-flex m-0">
+          <li class="ms-3"><a class="text-decoration-none text-white" href="https://www.facebook.com/lucienaina.rj"
+              target="_blank"><i class="bi-facebook" style="font-size:2rem;"></i></a></li>
+          <li class="ms-3"><a class="text-decoration-none text-white" href="https://github.com/Fahazavana"
+              style="font-size:2rem" target="_blank"><i class="bi-github"></i></a></li>
+          <li class="ms-3"><a class="text-decoration-none text-white"
+              href="https://mg.linkedin.com/in/randrianantenaina-jean-lucien-82b98622b" target="_blank"><i
+                class="bi-linkedin" style="font-size:2rem;"> </i></a></li>
         </ul>
-        <div class="col-12 col-md-4 text-center text-md-end"><span class="text-white ">Jean Lucien Randrianatenaina</span></div>
-      </footer>
+      </div>
     </div>
-  </div>
+
+    <div class="container mb-5">
+      <a id="down" class="mt-5 mx-auto d-block p-2 " href="/assets/files/CV/cv.pdf" target="_blank">Curriculum Vitae</a>
+    </div>
+
+    <div class="container">
+      <div class="h4 text-center mb-5"> Area of Interests</div>
+      <div class="row mycard p-5 mb-5">
+        <div class="col-sm-6">
+          <p class="pb-1 mb-0">Algebra / Combinatorics</p>
+          <div class="skilc mb-3">
+            <div class="skills s90 b2"></div>
+          </div>
+
+          <p class="pb-1 mb-0">Number Theory / Cryptography</p>
+          <div class="skilc mb-3">
+            <div class="skills s80 b2"></div>
+          </div>
+
+          <p class="pb-1 mb-0">Algoritmics</p>
+          <div class="skilc mb-3">
+            <div class="skills s65 b2"></div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <p class="pb-1 mb-0"> Computer Science</p>
+          <div class="skilc mb-3 ">
+            <div class="skills s50 b2"></div>
+          </div>
+
+          <p class="pb-1 mb-0">Deep/Machine Learning</p>
+          <div class="skilc mb-3">
+            <div class="skills s90 b2"></div>
+          </div>
+
+          <p class="pb-1 mb-0">Data Science</p>
+          <div class="skilc mb-3">
+            <div class="skills s80 b2"></div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="mb-5">
+        <div class="h4 text-center mb-5">
+          Educations
+        </div>
+        <div class="timeline">
+          <div class="conteneur left-conteneur">
+            <div class="circle-marker"></div>
+            <div class="text-box">
+              <h4>AIMS Cameroon</h4>
+              <p>Structured Master's</p>
+              <p>2022-2023</p>
+              <span class="left-arrow"></span>
+            </div>
+          </div>
+          <div class="conteneur right-conteneur">
+            <div class="circle-marker"></div>
+            <div class="text-box">
+              <h4>Faculty of Sciences Fianarantsoa</h4>
+              <p>Master (Not finished)</p>
+              <p>2019</p>
+              <span class="right-arrow"></span>
+            </div>
+          </div>
+          <div class="conteneur left-conteneur">
+            <div class="circle-marker"></div>
+            <div class="text-box">
+              <h4>Faculty of Sciences Fianarantsoa</h4>
+              <p>Bachelor</p>
+              <p>2015-2019</p>
+              <span class="left-arrow"></span>
+            </div>
+          </div>
+          <div class="conteneur right-conteneur">
+            <div class="circle-marker"></div>
+            <div class="text-box">
+              <h4>Technical Highschool Fianarantsoa</h4>
+              <p>Baccalaureate</p>
+              <p>2012-2015</p>
+              <span class="right-arrow"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="h4 text-center mb-5"> Skills</div>
+      <div class="row mycard p-5 mb-5">
+        <div class="col-sm-6">
+          <p class="pb-1 mb-0">HTML</p>
+          <div class="skilc mb-3">
+            <div class="skills s90 b1"></div>
+          </div>
+
+          <p class="pb-1 mb-0">CSS/SASS</p>
+          <div class="skilc mb-3">
+            <div class="skills s80 b2"></div>
+          </div>
+
+          <p class="pb-1 mb-0">Javascript</p>
+          <div class="skilc mb-3">
+            <div class="skills s65 b4"></div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <p class="pb-1 mb-0">Python</p>
+          <div class="skilc mb-3 ">
+            <div class="skills s50 b4"></div>
+          </div>
+
+          <p class="pb-1 mb-0">Pascal</p>
+          <div class="skilc mb-3">
+            <div class="skills s90 b2"></div>
+          </div>
+
+          <p class="pb-1 mb-0">MySql</p>
+          <div class="skilc mb-3">
+            <div class="skills s80 b2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </main>
+  <script src="assets/js/main.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
-  <script src="assets/js/main.js"></script>
 
 
 </body>
