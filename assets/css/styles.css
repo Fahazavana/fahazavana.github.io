@@ -95,7 +95,7 @@ body {
 
 .skilc {
   width: 100%;
-  background-color: gray;
+  background-color: rgb(233, 233, 233);
   border-radius: 3pt;
 }
 
@@ -108,40 +108,118 @@ body {
   border-radius: 3pt;
 }
 
-.s90 {
-  width: 90%;
+.s0 {
+  width: 0%;
 }
 
-.s80 {
-  width: 80%;
+.s5 {
+  width: 5%;
 }
 
-.s65 {
-  width: 65%;
+.s10 {
+  width: 10%;
 }
 
-.s60 {
-  width: 60%;
+.s15 {
+  width: 15%;
+}
+
+.s20 {
+  width: 20%;
+}
+
+.s25 {
+  width: 25%;
+}
+
+.s30 {
+  width: 30%;
+}
+
+.s35 {
+  width: 35%;
+}
+
+.s40 {
+  width: 40%;
+}
+
+.s45 {
+  width: 45%;
 }
 
 .s50 {
   width: 50%;
 }
 
-.b1 {
-  background-color: #E44D26;
+.s55 {
+  width: 55%;
 }
 
-.b2 {
-  background-color: #264DE4;
+.s60 {
+  width: 60%;
 }
 
-.b3 {
-  background-color: #306998;
+.s65 {
+  width: 65%;
 }
 
-.b4 {
+.s70 {
+  width: 70%;
+}
+
+.s75 {
+  width: 75%;
+}
+
+.s80 {
+  width: 80%;
+}
+
+.s85 {
+  width: 85%;
+}
+
+.s90 {
+  width: 90%;
+}
+
+.s95 {
+  width: 95%;
+}
+
+.s100 {
+  width: 100%;
+}
+/* HTML */
+/* HTML */
+.skill-html {
+  background-color: #E34F26;
+}
+
+/* CSS/SASS */
+.skill-css {
+  background-color: #1572B6;
+}
+
+/* JS */
+.skill-js {
   background-color: #F0DB4F;
+}
+
+/* MySQL */
+.skill-mysql {
+  background-color: #00758F;
+}
+
+/* Python */
+.skill-python {
+  background-color: #3776AB;
+}
+
+/* Pascal */
+.skill-pascal {
+  background-color: #8E7F65;
 }
 
 #navbar {
