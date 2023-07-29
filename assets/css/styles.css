@@ -15,8 +15,6 @@
 .navbar-brand {
   height: 50px;
   width: 50px;
-  background-color: green;
-  border: 1px solid white;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -26,6 +24,10 @@
   color: white;
   border-radius: 100%;
   margin-right: 10px;
+}
+.logo{
+  width: 40px;
+  height: 40px;
 }
 
 @keyframes blink {
@@ -199,7 +201,7 @@ body {
 
 /* CSS/SASS */
 .skill-css {
-  background-color: #1572B6;
+  background-color: #dc143c;
 }
 
 /* JS */
