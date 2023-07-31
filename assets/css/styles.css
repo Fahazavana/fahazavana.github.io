@@ -303,13 +303,14 @@ body {
 .timeline::after {
   content: '';
   position: absolute;
+  border-radius: 5px;
   width: 6px;
   height: 100%;
   top: 0;
   left: 50%;
   background-color: gray;
   z-index: -1;
-  animation: moveline 6s linear forwards;
+  /* animation: moveline 6s linear forwards; */
 }
 
 @keyframes moveline {

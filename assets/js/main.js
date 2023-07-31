@@ -23,13 +23,17 @@ function typing(elt, text) {
 
 window.addEventListener("scroll", function() {
     var navbar = document.querySelector("#navbar");
-    if (window.pageYOffset === 0) {
+    var navlink = document.querySelector(".nav-link")
+    if (window.scrollY === 0) {
         if (navbar.classList.contains("bg-dark")){
             navbar.classList.remove("bg-dark");
+            navlink.classList.remove("text-white");
         }
     } else {
         if (!navbar.classList.contains("bg-dark")){
             navbar.classList.add("bg-dark");
+            navlink.classList.add("text-white");
+
         }
     }
   });
