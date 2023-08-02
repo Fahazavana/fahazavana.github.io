@@ -11,6 +11,19 @@
 .banner {
   height: 26vh;
 }
+#name{
+  background-color: #ffffffce;
+  border-radius: 10px;
+}
+
+#canvas1 {
+  position: absolute;
+  left: 0;
+  top: 0vh;
+  width: 100%;
+  max-height: 26vh;
+  z-index: -2;
+}
 
 .navbar-brand {
   height: 50px;
@@ -88,10 +101,10 @@
 
 
 
-body {
+/* body {
   background-image: url(../img/bgBanner.webp);
   background-repeat: repeat-x;
-}
+} */
 
 
 
