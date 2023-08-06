@@ -353,6 +353,15 @@
   left: -15px;
 }
 
+.flag-icon {
+  width: 40px;
+  height: 27px;
+  border:1px solid rgba(0, 0, 0, 0.2);
+}
+.lang-icon {
+  width: 50px;
+}
+
 /* Medium devices (tablets, 768px and up) */
 @media (max-width: 761px) {
   .timeline::after {
