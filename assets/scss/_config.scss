@@ -1,0 +1,47 @@
+$primary-color: #444;
+$secondary-color:#ff0;
+$show-bg: true;
+$bg-url:url(../img/bg.png);
+$bg-opacity: 0.6;
+
+
+* {
+	box-sizing: border-box;
+}
+
+.secondary-text {
+    color: $secondary-color;
+}
+
+.text-center {
+    text-align: center;
+}
+
+@mixin whiteLink{
+    color: white;
+    text-decoration: none;
+}
+
+@mixin easeOutColor {
+	transition: color 0.5s ease-out;
+}
+
+@mixin easeOutall {
+	transition: all 0.5s ease-in-out;
+}
+
+@mixin background {
+	@if $show-bg {
+		background-image: $bg-url;
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			background-color: rgba($primary-color, $bg-opacity);
+		}
+	}
+}

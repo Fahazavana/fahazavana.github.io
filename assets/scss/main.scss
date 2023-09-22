@@ -1,0 +1,79 @@
+@import 'config';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    @include background;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    color: #fff;
+    line-height: 1.5;
+    background-color: #444;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+//headings
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-weight: 400;
+
+    &.lg-title {
+        font-size: 2.5rem;
+    }
+
+    &.md-title {
+        font-size: 2rem;
+        background-color: lighten($primary-color, 0.5);
+    }
+
+    &.sm-title {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+nav {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+
+    a {
+        @include whiteLink;
+    }
+}
+
+
+
+main#home {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+
+
+    .title {
+
+        a {
+            display: inline-block;
+            @include whiteLink;
+
+            &:hover i {
+                @include easeOutColor();
+                transform: scale(1.2);
+                color: $secondary-color;
+            }
+        }
+    }
+}

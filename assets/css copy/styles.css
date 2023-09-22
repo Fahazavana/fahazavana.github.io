@@ -1,0 +1,345 @@
+.text-justify {
+  text-align: justify;
+}
+
+/* * {
+  border: 1px green dashed;
+  box-sizing: border-box;
+} */
+
+
+.banner {
+  height: 26vh;
+}
+
+.navbar-brand {
+  height: 50px;
+  width: 50px;
+  background-color: green;
+  border: 1px solid white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-weight: bolder;
+  color: white;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#name::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-right: 2px solid white;
+  animation: blink 500ms infinite;
+}
+
+
+#profil {
+  /* max-width: 250px; */
+  min-width: 200px;
+  width: 100%;
+}
+
+.mycard {
+  background-color: #ffffff;
+  box-shadow: 5px 5px 10px gray;
+}
+
+.aims {
+  max-height: 60px;
+}
+
+.uf {
+  max-width: 50px;
+  max-height: 60px;
+}
+
+.sc {
+  max-width: 60px;
+  max-height: 60px;
+}
+
+
+
+body {
+  background-image: url(../img/bgBanner.webp);
+  background-repeat: repeat-x;
+}
+
+
+
+.skilc {
+  width: 100%;
+  background-color: gray;
+  border-radius: 3pt;
+}
+
+.skills {
+  text-align: right;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  color: white;
+  font-size: 10pt;
+  border-radius: 3pt;
+}
+
+.s90 {
+  width: 90%;
+}
+
+.s80 {
+  width: 80%;
+}
+
+.s65 {
+  width: 65%;
+}
+
+.s60 {
+  width: 60%;
+}
+
+.s50 {
+  width: 50%;
+}
+
+.b1 {
+  background-color: #E44D26;
+}
+
+.b2 {
+  background-color: #264DE4;
+}
+
+.b3 {
+  background-color: #306998;
+}
+
+.b4 {
+  background-color: #F0DB4F;
+}
+
+#navbar {
+  transition: background-color 0.3s ease-in-out;
+}
+
+
+#navbar.transparent {
+  background-color: transparent;
+}
+
+#down {
+  border: 1px solid gray;
+  width: max-content;
+  text-decoration: none;
+}
+
+#down:hover {
+  box-shadow: 5px 5px 10px gray;
+}
+
+
+/*Timeline*/
+.timeline {
+  position: relative;
+}
+
+.conteneur {
+  position: relative;
+  width: 50%;
+}
+
+.text-box {
+  padding: 5px 5px;
+  border: 1px solid gray;
+
+  position: relative;
+}
+
+.left-conteneur {
+  padding-right: 30px;
+  left: 0;
+}
+
+.right-conteneur {
+  left: 50%;
+  padding-left: 30px;
+}
+
+.right-conteneur .text-box {
+  box-shadow: -12px 5px 5px gray;
+}
+
+.left-conteneur .text-box {
+  box-shadow: 12px 5px 5px gray;
+}
+
+.circle-marker {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: gray;
+}
+
+.conteneur .circle-marker {
+  position: absolute;
+  top: 20px;
+  z-index: 10;
+}
+
+.left-conteneur .circle-marker {
+  right: -10px;
+}
+
+.right-conteneur .circle-marker {
+  left: -5px;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  background-color: gray;
+  z-index: -1;
+  animation: moveline 6s linear forwards;
+}
+
+@keyframes moveline {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: 100%;
+  }
+
+}
+
+.left-arrow {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 12px;
+  z-index: 1;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid white;
+  right: -15px;
+}
+
+
+.right-arrow {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 12px;
+  z-index: 1;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid white;
+  left: -15px;
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 761px) {
+  .timeline::after {
+    left: 10px;
+  }
+
+  .left-arrow {
+    border: none;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid white;
+    left: -15px;
+  }
+
+  .right-arrow {
+    border: none;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid white;
+    left: -15px;
+  }
+
+  .conteneur {
+    padding: none;
+    padding-left: 30px;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .left-conteneur {
+    padding-right: 0;
+    left: 0;
+  }
+
+  .right-conteneur {
+    left: 0;
+    padding: none;
+    padding-left: 35px;
+  }
+
+  .left-conteneur .circle-marker {
+    left: 5px;
+  }
+
+  .right-conteneur .circle-marker {
+    left: 5px;
+  }
+
+  .right-conteneur .text-box {
+    box-shadow: -12px 5px 5px gray;
+  }
+
+  .left-conteneur .text-box {
+    box-shadow: -12px 5px 5px gray;
+  }
+
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    width: 50vw;
+  }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {}
