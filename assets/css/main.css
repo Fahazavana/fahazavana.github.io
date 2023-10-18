@@ -170,6 +170,10 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.anim {
+  transition: all 0.5s ease-in-out;
+}
+
 /*headings*/
 h1,
 h2,
@@ -196,7 +200,7 @@ h3.sm-title {
 
 /* navigation menu*/
 nav {
-  position: absolute;
+  position: sticky;
   top: 0;
   z-index: 2;
   width: 100%;
@@ -213,55 +217,42 @@ nav a {
 }
 
 /*Home*/
-main#home {
+#particle {
   display: flex;
-  height: 100%;
-  flex-direction: column;
-  overflow: hidden;
+  justify-content: center;
   align-items: center;
+  border: 1px solid red;
+}
+
+div#top-banner {
+  position: absolute;
+  margin: auto;
+  display: grid;
+  grid-template-areas: "avatar name";
+  grid-template-columns: repeat(2, fr);
+  grid-gap: 5%;
+}
+div#top-banner .title {
+  display: flex;
+  flex-flow: column wrap;
   justify-content: center;
 }
-main#home .title a {
-  margin-top: 5px;
+div#top-banner .title .social-media :nth-child(2) {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+div#top-banner .title .social-media a {
   display: inline-block;
   color: #fff;
   text-decoration: none;
   font-size: 2rem;
 }
-main#home .title a:hover {
+div#top-banner .title .social-media a:hover {
   transform: scale(1.5);
   color: #ff0;
   transition: all 0.5s ease-in-out;
 }
-
-main#about {
-  width: 75%;
-  min-height: 100vh;
-  margin: auto;
-  padding-top: 3rem;
-}
-main#about h1 {
-  font-size: 1.5rem;
-}
-main#about h2 {
-  font-size: 1rem;
-}
-main#about h3 {
-  font-size: 0.9rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-main#about p {
-  margin-bottom: 2rem;
-}
-
-.about {
-  display: grid;
-  grid-gap: 30px;
-  grid-template-areas: "avatar bio bio" "job1 job2 job3";
-  grid-template-columns: repeat(3, fr);
-}
-.about .avatar {
+div#top-banner .avatar {
   grid-area: avatar;
   min-width: 200px;
   max-width: 300px;
@@ -270,25 +261,135 @@ main#about p {
   border-radius: 50%;
   border: 5px solid #ff0;
 }
-.about .bio {
-  grid-area: bio;
+
+.container {
+  width: 80%;
+  margin: auto;
 }
-.about .job {
-  text-align: justify;
-  background-color: #515151;
-  padding: 1rem;
+
+section#intersts .progressbar,
+section#skills .progressbar {
+  display: grid;
+  grid-gap: 5%;
+  grid-template-areas: "c1 c2";
 }
-.about .job-1 {
-  grid-area: job1;
+section#intersts .progressbar .card-1,
+section#skills .progressbar .card-1 {
+  grid-area: c1;
 }
-.about .job-2 {
-  grid-area: job2;
+section#intersts .progressbar .card-2,
+section#skills .progressbar .card-2 {
+  grid-area: c2;
 }
-.about .job-3 {
-  grid-area: job3;
+
+.skill-bar-container {
+  width: 100%;
+  background-color: gray;
+  border-radius: 3pt;
+}
+.skill-bar-container .skills {
+  height: 5px;
+}
+.skill-bar-container .s90 {
+  width: 90%;
+}
+.skill-bar-container .s80 {
+  width: 80%;
+}
+.skill-bar-container .s65 {
+  width: 65%;
+}
+.skill-bar-container .s60 {
+  width: 60%;
+}
+.skill-bar-container .s50 {
+  width: 50%;
+}
+.skill-bar-container .b1 {
+  background-color: #e44d26;
+}
+.skill-bar-container .b2 {
+  background-color: #264de4;
+}
+.skill-bar-container .b3 {
+  background-color: #306998;
+}
+.skill-bar-container .b4 {
+  background-color: #f0db4f;
+}
+
+/* Education */
+section#education h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+section#education .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+section#education .conteneur {
+  width: 95%;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  max-height: 250px;
+}
+section#education .conteneur .header {
+  background-color: #306998;
+  text-align: center;
+  padding: 10px;
+  border-radius: 20px;
+  transition: all 0.5s ease-in-out;
+}
+section#education .conteneur .header:hover {
+  cursor: pointer;
+}
+section#education .conteneur .header h4 {
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+section#education .conteneur .description {
+  background-color: white;
+  border-radius: 0 0 20px 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+section#education .conteneur .description .logo {
+  display: block;
+  padding: 10px;
+  max-height: 100px;
+  height: auto;
+  margin: auto;
+}
+section#education .conteneur .description .uf {
+  display: flex;
+  justify-content: space-around;
+}
+section#education .conteneur .description .uf .uf_logo, section#education .conteneur .description .uf .sc_logo {
+  height: 80px;
 }
 
 @media screen and (max-width: 768px) {
+  div#top-banner {
+    grid-template-areas: "avatar" "name";
+    grid-template-columns: repeat(1, fr);
+  }
+  div#top-banner .avatar {
+    min-width: 100px;
+    max-width: 200px;
+    width: 100%;
+    margin: auto;
+    border-radius: 50%;
+    border: 5px solid #ff0;
+  }
+  div#top-banner .title {
+    text-align: center;
+  }
+  div#top-banner .title .lg-title {
+    font-size: clamp(2rem, 2.5rem, 5%);
+  }
   main {
     align-items: center;
     text-align: center;
@@ -323,11 +424,16 @@ main#about p {
   .menu-nav.show, .menu-avatar.show {
     transform: translate3d(0, 0, 0);
   }
-  .about {
+  section#intersts .progressbar, section#skills .progressbar {
     display: grid;
-    grid-gap: 30px;
-    grid-template-areas: "avatar" "bio" "job1" "job2" "job3";
-    grid-template-columns: repeat(1, fr);
+    grid-gap: 5%;
+    grid-template-areas: "c1" "c2";
+  }
+  section#intersts .progressbar .card-1, section#skills .progressbar .card-1 {
+    grid-area: c1;
+  }
+  section#intersts .progressbar .card-2, section#skills .progressbar .card-2 {
+    grid-area: c2;
   }
 }
 @media screen and (max-width: 500px) {
@@ -336,6 +442,10 @@ main#about p {
   }
   main#home .sm-title {
     font-size: 0.9rem;
+  }
+  .container {
+    width: 100%;
+    margin: auto;
   }
 }
 

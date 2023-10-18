@@ -1,156 +1,357 @@
-@import 'config';
-@import 'menu';
-
+@import "config";
+@import "menu";
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    @include background;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    color: set-text-color($primary-color);
-    line-height: 1.5;
-    background-color: #444;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  @include background;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  color: set-text-color($primary-color);
+  line-height: 1.5;
+  background-color: #444;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-
+.anim {
+  @include easeOutall;
+}
 /*headings*/
 h1,
 h2,
 h3 {
-    margin: 0;
-    font-weight: 400;
+  margin: 0;
+  font-weight: 400;
 
-    &.lg-title {
-        font-size: 2.5rem;
-    }
+  &.lg-title {
+    font-size: 2.5rem;
+  }
 
-    &.md-title {
-        font-size: 2rem;
-        background-color: lighten($primary-color, 0.5);
-    }
+  &.md-title {
+    font-size: 2rem;
+    background-color: lighten($primary-color, 0.5);
+  }
 
-    &.sm-title {
-        font-size: 1rem;
-    }
+  &.sm-title {
+    font-size: 1rem;
+  }
 }
-
-
-
 
 /* navigation menu*/
 nav {
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
 
-    a {
-        @include whiteLink;
-    }
+  a {
+    @include whiteLink;
+  }
 }
 
-.first-name{
-    font-weight: 600;
-    color: $secondary-color;
+.first-name {
+  font-weight: 600;
+  color: $secondary-color;
 }
 
 /*Home*/
-main#home {
+
+#particle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+}
+
+div#top-banner {
+  position: absolute;
+  margin: auto;
+  display: grid;
+  grid-template-areas: "avatar name";
+  grid-template-columns: repeat(2, fr);
+  grid-gap: 5%;
+
+  .title {
     display: flex;
-    height: 100%;
-    flex-direction: column;
-    overflow: hidden;
-    align-items: center;
+    flex-flow: column wrap;
     justify-content: center;
 
-    
-    .title {
+    .social-media {
+      :nth-child(2) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      a {
+        display: inline-block;
+        @include whiteLink;
+        font-size: 2rem;
 
-        a {
-            margin-top: 5px;
-            display: inline-block;
-            @include whiteLink;
-            font-size: 2rem;
-
-            &:hover {
-                transform: scale(1.5);
-                color: $secondary-color;
-                @include easeOutall();
-            }
+        &:hover {
+          transform: scale(1.5);
+          color: $secondary-color;
+          @include easeOutall();
         }
+      }
     }
-}
+  }
 
-
-main#about{
-    width: 75%;
-    min-height: 100vh;
+  .avatar {
+    grid-area: avatar;
+    min-width: 200px;
+    max-width: 300px;
+    width: 100%;
     margin: auto;
-    padding-top: 3rem;
-
-    h1{
-        font-size: 1.5rem;
-    }
-    h2{
-        font-size: 1rem;
-    }
-
-    h3{
-        font-size: 0.9rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-    }
-    p{
-        margin-bottom: 2rem;
-    }
+    border-radius: 50%;
+    border: 5px solid $secondary-color;
+  }
 }
 
+.container {
+  width: 80%;
+  margin: auto;
+}
 
- .about{
+section#intersts,
+section#skills {
+  .progressbar {
     display: grid;
-    grid-gap:30px;
-    grid-template-areas: 
-    "avatar bio bio"
-    "job1 job2 job3"
-    ;
-    grid-template-columns: repeat(3,fr);
+    grid-gap: 5%;
+    grid-template-areas: "c1 c2";
 
-    .avatar{
-        grid-area: avatar;
-        min-width: 200px;
-        max-width: 300px;
-        width: 100%;
+    .card-1 {
+      grid-area: c1;
+    }
+
+    .card-2 {
+      grid-area: c2;
+    }
+  }
+}
+
+.skill-bar-container {
+  width: 100%;
+  background-color: gray;
+  border-radius: 3pt;
+
+  .skills {
+    height: 5px;
+  }
+
+  .s90 {
+    width: 90%;
+  }
+
+  .s80 {
+    width: 80%;
+  }
+
+  .s65 {
+    width: 65%;
+  }
+
+  .s60 {
+    width: 60%;
+  }
+
+  .s50 {
+    width: 50%;
+  }
+
+  .b1 {
+    background-color: #e44d26;
+  }
+
+  .b2 {
+    background-color: #264de4;
+  }
+
+  .b3 {
+    background-color: #306998;
+  }
+
+  .b4 {
+    background-color: #f0db4f;
+  }
+}
+
+/* Education */
+
+section#education {
+  h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .conteneur {
+    width: 95%;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    max-height: 250px;
+
+    .header {
+      background-color: #306998;
+      text-align: center;
+      padding: 10px;
+      border-radius: 20px;
+      @include easeOutall;
+      &:hover {
+        cursor: pointer;
+      }
+      h4 {
+        font-weight: 500;
+        margin: 0;
+        padding: 0;
+      }
+    }
+    .description {
+      background-color: white;
+      border-radius: 0 0 20px 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+      .logo {
+        display: block;
+        padding: 10px;
+        max-height: 100px;
+        height: auto;
         margin: auto;
-        border-radius: 50%;
-        border: 5px solid $secondary-color;
-    }
+      }
+      .uf{
 
-    .bio{
-        grid-area: bio;
-    }
-
-    .job{
-        text-align: justify;
-        background-color: lighten($primary-color,5);
-        padding: 1rem;
-        &-1{
-            grid-area: job1;
+        display:flex;
+        justify-content: space-around;
+        .uf_logo, .sc_logo{
+            height: 80px;
         }
-        &-2{
-            grid-area: job2;
-        }
-        &-3{
-            grid-area: job3;
-        }
+      }
     }
+  }
+}
+// section#education {
+//   .aims {
+//     max-height: 60px;
+//   }
 
- }
+//   .uf {
+//     max-width: 50px;
+//     max-height: 60px;
+//   }
 
+//   .sc {
+//     max-width: 60px;
+//     max-height: 60px;
+//   }
 
- @import 'screen';
+//   /*Timeline*/
+//   .timeline {
+//     position: relative;
+//   }
+
+//   .conteneur {
+//     position: relative;
+//     width: 50%;
+//   }
+
+//   .text-box {
+//     background-color: #fff;
+//     color: darken(set-text-color($primary-color), 100);
+//     padding: 5px 5px;
+//     border: 1px solid gray;
+//     position: relative;
+//   }
+
+//   .left-conteneur {
+//     padding-right: 30px;
+//     left: 0;
+//   }
+
+//   .right-conteneur {
+//     left: 50%;
+//     padding-left: 30px;
+//   }
+
+//   .right-conteneur .text-box {
+//     box-shadow: -12px 5px 5px gray;
+//   }
+
+//   .left-conteneur .text-box {
+//     box-shadow: 12px 5px 5px gray;
+//   }
+
+//   .circle-marker {
+//     width: 15px;
+//     height: 15px;
+//     border-radius: 50%;
+//     background-color: gray;
+//   }
+
+//   .conteneur .circle-marker {
+//     position: absolute;
+//     top: 20px;
+//     z-index: 10;
+//   }
+
+//   .left-conteneur .circle-marker {
+//     right: -10px;
+//   }
+
+//   .right-conteneur .circle-marker {
+//     left: -5px;
+//   }
+
+//   .timeline::after {
+//     content: "";
+//     position: absolute;
+//     width: 6px;
+//     height: 100%;
+//     top: 0;
+//     left: 50%;
+//     background-color: gray;
+//     z-index: -1;
+//     animation: moveline 6s linear forwards;
+//   }
+
+//   @keyframes moveline {
+//     0% {
+//       height: 0;
+//     }
+
+//     100% {
+//       height: 100%;
+//     }
+//   }
+
+//   .left-arrow {
+//     height: 0;
+//     width: 0;
+//     position: absolute;
+//     top: 12px;
+//     z-index: 1;
+//     border-top: 15px solid transparent;
+//     border-bottom: 15px solid transparent;
+//     border-left: 15px solid white;
+//     right: -15px;
+//   }
+
+//   .right-arrow {
+//     height: 0;
+//     width: 0;
+//     position: absolute;
+//     top: 12px;
+//     z-index: 1;
+//     border-top: 15px solid transparent;
+//     border-bottom: 15px solid transparent;
+//     border-right: 15px solid white;
+//     left: -15px;
+//   }
+// }
+
+@import "screen";

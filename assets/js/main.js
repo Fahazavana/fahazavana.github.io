@@ -29,3 +29,40 @@ menuBtn.addEventListener('click', ()=>{
     }
 });
 
+
+
+/// collapsible
+
+// var sections = document.querySelectorAll('.conteneur');
+
+// console.log(sections)
+// sections.forEach(function(section) {
+//   var header = section.querySelector('.header');
+//   var content = section.querySelector('.description');
+
+//   header.addEventListener('click', function() {
+//     if (content.style.display === 'none') {
+//       content.style.display = 'block';
+//       header.style.borderRadius = '10px 10px 0 0'
+//     } else {
+//       content.style.display = 'none';
+//       header.style.borderRadius = 'initial'
+//     }
+//   });
+// });
+
+
+var headers = document.getElementsByClassName("education header");
+console.log(headers)
+for (let i = 0; i < headers.length; i++) {
+  headers[i].addEventListener("click", function() {
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+      this.style.borderRadius = '20px'
+    } else {
+        this.style.borderRadius = '20px 20px 0 0'
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+} 
