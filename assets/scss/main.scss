@@ -71,6 +71,10 @@ div#top-banner {
     justify-content: center;
     grid-area: title;
 
+    .lg-title {
+      font-size: clamp(2rem, 2vw, 2.5rem);
+    }
+
   /*firstname higlight */ 
   .first-name {
     font-weight: 600;
@@ -99,6 +103,7 @@ div#top-banner {
 
 /* container */
 .container {
+  min-width: 250px;
   width: 75%;
   max-width: 960px;
   margin: auto;
@@ -119,6 +124,7 @@ section {
   }
 
   .wrapper {
+    min-width: 250px;
     padding: 1rem 2rem;
     background-color: lighten($fourth-color, 5);
     color: set-text-color(lighten($fourth-color, 5));
@@ -261,7 +267,7 @@ section#project {
     width: 100%;
 
     .project {
-      min-width: 200px;
+      min-width: 240px;
       width: 45%;
       max-width: 500px;
       margin-bottom: 2rem;
@@ -362,7 +368,8 @@ section#contactme{
   }
   
   .error {
-    border: 2px solid red;
+    border: 1px solid red;
+    box-shadow: 0 0 5px red;
   }
 }
 

@@ -11,31 +11,23 @@
   div#top-banner {
     grid-template-areas:
       "avatar"
-      "name";
-    grid-template-columns: repeat(1, fr);
+      "title";
+    grid-gap: 5%;
+    .avatar {
+      min-width: 100px;
+      max-width: 200px;
+      width: 100%;
+      margin: auto;
+      border-radius: 50%;
+      border: 5px solid $secondary-color;
+    }
 
-	.avatar {
-		min-width: 100px;
-		max-width: 200px;
-		width: 100%;
-		margin: auto;
-		border-radius: 50%;
-		border: 5px solid $secondary-color;
-	  }
-
-	  .title{
-		text-align: center;
-		.lg-title{
-			font-size: clamp(2rem,2.5rem,5%);
-		}
-	  }
-
-
-  }
-
-  main {
-    align-items: center;
-    text-align: center;
+    .title {
+      text-align: center;
+      .lg-title {
+        font-size: clamp(1.5rem, 2vw, 2rem);
+      }
+    }
   }
 
   .menu {
@@ -67,43 +59,47 @@
 
     &-nav,
     &-avatar {
-      width: 100%;
+      width: 80%;
       &.show {
         transform: translate3d(0, 0, 0);
       }
     }
   }
 
-  section#intersts, section#skills {
+  section#intersts,
+  section#skills {
     .progressbar {
-      display: grid;
-      grid-gap: 5%;
-      grid-template-areas: "c1" "c2";
-
-      .card-1 {
-        grid-area: c1;
-      }
-
-      .card-2 {
-        grid-area: c2;
+      flex-direction: column;
+      .card-1, .card-2{
+        width: 100%;
       }
     }
+  }
+
+  section#project{
+    .wrapper{
+    .project{
+      width: 100%;
+    }
+  }
+  }
+
+  .container {
+    width: 95%;
+    margin: auto;
   }
 }
 
 // smartphone
 @include media-sm {
-  main#home {
-    .lg-title {
-      font-size: 1.5rem;
-    }
-
-    .sm-title {
-      font-size: 0.9rem;
-    }
+  section{
+  .wrapper{
+    padding-left: 0.5rem ;
+    padding-right: 0.5rem;
   }
+}
   .container {
-	width: 100%;
-	margin: auto;
+    width: 95%;
+    margin: auto;
   }
 }
