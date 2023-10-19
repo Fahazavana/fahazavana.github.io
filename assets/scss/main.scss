@@ -38,22 +38,6 @@ h3 {
   }
 }
 
-/* navigation menu*/
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  a{
-    text-decoration: none;
-    color: set-text-color($primary-color);
-    font-weight: 600;
-  }
-}
-
-
-
 /*Home*/
 
 #particle {
@@ -113,8 +97,6 @@ div#top-banner {
 
 }
 
-
-
 /* container */
 .container {
   width: 75%;
@@ -125,7 +107,6 @@ div#top-banner {
 section {
   padding: 2rem 0;
   margin-bottom: 3rem;
-
   > h3 {
     display: block;
     background-color: $third-color;
@@ -143,7 +124,6 @@ section {
     color: set-text-color(lighten($fourth-color, 5));
     border-radius: 0 0 15px 15px;
   }
-
   .bi-chevron-compact-down,.bi-chevron-compact-up{
     font-size: 1.5rem;
   }
@@ -152,63 +132,33 @@ section {
 section#intersts,
 section#skills {
   .progressbar {
-    display: grid;
-    grid-gap: 2%;
-    grid-template-areas: "c1 c2";
-    grid-template-columns: repeat(2, fr);
+    width: 100%;;
+    display: flex;
+    justify-content: space-between;
 
-    .card-1 {
-      grid-area: c1;
+    h4 {
+      margin: 0;
+      padding: 0.75rem 0;
+      font-weight: 550;
+    }
+    .card-1,
+    .card-2  {
+      width: 45%;
+      :nth-child(1){
+        padding-top: 0;
+      }
     }
 
-    .card-2 {
-      grid-area: c2;
-    }
   }
 }
 .skill-bar-container {
   width: 100%;
-  background-color: gray;
-  border-radius: 3pt;
+  background-color: #808080;
+  border-radius: 10pt;
 
-  .skills {
-    height: 5px;
-  }
-
-  .s90 {
-    width: 90%;
-  }
-
-  .s80 {
-    width: 80%;
-  }
-
-  .s65 {
-    width: 65%;
-  }
-
-  .s60 {
-    width: 60%;
-  }
-
-  .s50 {
-    width: 50%;
-  }
-
-  .b1 {
-    background-color: #e44d26;
-  }
-
-  .b2 {
-    background-color: #264de4;
-  }
-
-  .b3 {
-    background-color: $third-color;
-  }
-
-  .b4 {
-    background-color: #f0db4f;
+  .skill {
+    height: 10px;
+    border-radius: 10pt;
   }
 }
 
@@ -367,6 +317,11 @@ section#contactme{
   label {
     display: block;
   }
+  label::after{
+    content: '*';
+    color: red;
+    margin-left: 10px;
+  }
   
   input,
   textarea {
@@ -377,6 +332,7 @@ section#contactme{
     width: 100%;
     margin-bottom: 1rem;
     border: 2px solid $third-color;
+    background-color: rgba(255, 255, 255, 0);
   
     &:focus {
       outline: none;
@@ -410,8 +366,5 @@ section#contactme{
   }
 }
 
-#response-iframe{
-  visibility: hidden
-}
 
 @import "screen";
