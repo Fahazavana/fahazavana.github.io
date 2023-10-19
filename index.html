@@ -3,8 +3,14 @@
 
 <head>
   <meta charset="UTF-8">
+  <title>Jean Lucien Randrianatenaina</title>
+  <meta name="description" content="Discover Jean Lucien Randrianantenaina personal Home page." />
+  <link rel="canonical" href="https://fahazavana.github.io/" />
+  <meta name="google-site-verification" content="aUm25JeP5P0ARrayqp0nUugz1QnRRJ-GGQeCbpb26_Q" />
+  <!-- <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon_io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon_io/favicon-16x16.png" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jean Lucien</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link rel="stylesheet" href="assets/css/main.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
@@ -30,19 +36,19 @@
           <a href="/" class="nav-link">Home</a>
         </li>
         <li class="menu-nav-item">
-          <a href="contents/about.html" class="nav-link">About Me</a>
+          <a href="#bio" class="nav-link">About Me</a>
         </li>
         <li class="menu-nav-item">
-          <a href="contents/educations.html" class="nav-link">Education</a>
+          <a href="#education" class="nav-link">Education</a>
         </li>
         <li class="menu-nav-item">
-          <a href="contents/publication" class="nav-link">Publication</a>
+          <a href="#publication" class="nav-link">Publication</a>
         </li>
         <li class="menu-nav-item">
-          <a href="contents/work.html" class="nav-link">My Work</a>
+          <a href="#project" class="nav-link">My Project</a>
         </li>
         <li class="menu-nav-item">
-          <a href="contents/contact.html" class="nav-link">Contact Me</a>
+          <a href="#contactme" class="nav-link">Contact Me</a>
         </li>
       </ul>
     </nav>
@@ -67,43 +73,45 @@
       </div>
     </div>
   </div>
+  <div style="width: 100%; border-top:2px solid white;"></div>
   <div class="container">
     <section id="bio">
       <h3>About me</h3>
-      <p>
-        I graduated with an MSc in Mathematical Sciences (Major: Fundamental
-        Sciences) with distinction from the African Institute for
-        Mathematical Sciences (AIMS) Cameroon, affiliated with the
-        University of Buea, Cameroon, on June 23rd, 2023. My research work
-        was entitled "Carmichael Numbers." Prior to AIMS, I obtained a
-        Bachelor's Degree (with mention) in fundamental mathematics from the
-        Faculty of Science, University of Fianarantsoa, Madagascar.
-        Additionally, I have completed all the required courses for my
-        master's degree and am currently writing my research master thesis,
-        which focuses on the field of artificial intelligence.
-      </p>
+      <div class="wrapper">
+        <p>
+          I graduated with an MSc in Mathematical Sciences (Major: Fundamental
+          Sciences) with distinction from the African Institute for
+          Mathematical Sciences (AIMS) Cameroon, affiliated with the
+          University of Buea, Cameroon, on June 23rd, 2023. My research work
+          was entitled "Carmichael Numbers." Prior to AIMS, I obtained a
+          Bachelor's Degree (with mention) in fundamental mathematics from the
+          Faculty of Science, University of Fianarantsoa, Madagascar.
+          Additionally, I have completed all the required courses for my
+          master's degree and am currently writing my research master thesis,
+          which focuses on the field of artificial intelligence.
+        </p>
 
-      <p>
-        Through my studies, I gained valuable experience in team working,
-        communication skills, and project management, especially during my
-        stay at AIMS. Additionally, I strengthened my mathematical
-        background, knowledge of computer programming, problem-solving, and
-        research skills. My research interests include number theory,
-        cryptography, machine learning, and deep learning.
-      </p>
-      <p>
-        Besides my academic pursuits, I am a self-taught Python programmer,
-        with experience in web programming (HTML, CSS, JavaScript, etc.) and
-        database management, such as MySql. I have worked on personal
-        projects, and I continuously learn new thing, and improve what I
-        already know.
-      </p>
+        <p>
+          Through my studies, I gained valuable experience in team working,
+          communication skills, and project management, especially during my
+          stay at AIMS. Additionally, I strengthened my mathematical
+          background, knowledge of computer programming, problem-solving, and
+          research skills. My research interests include number theory,
+          cryptography, machine learning, and deep learning.
+        </p>
+        <p>
+          Besides my academic pursuits, I am a self-taught Python programmer,
+          with experience in web programming (HTML, CSS, JavaScript, etc.) and
+          database management, such as MySql. I have worked on personal
+          projects, and I continuously learn new thing, and improve what I
+          already know.
+        </p>
+      </div>
     </section>
 
     <section id="intersts">
       <h3>Area of interests</h3>
-
-      <div class="progressbar">
+      <div class="wrapper progressbar">
         <div class="card-1">
           <h4 class="pb-1 mb-0">Algebra / Combinatorics</h4>
           <div class="skill-bar-container">
@@ -145,105 +153,67 @@
     <section id="education">
       <h3>Education</h3>
       <div class="wrapper">
-        <div class="conteneur">
-          <div class="education header">
-            <h4>Buiness Management School: AIMS ESMT IIP</h4>
-          </div>
-          <div class="description">
-            <img src="assets/img/ESMT.jpg" class='logo' alt="AIMS Logo">
-          </div>
-        </div>
+        <div id="educ">
+          <div class="timeline"></div>
+          <div class="conteneur">
+            <div class="circle-marker"></div>
+            <div class="arrow"></div>
+            <div class="education expander">
+              <h4>Buiness Management School: AIMS ESMT IIP <i class="bi bi-chevron-compact-down"></i></h4>
 
-        <div class="conteneur">
-          <div class="education header">
-            <h4>MSc. African Institue For Mathematical Sciences</h4>
+            </div>
+            <div class="description">
+              <img src="assets/img/ESMT.jpg" class='logo' alt="AIMS Logo">
+            </div>
           </div>
-          <div class="description">
-            <img src="assets/img/aims-logo.webp" class='logo' alt="AIMS Logo">
-          </div>
-        </div>
 
-        <div class="conteneur">
-          <div class="education header">
-            <h4>MSc. University of Fianarantsoa</h4>
+          <div class="conteneur">
+            <div class="cont">
+              <div class="circle-marker"></div>
+              <div class="arrow"></div>
+            </div>
+            <div class="education expander">
+              <h4>MSc. African Institue For Mathematical Sciences <i class="bi bi-chevron-compact-down"></i></h4>
+            </div>
+            <div class="description">
+              <img src="assets/img/aims-logo.webp" class='logo' alt="AIMS Logo">
+            </div>
           </div>
-          <div class="description">
-            <div class="uf logo">
-              <img src="assets/img/UF.webp" class='uf_logo' alt="UF LOGO">
-              <img src="assets/img/science.webp" class='sc_logo' alt="FAC SCI">
-            </div> 
-          </div>
-        </div>
 
-        <div class="conteneur">
-          <div class="education header">
-            <h4>BSc. University of Fianarantsoa</h4>
+          <div class="conteneur">
+            <div class="circle-marker"></div>
+            <div class="arrow"></div>
+            <div class="education expander">
+              <h4>MSc. University of Fianarantsoa <i class="bi bi-chevron-compact-down"></i></h4>
+            </div>
+            <div class="description">
+              <div class="uf logo">
+                <img src="assets/img/UF.webp" class='uf_logo' alt="UF LOGO">
+                <img src="assets/img/science.webp" class='sc_logo' alt="FAC SCI">
+              </div>
+            </div>
           </div>
-          <div class="description">
-            <div class="uf logo">
-              <img src="assets/img/UF.webp" class='uf_logo' alt="UF LOGO">
-              <img src="assets/img/science.webp" class='sc_logo' alt="FAC SCI">
+
+          <div class="conteneur">
+            <div class="circle-marker"></div>
+            <div class="arrow"></div>
+            <div class="education expander">
+              <h4>BSc. University of Fianarantsoa <i class="bi bi-chevron-compact-down"></i></h4>
+            </div>
+            <div class="description">
+              <div class="uf logo">
+                <img src="assets/img/UF.webp" class='uf_logo' alt="UF LOGO">
+                <img src="assets/img/science.webp" class='sc_logo' alt="FAC SCI">
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- <section id="education">
-      <h3>Educations</h3>
-      <div class="timeline">
-        <div class="conteneur left-conteneur">
-          <div class="circle-marker"></div>
-          <div class="text-box p-3">
-            <div class="text-center">
-              <img src="assets/img/aims-logo.webp" class='aims' alt=""> 
-              <h4>African Institute For Mathematical Sciences</h4>
-            </div>
-            <p>Structured Master's</p>
-            <p>2022-2023</p>
-            <span class="left-arrow"></span>
-          </div>
-        </div>
-        <div class="conteneur right-conteneur">
-          <div class="circle-marker"></div>
-          <div class="text-box p-3">
-            <h4>Faculty of Science, University of Fianarantsoa</h4>
-            <div class=" d-flex  justify-content-around w-100">
-              <img src="assets/img/UF.webp" class='uf' alt="">
-              <img src="assets/img/science.webp" class='sc' alt="">
-            </div> 
-            <p>Master (In progress)</p>
-            <p>2019</p>
-            <span class="right-arrow"></span>
-          </div>
-        </div>
-        <div class="conteneur left-conteneur">
-          <div class="circle-marker"></div>
-          <div class="text-box p-3">
-            <div class=" d-flex  justify-content-around w-100">
-              <img src="assets/img/UF.webp" class='uf' alt="">
-              <img src="assets/img/science.webp" class='sc' alt="">
-            </div>
-            <p>Bachelor</p>
-            <p>2015-2019</p>
-            <span class="left-arrow"></span>
-          </div>
-        </div>
-        <div class="conteneur right-conteneur">
-          <div class="circle-marker"></div>
-          <div class="text-box p-3">
-            <h4>Technical Highschool Fianarantsoa</h4>
-            <p>Baccalaureate</p>
-            <p>2012-2015</p>
-            <span class="right-arrow"></span>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
     <section id="publication">
       <h3>Publications</h3>
-      <ul class="pb-0">
+      <ul class="wrapper pub-list">
         <li>
           <a class="text-decoration-none" href="https://www.wits.ac.za/staff/academic-a-z-listing/l/florianlucawitsacza"
             target="_blank">
@@ -276,7 +246,7 @@
 
     <section id="extra">
       <h3>Extracurricular courses</h3>
-      <div class="row mycard p-5 mb-5">
+      <div class="wrapper">
         <div class="row">
           <div class="col-md-3 fw-bold text-end">Jan-Aug 2023</div>
           <div class="col-md-9">Back-End Development</div>
@@ -296,11 +266,12 @@
           </div>
         </div>
       </div>
+
     </section>
 
     <section id="skills">
       <h3>Skills</h3>
-      <div class="progressbar">
+      <div class="wrapper progressbar">
         <div class="card-1">
           <p class="pb-1 mb-0">HTML</p>
           <div class="skill-bar-container">
@@ -337,6 +308,111 @@
 
       </div>
     </section>
+
+
+
+
+    <section id="project">
+      <h3>Personal Projects</h3>
+      <div class="wrapper">
+        <div class="project">
+          <div class="project-title">
+            Project 1
+          </div>
+          <div class="project-thumb">
+            <div class="project-year">
+              2022
+            </div>
+          </div>
+          <div class="project-expander"><i class="bi bi-chevron-compact-down"></i></div>
+          <div class="project-description">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore maxime fuga deserunt alias rerum aut
+            incidunt ducimus eaque aspernatur. Eos laudantium incidunt sapiente voluptas corrupti alias minus blanditiis
+            laboriosam commodi.
+          </div>
+        </div>
+
+
+        <div class="project">
+          <div class="project-title">
+            Project 2
+          </div>
+          <div class="project-thumb">
+            <div class="project-year">
+              2022
+            </div>
+          </div>
+          <div class="project-expander"><i class="bi bi-chevron-compact-down"></i></div>
+          <div class="project-description">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore maxime fuga deserunt alias rerum aut
+            incidunt ducimus eaque aspernatur. Eos laudantium incidunt sapiente voluptas corrupti alias minus blanditiis
+            laboriosam commodi.
+          </div>
+        </div>
+
+
+        <div class="project">
+          <div class="project-title">
+            Project 3
+          </div>
+          <div class="project-thumb">
+            <div class="project-year">
+              2022
+            </div>
+          </div>
+          <div class="project-expander"><i class="bi bi-chevron-compact-down"></i></div>
+          <div class="project-description">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore maxime fuga deserunt alias rerum aut
+            incidunt ducimus eaque aspernatur. Eos laudantium incidunt sapiente voluptas corrupti alias minus blanditiis
+            laboriosam commodi.
+          </div>
+        </div>
+
+
+        <div class="project">
+          <div class="project-title">
+            Project 4
+          </div>
+          <div class="project-thumb">
+            <div class="project-year">
+              2022
+            </div>
+          </div>
+          <div class="project-expander"><i class="bi bi-chevron-compact-down"></i></div>
+          <div class="project-description">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore maxime fuga deserunt alias rerum aut
+            incidunt ducimus eaque aspernatur. Eos laudantium incidunt sapiente voluptas corrupti alias minus blanditiis
+            laboriosam commodi.
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="contactme">
+      <h3>Send me a message</h3>
+      <div class="wrapper">
+        <form id="contactform" method="post">
+          <label for="name">Name and First name</label>
+          <input type="text" name="entry.111960903" id="name">
+          <label for="email">Your emal adress</label>
+          <input type="email" name="entry.1427661846" id="email">
+          <label for="message">Your message</label>
+          <textarea name="entry.1225228599" id="message" cols="30" rows="10"></textarea>
+          <button type="submit"><i class="bi bi-send"> Send</i></button>
+        </form>
+        <!-- <form id="contactform" target='response-iframe' action="https://docs.google.com/forms/d/e/1FAIpQLScQW83ZO4ig1h-0JMDqr_d7_PxbPcxcz1SL1J48jexh7-y4Dg/formResponse" method="post">
+          <label for="name">Name and First name</label>
+          <input type="text" name="name" id="name">
+          <label for="email">Your emal adress</label>
+          <input type="email" name="email" id="email">
+          <label for="message">Your message</label>
+          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+          <button type="submit"><i class="bi bi-send"> Send</i></button>
+        </form> -->
+      </div>
+    </section>
+    <iframe id="response-iframe" name="response-iframe"></iframe>
   </div>
 
   <script src="assets/js/main.js"></script>

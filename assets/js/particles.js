@@ -28,7 +28,7 @@ function init() {
         1,
         10000
     );
-    camera.position.z = 500;
+    camera.position.z = 1000;
 
     // particles
     var PI2 = Math.PI*2;
