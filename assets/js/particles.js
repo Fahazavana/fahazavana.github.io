@@ -19,19 +19,19 @@ function init() {
         particle;
     container = document.getElementById('particle')
     scene = new THREE.Scene();
-    renderer = new THREE.CanvasRenderer({ alpha: true }); // gradient; this can be swapped for WebGLRenderer
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer = new THREE.CanvasRenderer({ alpha: true });
+    renderer.setSize(document.documentElement.clientWidth, document.documentElement.clientHeight);
     container.appendChild(renderer.domElement);
     camera = new THREE.PerspectiveCamera(
         75,
-        window.innerWidth / window.innerHeight,
+        document.documentElement.clientWidth / document.documentElement.clientHeight,
         1,
         10000
     );
     camera.position.z = 1000;
 
     // particles
-    var PI2 = Math.PI*2;
+    var PI2 = Math.PI * 2;
     var material = new THREE.SpriteCanvasMaterial({
         color: 0xaaaaaa,
         program: function (context) {
@@ -42,55 +42,37 @@ function init() {
     });
 
     var geometry = new THREE.Geometry();
-    // for (var i = 0; i < 80; i++) {
-    //     particle = new THREE.Sprite(material);
-    //     particle.position.x = Math.random() * 2 - 1;
-    //     particle.position.y = Math.random() * 2 - 1;
-    //     particle.position.z = Math.random() * 2 - 1;
-    //     particle.position.normalize();
-    //     particle.position.multiplyScalar(Math.random() * 10 + 450);
-    //     particle.scale.x = particle.scale.y = 10;
-    //     scene.add(particle);
-    //     geometry.vertices.push(particle.position);
-    // }
-
     for (var i = 0; i < 100; i++) {
         var particle = new THREE.Sprite(material);
-    
-        // Generate points on a sphere using spherical coordinates
-        var radius = 500; // Adjust the radius of the sphere as desired
+
+        var radius = 500;
         var phi = Math.acos(-1 + (2 * i) / 100);
         var theta = Math.sqrt(100 * Math.PI) * phi;
-    
-        // Convert spherical coordinates to Cartesian coordinates
+
         particle.position.x = radius * Math.cos(theta) * Math.sin(phi);
         particle.position.y = radius * Math.sin(theta) * Math.sin(phi);
         particle.position.z = radius * Math.cos(phi);
 
-    
-        // Scale the particle
         particle.scale.set(10, 10, 10);
-    
-        // Add the particle to the scene and the geometry
+
         scene.add(particle);
         geometry.vertices.push(particle.position);
     }
-
-    // lines
     var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: 0xffffff, opacity: 0.5 }));
     scene.add(line);
-    // mousey
+
     document.addEventListener('mousemove', onDocumentMouseMove, false);
     document.addEventListener('touchstart', onDocumentTouchStart, false);
     document.addEventListener('touchmove', onDocumentTouchMove, false);
     window.addEventListener('resize', onWindowResize, false);
-} // end init();
+}
+
 function onWindowResize() {
-    windowHalfX = window.innerWidth / 2;
-    windowHalfY = window.innerHeight / 2;
-    camera.aspect = window.innerWidth / window.innerHeight;
+    windowHalfX = document.documentElement.clientWidth / 2;
+    windowHalfY = document.documentElement.clientHeight / 2;
+    camera.aspect = document.documentElement.clientWidth / document.documentElement.clientHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(document.documentElement.clientWidth, document.documentElement.clientHeight);
 }
 function onDocumentMouseMove(event) {
     mouseX = event.clientX - windowHalfX;

@@ -116,35 +116,14 @@ const emailInput = document.getElementById('email');
 const messageInput = document.getElementById('message');
 const FORM = 'https://docs.google.com/forms/d/e/1FAIpQLScQW83ZO4ig1h-0JMDqr_d7_PxbPcxcz1SL1J48jexh7-y4Dg/formResponse'
 
-// form.addEventListener('submit', (e)=>{
-//   let request = new XMLHttpRequest();
-//   request.open('POST',FORM, true);
-
-//   request.onload = function(e) {
-//     console.log(e)
-//     // handle request sent successfully
-//   };
-
-//   request.onerror = function() {
-//     // handle request failed to send
-//   };
-
-//   request.send(new FormData(e.target));
-//   e.preventDefault();
-// })
-
 form.addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent form submission
-
-  // Perform form validation
+  event.preventDefault(); 
   if (!validateForm()) {
-    return; // Stop form submission if validation fails
+    return;
   }
 
-  // Gather form data
   const formData = new FormData(form);
 
-  // Submit form data using Fetch
   fetch(FORM, {
     method: 'POST',
     mode:'no-cors',
@@ -203,3 +182,20 @@ function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
+
+
+// const findOverflows = () => {
+//   const documentWidth = document.documentElement.offsetWidth;
+
+//   document.querySelectorAll('*').forEach(element => {
+//       const box = element.getBoundingClientRect();
+
+//       if (box.left < 0 || box.right > documentWidth) {
+//           console.log(element);
+//           element.style.backgroundColor = 'red';
+//       }
+//   });
+// };
+
+// // Execute findOverflows to find overflows on the page.
+// findOverflows();

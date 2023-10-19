@@ -16,9 +16,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.anim {
-  @include easeOutall;
-}
+
 /*headings*/
 h1,
 h2,
@@ -47,16 +45,14 @@ nav {
   z-index: 2;
   width: 100%;
   height: 100%;
-
-  a {
-    @include whiteLink;
+  a{
+    text-decoration: none;
+    color: set-text-color($primary-color);
+    font-weight: 600;
   }
 }
 
-.first-name {
-  font-weight: 600;
-  color: $secondary-color;
-}
+
 
 /*Home*/
 
@@ -66,19 +62,36 @@ nav {
   align-items: center;
 }
 
+/* Banner with the name and avatar */
 div#top-banner {
   position: absolute;
   margin: auto;
   display: grid;
-  grid-template-areas: "avatar name";
-  grid-template-columns: repeat(2, fr);
+  grid-template-areas: "avatar title";
   grid-gap: 5%;
+
+  .avatar {
+    grid-area: avatar;
+    min-width: 200px;
+    max-width: 300px;
+    width: 100%;
+    margin: auto;
+    border-radius: 50%;
+    border: 5px solid $secondary-color;
+    grid-area: avatar;
+  }
 
   .title {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
+    grid-area: title;
 
+  /*firstname higlight */ 
+  .first-name {
+    font-weight: 600;
+    color: $secondary-color;
+  }
     .social-media {
       :nth-child(2) {
         padding-left: 1rem;
@@ -98,22 +111,17 @@ div#top-banner {
     }
   }
 
-  .avatar {
-    grid-area: avatar;
-    min-width: 200px;
-    max-width: 300px;
-    width: 100%;
-    margin: auto;
-    border-radius: 50%;
-    border: 5px solid $secondary-color;
-  }
 }
 
+
+
+/* container */
 .container {
   width: 75%;
+  max-width: 960px;
   margin: auto;
 }
-
+/* Global setting for section*/
 section {
   padding: 2rem 0;
   margin-bottom: 3rem;
@@ -140,6 +148,7 @@ section {
     font-size: 1.5rem;
   }
 }
+
 section#intersts,
 section#skills {
   .progressbar {
@@ -309,6 +318,11 @@ section#project {
       &-title {
         background-color: gray;
         padding: 0.25rem 0.5rem;
+        a{
+          display: block;
+          text-decoration: none;
+          color: set-text-color(gray);
+        }
       }
       &-thumb {
         position: relative;

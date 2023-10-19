@@ -1,7 +1,7 @@
 /* menu button*/
 
 .menu-btn {
-    position: absolute;
+    position: fixed;
     z-index: 3;
     right: 35px;
     top: 35px;
@@ -13,7 +13,7 @@
         width: 35px;
         height: 3px;
         margin: 0 0 5px 0;
-        background-color: set-text-color($primary-color);
+        background-color: #fff;
         @include easeOutall;
 
         
