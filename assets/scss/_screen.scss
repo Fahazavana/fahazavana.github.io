@@ -70,34 +70,64 @@
   section#skills {
     .progressbar {
       flex-direction: column;
-      .card-1, .card-2{
+      .card-1,
+      .card-2 {
         width: 100%;
       }
     }
   }
 
-  section#project{
-    .wrapper{
-    .project{
-      width: 100%;
+  section#project {
+    .wrapper {
+      .project {
+        width: 100%;
+      }
     }
-  }
   }
 
   .container {
     width: 95%;
     margin: auto;
   }
+
+  section#extra {
+    .wrapper{
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      
+      .col-md-3 {
+        flex: 0 0 100%;
+        font-weight: bold;
+      }
+      .col-md-9 {
+        flex: 0 0 100%;
+      }
+
+      :nth-child(3){
+        display: none;
+      }
+      :nth-child(4){
+        padding-top: 10px;
+        border-top: 1px solid $primary-color;
+      }
+    }
+    :nth-child(2){
+      margin-bottom: 0;
+    }
+  }
+  }
 }
 
 // smartphone
 @include media-sm {
-  section{
-  .wrapper{
-    padding-left: 0.5rem ;
-    padding-right: 0.5rem;
+  section {
+    .wrapper {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
   }
-}
   .container {
     width: 95%;
     margin: auto;

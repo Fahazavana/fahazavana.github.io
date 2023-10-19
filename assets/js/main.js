@@ -102,9 +102,7 @@ function render() {
 }
 
 
-
-
-// 
+// MENU 
 const menuBtn = document.querySelector('.menu-btn')
 const menu = document.querySelector('.menu')
 const navMenu = document.querySelector('.menu-nav')

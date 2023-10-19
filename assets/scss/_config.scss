@@ -1,11 +1,18 @@
-$primary-color:gray;
+$primary-color:#808080;
 $secondary-color:#ff0;
 $third-color:#306998;
 $fourth-color:#444;
+
+// $primary-color:#fff;
+// $secondary-color:#ff0;
+// $third-color:#306998;
+// $fourth-color:#808080;
+
+
+
 $show-bg: false;
 $bg-url:url(../img/bg.png);
 $bg-opacity: 1;
-
 
 * {
 	box-sizing: border-box;
@@ -48,10 +55,12 @@ $bg-opacity: 1;
 			background-color: rgba($primary-color, $bg-opacity);
 		}
 	}
+	@else{
+		background-color: $fourth-color
+	}
 }
 
 
-// set textcolor
 @function set-text-color($color){
     @if (lightness($color)>40){
         @return #000;
@@ -59,14 +68,14 @@ $bg-opacity: 1;
     @else{
         @return #fff
     }
-}
+};
 
 // MEDIA QUERY
+
 @mixin media-sm {
 	@media screen and (max-width:500px) {
 		@content;
 	}
-
 }
 
 @mixin media-md {
@@ -89,3 +98,4 @@ $bg-opacity: 1;
 	}
 
 }
+

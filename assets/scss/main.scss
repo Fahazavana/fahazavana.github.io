@@ -12,7 +12,6 @@ body {
   height: 100vh;
   color: set-text-color($primary-color);
   line-height: 1.5;
-  background-color: #444;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -287,6 +286,16 @@ section#project {
         max-height: 500px;
         height: auto;
         background-color: darken(gray, 10);
+        
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        height: max-content;
+        i{
+          display: block;
+          font-size: clamp(8rem, 100%, 10rem);
+        }
       }
       &-year {
         position: absolute;
@@ -316,6 +325,29 @@ section#project {
       }
     }
   }
+}
+
+section#extra {
+  .wrapper{
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .col-md-3 {
+      flex: 0 0 30%;
+      font-weight: bold;
+    }
+
+    :nth-child(2){
+      font-weight: 500;
+    }
+    .col-md-9 {
+      flex: 0 0 70%;
+    }
+  }
+}
 }
 
 
