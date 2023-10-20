@@ -20,8 +20,9 @@ function init() {
         amountY = 50,
         particle;
     container = document.getElementById('particle')
+    canvas = document.getElementById('canvas')
     scene = new THREE.Scene();
-    renderer = new THREE.CanvasRenderer({ alpha: true });
+    renderer = new THREE.CanvasRenderer({ canvas:canvas, alpha: true });
     renderer.setSize(document.documentElement.clientWidth, document.documentElement.clientHeight);
     container.appendChild(renderer.domElement);
     camera = new THREE.PerspectiveCamera(
@@ -151,7 +152,6 @@ menuItems.forEach(function (menuItem) {
 
 // Arrow scrool
 function updateArrow(elt) {
-  console.log(elt.classList)
   if (elt.classList.contains('bi-chevron-down')) {
     elt.classList.toggle('bi-chevron-down')
     elt.classList.toggle('bi-chevron-up')
@@ -221,7 +221,6 @@ form.addEventListener('submit', function (event) {
     body: formData
   })
     .then(response => {
-      console.log(response)
       if (response.status === 0 || response.ok) {
         alert('Sent')
         form.reset()
@@ -232,7 +231,7 @@ form.addEventListener('submit', function (event) {
       }
     })
     .catch(error => {
-      console.log('Form submission error:', error);
+      console.log('Form submission error:');
     });
 });
 
@@ -280,13 +279,11 @@ function isValidEmail(email) {
 let skills = document.getElementsByClassName('skill')
 const minVal = 0,maxVal = 100;
 const minCol = '#808080', maxCol = '#FFFF00';
-console.log(skills)
 
 for (let i=0; i<skills.length;i++){
   let level = parseInt(skills[i].dataset.level)
   let perc = level/100
   let bg = makeGradient(minCol,maxCol,perc) 
-  console.log(bg,perc)
   skills[i].style.backgroundImage = `linear-gradient(to right,${minCol},${bg})`;
   skills[i].style.width = `${level}%`
 }
