@@ -1,105 +1,128 @@
+
+// theme
+const body = document.getElementsByTagName('body')
+let theme ='light'
+darkModeSwitch.addEventListener('change', () => {
+  console.log(body)
+  if (theme =='dark') {
+    body[0].classList.toggle('theme--default')
+    body[0].classList.toggle('theme--dark')
+  }
+  else {
+    body[0].classList.toggle('theme--dark')
+    body[0].classList.toggle('theme--default')
+    theme = 'dark'
+  }
+});
+
+
+
+
+
+
+
 // PARTICLE
 
 var mouseX = 0,
-    mouseY = 0,
-    windowHalfX = window.innerWidth / 2,
-    windowHalfY = window.innerHeight / 2,
-    SEPARATION = 200,
-    AMOUNTX = 10,
-    AMOUNTY = 10,
-    camera,
-    scene,
-    renderer;
+  mouseY = 0,
+  windowHalfX = window.innerWidth / 2,
+  windowHalfY = window.innerHeight / 2,
+  SEPARATION = 200,
+  AMOUNTX = 10,
+  AMOUNTY = 10,
+  camera,
+  scene,
+  renderer;
 init();
 animate();
 
 function init() {
-    var container,
-        separation = 100,
-        amountX = 50,
-        amountY = 50,
-        particle;
-    container = document.getElementById('particle')
-    canvas = document.getElementById('canvas')
-    scene = new THREE.Scene();
-    renderer = new THREE.CanvasRenderer({ canvas:canvas, alpha: true });
-    renderer.setSize(document.documentElement.clientWidth, document.documentElement.clientHeight);
-    container.appendChild(renderer.domElement);
-    camera = new THREE.PerspectiveCamera(
-        75,
-        document.documentElement.clientWidth / document.documentElement.clientHeight,
-        1,
-        10000
-    );
-    camera.position.z = 1000;
+  var container,
+    separation = 100,
+    amountX = 50,
+    amountY = 50,
+    particle;
+  container = document.getElementById('particle')
+  canvas = document.getElementById('canvas')
+  scene = new THREE.Scene();
+  renderer = new THREE.CanvasRenderer({ canvas: canvas, alpha: true });
+  renderer.setSize(document.documentElement.clientWidth, document.documentElement.clientHeight);
+  container.appendChild(renderer.domElement);
+  camera = new THREE.PerspectiveCamera(
+    75,
+    document.documentElement.clientWidth / document.documentElement.clientHeight,
+    1,
+    10000
+  );
+  camera.position.z = 1000;
 
-    // particles
-    var PI2 = Math.PI * 2;
-    var material = new THREE.SpriteCanvasMaterial({
-        color: 0xaaaaaa,
-        program: function (context) {
-            context.beginPath();
-            context.arc(0, 0, 1, 0, PI2, true);
-            context.fill();
-        }
-    });
-
-    var geometry = new THREE.Geometry();
-    for (var i = 0; i < 100; i++) {
-        var particle = new THREE.Sprite(material);
-
-        var radius = 500;
-        var phi = Math.acos(-1 + (2 * i) / 100);
-        var theta = Math.sqrt(100 * Math.PI) * phi;
-
-        particle.position.x = radius * Math.cos(theta) * Math.sin(phi);
-        particle.position.y = radius * Math.sin(theta) * Math.sin(phi);
-        particle.position.z = radius * Math.cos(phi);
-
-        particle.scale.set(10, 10, 10);
-
-        scene.add(particle);
-        geometry.vertices.push(particle.position);
+  // particles
+  var PI2 = Math.PI * 2;
+  var material = new THREE.SpriteCanvasMaterial({
+    color: 0xaaaaaa,
+    program: function (context) {
+      context.beginPath();
+      context.arc(0, 0, 1, 0, PI2, true);
+      context.fill();
     }
-    var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: 0xffffff, opacity: 0.5 }));
-    scene.add(line);
+  });
 
-    document.addEventListener('mousemove', onDocumentMouseMove, false);
-    document.addEventListener('touchstart', onDocumentTouchStart, false);
-    document.addEventListener('touchmove', onDocumentTouchMove, false);
-    window.addEventListener('resize', onWindowResize, false);
+  var geometry = new THREE.Geometry();
+  for (var i = 0; i < 100; i++) {
+    var particle = new THREE.Sprite(material);
+
+    var radius = 500;
+    var phi = Math.acos(-1 + (2 * i) / 100);
+    var theta = Math.sqrt(100 * Math.PI) * phi;
+
+    particle.position.x = radius * Math.cos(theta) * Math.sin(phi);
+    particle.position.y = radius * Math.sin(theta) * Math.sin(phi);
+    particle.position.z = radius * Math.cos(phi);
+
+    particle.scale.set(10, 10, 10);
+
+    scene.add(particle);
+    geometry.vertices.push(particle.position);
+  }
+  var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: 0xffffff, opacity: 0.5 }));
+  scene.add(line);
+
+  document.addEventListener('mousemove', onDocumentMouseMove, false);
+  document.addEventListener('touchstart', onDocumentTouchStart, false);
+  document.addEventListener('touchmove', onDocumentTouchMove, false);
+  window.addEventListener('resize', onWindowResize, false);
 }
 
 
 function onDocumentMouseMove(event) {
-    mouseX = event.clientX - windowHalfX;
-    mouseY = event.clientY - windowHalfY;
+  mouseX = event.clientX - windowHalfX;
+  mouseY = event.clientY - windowHalfY;
 }
 function onDocumentTouchStart(event) {
-    if (event.touches.length > 1) {
-        event.preventDefault();
-        mouseX = event.touches[0].pageX - windowHalfX;
-        mouseY = event.touches[0].pageY - windowHalfY;
-    }
+  if (event.touches.length > 1) {
+    event.preventDefault();
+    mouseX = event.touches[0].pageX - windowHalfX;
+    mouseY = event.touches[0].pageY - windowHalfY;
+  }
 }
 function onDocumentTouchMove(event) {
-    if (event.touches.length == 1) {
-        event.preventDefault();
-        mouseX = event.touches[0].pageX - windowHalfX;
-        mouseY = event.touches[0].pageY - windowHalfY;
-    }
+  if (event.touches.length == 1) {
+    event.preventDefault();
+    mouseX = event.touches[0].pageX - windowHalfX;
+    mouseY = event.touches[0].pageY - windowHalfY;
+  }
 }
 
 function animate() {
-    requestAnimationFrame(animate);
-    render();
+  requestAnimationFrame(animate);
+  render();
 }
 
 function render() {
-    camera.position.x += (mouseX - camera.position.x) * .05;
-    camera.position.y += (- mouseY + 200 - camera.position.y) * .05;
-    camera.lookAt(scene.position);
-    renderer.render(scene, camera);
+  camera.position.x += (mouseX - camera.position.x) * .05;
+  camera.position.y += (- mouseY + 200 - camera.position.y) * .05;
+  camera.lookAt(scene.position);
+  renderer.render(scene, camera);
 }
 
 
@@ -202,9 +225,9 @@ for (let i = 0; i < col.length; i++) {
 //// CONTACTME handler
 
 const form = document.getElementById('contactform');
-const nameInput = document.getElementById('name');
-const emailInput = document.getElementById('email');
-const messageInput = document.getElementById('message');
+const nameInput = document.getElementById('entry.111960903');
+const emailInput = document.getElementById('entry.1427661846');
+const messageInput = document.getElementById('entry.1225228599');
 const FORM = 'https://docs.google.com/forms/d/e/1FAIpQLScQW83ZO4ig1h-0JMDqr_d7_PxbPcxcz1SL1J48jexh7-y4Dg/formResponse'
 
 form.addEventListener('submit', function (event) {
@@ -277,18 +300,18 @@ function isValidEmail(email) {
 // Skill bar
 
 let skills = document.getElementsByClassName('skill')
-const minVal = 0,maxVal = 100;
+const minVal = 0, maxVal = 100;
 const minCol = '#808080', maxCol = '#FFFF00';
 
-for (let i=0; i<skills.length;i++){
+for (let i = 0; i < skills.length; i++) {
   let level = parseInt(skills[i].dataset.level)
-  let perc = level/100
-  let bg = makeGradient(minCol,maxCol,perc) 
+  let perc = level / 100
+  let bg = makeGradient(minCol, maxCol, perc)
   skills[i].style.backgroundImage = `linear-gradient(to right,${minCol},${bg})`;
   skills[i].style.width = `${level}%`
 }
 
-function makeGradient(color1,color2,percentage){
+function makeGradient(color1, color2, percentage) {
   const color1R = parseInt(color1.substr(1, 2), 16);
   const color1G = parseInt(color1.substr(3, 2), 16);
   const color1B = parseInt(color1.substr(5, 2), 16);

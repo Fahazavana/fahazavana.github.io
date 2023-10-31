@@ -1,51 +1,47 @@
 @import "config";
 @import "menu";
 
-* {
-  box-sizing: border-box;
+.theme--default{
+  background-color: $bg--light;
+}
+.theme--dark{
+  background-color: $bg--dark;
 }
 
-body {
-  @include background;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  color: set-text-color($primary-color);
-  line-height: 1.5;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-
-/*headings*/
-h1,
-h2,
-h3 {
-  margin: 0;
-  font-weight: 400;
-
-  &.lg-title {
-    font-size: 2.5rem;
+a{
+  @include themed(){
+    color: t($link);
   }
-
-  &.md-title {
-    font-size: 2rem;
-    background-color: lighten($primary-color, 0.5);
-  }
-
-  &.sm-title {
-    font-size: 1rem;
+  &:hover{
+    @include themed(){
+      color: t($hover);
+    }
   }
 }
 
-/*Home*/
+.big-icon-link {
+  display: inline-block;
+  font-size: 2rem;
+  &:hover {
+    transform: scale(1.5);
+    @include easeOutall();
+  }
+}
+.container {
+  min-width: 250px;
+  width: 75%;
+  max-width: 960px;
+  margin: auto;
+}
 
+/* treejs space reservation */
 #particle {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Banner with the name and avatar */
+/* Top banner */
 div#top-banner {
   position: absolute;
   margin: auto;
@@ -59,9 +55,12 @@ div#top-banner {
     max-width: 300px;
     width: 100%;
     margin: auto;
-    border-radius: 50%;
-    border: 5px solid $secondary-color;
     grid-area: avatar;
+    border: 0.25rem solid;
+    border-radius: 50%;
+    @include themed(){
+      border-color: t($border);
+    }
   }
 
   .title {
@@ -69,117 +68,105 @@ div#top-banner {
     flex-flow: column wrap;
     justify-content: center;
     grid-area: title;
-
-    .lg-title {
-      font-size: clamp(2rem, 2vw, 2.5rem);
+    @include themed(){
+      color: t($text);
     }
 
-  /*firstname higlight */ 
-  .first-name {
-    font-weight: 600;
-    color: $secondary-color;
-  }
     .social-media {
       :nth-child(2) {
         padding-left: 1rem;
         padding-right: 1rem;
       }
-      a {
-        display: inline-block;
-        @include whiteLink;
-        font-size: 2rem;
-
-        &:hover {
-          transform: scale(1.5);
-          color: $secondary-color;
-          @include easeOutall();
-        }
+    }
+h1,h2{
+  font-weight: 500;
+  margin: 0;
+}
+h2{
+  font-size: 1.75rem;
+}
+h2{
+  font-size: 1.25rem;
+}
+    .first-name{
+      @include themed(){
+        color: t($border);
       }
     }
   }
-
 }
 
-/* container */
-.container {
-  min-width: 250px;
-  width: 75%;
-  max-width: 960px;
-  margin: auto;
-}
-/* Global setting for section*/
+/*Section*/
 section {
   padding: 2rem 0;
   margin-bottom: 3rem;
   > h3 {
     display: block;
-    background-color: $third-color;
     padding: 0.5rem;
     text-align: center;
     width: max-content;
     min-width: 250px;
     font-weight: 500;
+    margin-bottom: 0;
     border-radius: 15px 15px 0 0;
+    @include themed(){
+      background-color: t($card-bg);
+      color: t($text);
+    }
   }
-
   .wrapper {
     min-width: 250px;
     padding: 1rem 2rem;
-    background-color: lighten($fourth-color, 5);
-    color: set-text-color(lighten($fourth-color, 5));
     border-radius: 0 0 15px 15px;
+    @include themed(){
+      background-color: t($card-bg);
+      color: t($text);
+    }
+
   }
-  .bi-chevron-compact-down,.bi-chevron-compact-up{
+  .bi-chevron-compact-down,
+  .bi-chevron-compact-up {
     font-size: 1.5rem;
   }
 }
 
-section#intersts,
-section#skills {
-  .progressbar {
-    width: 100%;;
-    display: flex;
-    justify-content: space-between;
-
-    h4 {
-      margin: 0;
-      padding: 0.75rem 0;
-      font-weight: 550;
-    }
-    .card-1,
-    .card-2  {
-      width: 45%;
-      :nth-child(1){
-        padding-top: 0;
-      }
-    }
-
-  }
-}
-.skill-bar-container {
+.progressbar {
   width: 100%;
-  background-color: #808080;
-  border-radius: 10pt;
+  display: flex;
+  justify-content: space-between;
+  .card-1,
+  .card-2 {
+    width: 45%;
+    :nth-child(1) {
+      padding-top: 0;
+    }
+  }
 
-  .skill {
-    height: 10px;
+  .skill-bar-container {
+    width: 100%;
     border-radius: 10pt;
+
+    .skill {
+      height: 10px;
+      border-radius: 10pt;
+    }
   }
 }
 
-/* Education */
-section#education {
+#education {
   #educ {
     position: relative;
     .timeline {
       position: absolute;
-      background-color: yellow;
       min-height: 0;
-      top: 0.75rem;
+      top: 0;
       left: 0;
       width: 6px;
       border-radius: 6px;
       transition: height 0.5s ease-out;
+      @include themed(){
+        background-color: t($border);
+      }
     }
     .circle-marker {
       position: relative;
@@ -188,16 +175,24 @@ section#education {
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background-color: yellow;
+      @include themed(){
+        background-color: t($border);
+      }
     }
     .arrow {
       height: 0;
       width: 0;
       position: absolute;
-      left: 21.5px;
-      border-top: 22px solid transparent;
-      border-bottom: 22px solid transparent;
-      border-right: 22px solid $third-color;
+      left: 22px;
+      border-top: 22px solid;
+      border-bottom: 22px solid;
+      border-right: 22px solid;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+      @include themed(){
+      border-right-color: t($card-bg-1);
+      }
     }
   }
 
@@ -205,29 +200,31 @@ section#education {
     width: calc(100% - 44px);
     margin-left: 44px;
     margin-bottom: 1rem;
-    max-height: 250px;
-
+    
     .expander {
-      background-color: $third-color;
       text-align: center;
       padding: 4px;
       border-radius: 0 20px 20px 0;
+      h4{
+        margin:0;
+      }
+      @include themed(){
+        background-color: t($card-bg-1);
+        color: t($text)
+        }
       @include easeOutall;
       &:hover {
         cursor: pointer;
       }
-      h4 {
-        font-weight: 500;
-        margin: 0;
-        padding: 0;
-      }
     }
     .description {
-      background-color: white;
       border-radius: 0 0 20px 20px;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.15s ease-out;
+      @include themed(){
+        background-color: t($card-bg-1);
+        }
       .logo {
         display: block;
         padding: 10px;
@@ -247,17 +244,38 @@ section#education {
   }
 }
 
-section#publication {
+
+
+#publication {
   .pub-list {
     margin: 0;
     list-style-type: none;
-    a {
-      color: set-text-color($primary-color);
+  }
+}
+
+
+#extra {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .col1{
+      flex: 0 0 30%;
+      font-weight: bold;
+    }
+
+    :nth-child(2){
+      font-weight: 500;
+    }
+    .col2 {
+      flex: 0 0 70%;
     }
   }
 }
 
-section#project {
+#project {
   .wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -270,13 +288,12 @@ section#project {
       width: 45%;
       max-width: 500px;
       margin-bottom: 2rem;
+      
       &-title {
-        background-color: gray;
         padding: 0.25rem 0.5rem;
         a{
           display: block;
           text-decoration: none;
-          color: set-text-color(gray);
         }
       }
       &-thumb {
@@ -285,13 +302,16 @@ section#project {
         min-height: 200px;
         max-height: 500px;
         height: auto;
-        background-color: darken(gray, 10);
+        
         
         display: flex;
         justify-content: center;
         align-content: center;
         align-items: center;
         height: max-content;
+        @include themed(){
+          background-color: t($card-bg-2);
+        }
         i{
           display: block;
           font-size: clamp(8rem, 100%, 10rem);
@@ -301,17 +321,17 @@ section#project {
         position: absolute;
         bottom: 0;
         width: 100%;
-        padding: 0.25rem;
-        background-color: $secondary-color;
-        color: set-text-color($secondary-color);
-        font-weight: 500;
+        padding: 0.1rem;
         opacity: 0;
-        transition: opacity 2s ease-out;
+        transition: opacity 1s ease-out;
+        text-align: center;
+        font-weight: 600;
+
       }
       :hover > .project-year {
         display: block;
         opacity: 1;
-        transition: opacity 2s ease-in;
+        transition: opacity 1s ease-in;
       }
 
       &-expander {
@@ -322,34 +342,14 @@ section#project {
         overflow: hidden;
         text-align: justify;
         transition: max-height 1s linear;
+        font-size: small;
+        p{
+          padding:0 10px;
+        }
       }
     }
   }
 }
-
-section#extra {
-  .wrapper{
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 2rem;
-
-    .col-md-3 {
-      flex: 0 0 30%;
-      font-weight: bold;
-    }
-
-    :nth-child(2){
-      font-weight: 500;
-    }
-    .col-md-9 {
-      flex: 0 0 70%;
-    }
-  }
-}
-}
-
 
 section#contactme{
   label {
@@ -369,18 +369,21 @@ section#contactme{
     display: block;
     width: 100%;
     margin-bottom: 1rem;
-    border: 2px solid $third-color;
+    @include themed(){
+      border: 1px solid t($border);
+    }
     background-color: rgba(255, 255, 255, 0);
   
     &:focus {
+      @include themed(){
       outline: none;
-      border-color: $secondary-color;
-      box-shadow: 0 0 5px $secondary-color;
+      box-shadow: 0 0 5px t($link);
+      }
     }
   }
   
   textarea {
-    height: 150px; /* Set a specific height for the textarea */
+    height: 150px; 
   }
   
   button {
@@ -390,20 +393,46 @@ section#contactme{
     width: 50%;
     display: block;
     margin: auto;
-    background-color: $third-color;
-    border: none;
+    @include themed(){
+      border: 1px solid t($border);
+    }
   
     &:hover {
-      background-color: $secondary-color; 
-      color: set-text-color($secondary-color);
+      cursor: pointer;
+      @include themed(){
+        outline: none;
+        border-color: t($border) ;
+        box-shadow: 0 0 5px t($link);
+        }
     }
   }
-  
   .error {
     border: 1px solid red;
     box-shadow: 0 0 5px red;
+
   }
 }
 
-
-@import "screen";
+footer.footer{
+  padding: 1rem 3rem;
+  @include themed(){
+    color: t($footer-text);
+    background-color: t($footer-bg);
+  }
+  ul{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    li{
+      margin-bottom: 1rem;
+      a{
+        @include themed(){
+          color: t($footer-text);
+        }
+      }
+    }
+    &:nth-child(4){
+      margin-bottom: 0;
+    }
+  }
+}

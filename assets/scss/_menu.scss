@@ -13,15 +13,14 @@
         width: 35px;
         height: 3px;
         margin: 0 0 5px 0;
-        background-color: #fff;
         @include easeOutall;
+        @include themed(){
+            background-color: t($text);
+        }
 
         
     }
 
-    &:hover >&-line{
-        background-color: $secondary-color;
-    }
 
 
     &.close {
@@ -54,7 +53,6 @@
     width: 100%;
     height: 100%;
     top: 0;
-    opacity: 0.8;
     visibility: hidden;
     @include easeOutall;
 
@@ -77,12 +75,16 @@
     &-nav {
         margin: 0;
         padding: 0;
-        background-color: darken($primary-color, 5);
         transform: translate3d(0, -100%, 0);
+        opacity: 0.8;
         @include easeOutall;
+        @include themed(){
+            background-color: t($bg);
+        }
 
         &-item {
             list-style-type: none;
+
         }
 
         &.show {
@@ -91,8 +93,11 @@
     }
 
     &-avatar {
-        background-color: $primary-color;
         transform: translate3d(0, 100%, 0);
+
+        @include themed(){
+            background-color: t($card-bg);
+        }
         @include easeOutall;
 
         &.show {
@@ -106,11 +111,13 @@
             background-image: url(../img/photo.webp);
             background-clip: border-box;
             background-size: 100%;
-            border: 2px $secondary-color solid;
             background-repeat: no-repeat;
             transform: translateX(-150%);
             opacity: inherit;
             @include easeOutall;
+            @include themed(){
+                border: 0.25rem solid t($border);
+            }
         }
 
         &.show .avatar {
@@ -121,15 +128,22 @@
 
     &-nav-item {
         transform: translateX(50vw);
-
         @include easeOutall;
-
         &.show {
             transform: translateX(0);
         }
         margin-bottom: 10px;
+        & > a{
+            opacity: 1;
+            @include themed(){
+                color: t($text);
+                font-weight: 550;
+            }
+        }
         &.active > a{
-            color: $secondary-color;
+            @include themed(){
+                color: t($border);
+            }
         }
     }
 
@@ -140,11 +154,12 @@
         font-weight: 550;
         text-transform: uppercase;
         text-decoration: none;
-        color: set-text-color($primary-color);
         @include easeOutall;
 
         &:hover {
-            color: $secondary-color;
+            @include themed(){
+                color: t($hover);
+            }
         }
     }
 }

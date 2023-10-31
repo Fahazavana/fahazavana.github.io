@@ -1,0 +1,57 @@
+//shortcuts
+$bg: 'bg';
+$card-bg: 'card-bg';
+$card-bg-1: 'card-bg-1';
+$card-bg-2: 'card-bg-2';
+$text: 'text';
+$link: 'link';
+$hover: 'hover';
+$border: 'border';
+$footer-text: 'footer-text';
+$footer-bg: 'footer-bg';
+
+//themes
+$themes: (
+        default: (
+                bg: $bg--light,
+                card-bg: $bg--card--light,
+                card-bg-1: $bg--card--light--1,
+                card-bg-2: $bg--card--light--2,
+                text: $text--light,
+                link: $color--primary--light,
+                hover: $hover--light,
+                border: $border--light,
+                footer-bg:$bg--dark,
+                footer-text:$text--dark,
+        ),
+        dark: (
+                bg: $bg--dark,
+                card-bg: $bg--card--dark,
+                card-bg-1: $bg--card--dark--1,
+                card-bg-2: $bg--card--dark--2,
+                text: $text--dark,
+                link: $color--primary--dark,
+                hover: $hover--dark,
+                border: $border--dark,
+                footer-bg:$bg--light,
+                footer-text:$text--light,
+        ),
+);
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}

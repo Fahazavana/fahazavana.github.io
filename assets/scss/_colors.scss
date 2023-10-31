@@ -1,0 +1,97 @@
+//--colors
+$color--primary--light: #4827ec;
+$color--primary--dark: #ffff00;
+$color--secondary--light: lighten($color--primary--light, 10%);
+$color--secondary--dark: lighten($color--primary--dark, 10%);
+$bg--light: #c5c5c4;
+$bg--dark: #14151a;
+$bg--card--light: lighten($bg--light, 16%);
+$bg--card--light--1: lighten($bg--card--light, 15%);
+$bg--card--light--2: lighten($bg--card--light--1, 15%);
+$bg--card--dark: lighten($bg--dark, 15%);
+$bg--card--dark--1: lighten($bg--card--dark, 15%);
+$bg--card--dark--2: lighten($bg--card--dark--1, 15%);
+$text--light: lighten($bg--dark, 12%);
+$text--dark: #fcfbfb;
+$border--light: darken($color--primary--light, 10%);
+$border--dark: lighten($color--primary--dark, 10%);
+$hover--light: transparentize($color--primary--light, 0.4);
+$hover--dark: transparentize($color--primary--dark, 0.4);
+
+//GRADIENTS
+@mixin linear-gradient($from, $to) {
+  background: $to;
+  background: -moz-linear-gradient(top, $from 0%, $to 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, $from),
+    color-stop(100%, $to)
+  );
+  background: -webkit-linear-gradient(top, $from 0%, $to 100%);
+  background: -o-linear-gradient(top, $from 0%, $to 100%);
+  background: linear-gradient(to bottom, $from 0%, $to 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$from}, endColorstr=#{$to});
+}
+
+//SHADOWS
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: $top $left $blur $color, $inset;
+    -moz-box-shadow: $top $left $blur $color, $inset;
+    box-shadow: $top $left $blur $color, $inset;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+@mixin card-shadow {
+  @include box-shadow(
+    0,
+    1px,
+    3px,
+    rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.24)
+  );
+}
+
+@mixin card-shadow--hover {
+  @include box-shadow(
+    0,
+    14px,
+    28px,
+    rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22)
+  );
+}
+
+//HOVER
+%hover {
+  transition: transform 0.5s;
+  cursor: pointer;
+
+  &::after {
+    @include card-shadow--hover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    content: "";
+    opacity: 0;
+    z-index: -1;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale3d(1.006, 1.006, 1);
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}
