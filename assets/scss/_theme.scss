@@ -22,7 +22,7 @@ $themes: (
                 hover: $hover--light,
                 border: $border--light,
                 footer-bg:$bg--dark,
-                footer-text:$text--dark,
+                footer-text:$text--dark
         ),
         dark: (
                 bg: $bg--dark,
@@ -34,8 +34,8 @@ $themes: (
                 hover: $hover--dark,
                 border: $border--dark,
                 footer-bg:$bg--light,
-                footer-text:$text--light,
-        ),
+                footer-text:$text--light
+        )
 );
 
 @mixin themed() {
