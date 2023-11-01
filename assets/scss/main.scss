@@ -73,6 +73,7 @@ div#top-banner {
     }
 
     .social-media {
+      text-align: center;
       :nth-child(2) {
         padding-left: 1rem;
         padding-right: 1rem;
@@ -81,6 +82,7 @@ div#top-banner {
 h1,h2{
   font-weight: 500;
   margin: 0;
+  text-align: center;
 }
 h2{
   font-size: 1.75rem;
@@ -95,7 +97,14 @@ h2{
     }
   }
 }
-
+hr {
+  border: none; /* Remove default border */
+  height: 2px; /* Set the height of the line */
+  margin-top: -5px;
+  @include themed(){
+    background-color: t(border);
+  }
+}
 /*Section*/
 section {
   padding: 2rem 0;
@@ -206,6 +215,7 @@ section {
       padding: 4px;
       border-radius: 0 20px 20px 0;
       h4{
+        text-align: end;
         margin:0;
       }
       @include themed(){
@@ -436,3 +446,5 @@ footer.footer{
     }
   }
 }
+
+@import "screen";

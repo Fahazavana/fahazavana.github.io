@@ -1,28 +1,30 @@
-
 // theme
 const body = document.getElementsByTagName('body')
-let theme ='light'
-darkModeSwitch.addEventListener('change', () => {
-  console.log(body)
-  if (theme =='dark') {
-    body[0].classList.toggle('theme--default')
-    body[0].classList.toggle('theme--dark')
-  }
-  else {
-    body[0].classList.toggle('theme--dark')
-    body[0].classList.toggle('theme--default')
-    theme = 'dark'
-  }
+let theme = 'light'
+
+function themeSwitch() {
+    if (theme == 'dark') {
+      body[0].classList.toggle('theme--default')
+      body[0].classList.toggle('theme--dark')
+      theme = 'default'
+    }
+    else {
+      body[0].classList.toggle('theme--dark')
+      body[0].classList.toggle('theme--default')
+      theme = 'dark'
+    }
+    localStorage.setItem("theme",theme)
+    updateParticleColor()
+}
+darkModeSwitch.addEventListener('change', themeSwitch);
+
+window.addEventListener('DOMContentLoaded', async () => {
+  const theme = localStorage.getItem('theme') || 'default';
+  themeSwitch()
+  darkModeSwitch.checked = true
 });
 
-
-
-
-
-
-
 // PARTICLE
-
 var mouseX = 0,
   mouseY = 0,
   windowHalfX = window.innerWidth / 2,
@@ -59,14 +61,13 @@ function init() {
   // particles
   var PI2 = Math.PI * 2;
   var material = new THREE.SpriteCanvasMaterial({
-    color: 0xaaaaaa,
+    color: getParticleColor(),
     program: function (context) {
       context.beginPath();
       context.arc(0, 0, 1, 0, PI2, true);
       context.fill();
     }
   });
-
   var geometry = new THREE.Geometry();
   for (var i = 0; i < 100; i++) {
     var particle = new THREE.Sprite(material);
@@ -84,7 +85,7 @@ function init() {
     scene.add(particle);
     geometry.vertices.push(particle.position);
   }
-  var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: 0xffffff, opacity: 0.5 }));
+  var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: 0xffffff, opacity: 0.8 }));
   scene.add(line);
 
   document.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -124,7 +125,17 @@ function render() {
   camera.lookAt(scene.position);
   renderer.render(scene, camera);
 }
-
+function getParticleColor() {
+  if (theme === "dark") {
+    return 0xc5c5c4; 
+  } else if (theme === "default") {
+    return 0x14151a; 
+  }
+}
+function updateParticleColor() {
+  var material = scene.children[0].material;
+  material.color.setHex(getParticleColor());
+}
 
 // MENU 
 const menuBtn = document.querySelector('.menu-btn')

@@ -19,7 +19,6 @@
       width: 100%;
       margin: auto;
       border-radius: 50%;
-      border: 5px solid $secondary-color;
     }
 
     .title {
@@ -31,15 +30,18 @@
   }
 
   .menu {
+    width: 100%;
     height: 100%;
     flex-direction: column;
     &-nav {
+      width: 100vw!important;
       transform: translate3d(-100vw, 0, 0);
     }
 
     &-avatar {
       transform: translate3d(100vw, 0, 0);
       min-height: 250px;
+      width: 100vw!important;
       height: 260px;
 
       .avatar {
@@ -89,6 +91,11 @@
     width: 95%;
     margin: auto;
   }
+section{
+  >h3{
+    width: 100%;
+  }
+}
 
   section#extra {
     .wrapper{
@@ -110,7 +117,6 @@
       }
       :nth-child(4){
         padding-top: 10px;
-        border-top: 1px solid $primary-color;
       }
     }
     :nth-child(2){
