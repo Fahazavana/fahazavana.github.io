@@ -1,6 +1,6 @@
 ########################## hero area ##########################
 hero:
-  title: "I'm Jean Lucien Randrianantenaina"
+  title: "I am Jean Lucien Randrianantenaina"
 
   # animated text loop
   occupations:
@@ -11,9 +11,9 @@ hero:
 
 
   # hero background image
-  bg_image: 'images/background.jpg'
+  # bg_image: 'images/background.jpg'
   # optional mobile breakpoint background
-  mobile_bg_image: 'images/gus_small.jpg'
+  # mobile_bg_image: 'images/gus_small.jpg'
 
 
 ########################### About ##################################
@@ -71,7 +71,7 @@ skill1:
     - name: 'JavaScript/NodeJS'
       percentage: '40%'
 
-    - name: 'HTML/CSS/Bootstrap'
+    - name: 'HTML/CSS/SASS/Bootstrap'
       percentage: '80%'
 
 skill2:
