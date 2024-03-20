@@ -246,6 +246,12 @@ p code {
     }
   }
 }
+#canvas1 {
+  position: absolute;
+  left: 0;
+  top: 0vh;
+  width: 100%;
+}
 #particles-js {
   position: absolute;
   width: 100%;
@@ -347,10 +353,10 @@ p code {
     transition: all 0.2s;
   }
 }
-.introduction {
-  font-size: 60px;
-  font-weight: 600;
-}
+// .introduction {
+//   // font-size: 60px;
+//   font-weight: 600;
+// }
 .typist-blink {
   &:after {
     content: ' ';

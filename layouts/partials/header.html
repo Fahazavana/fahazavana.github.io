@@ -28,10 +28,10 @@
         class="col-lg-8 col-lg-offset-2 col-sm-8 col-sm-offset-2 head-container"
       >
         <div class="head-holder">
-          <h1 class="introduction">{{ .title | markdownify | emojify }}</h1>
+          <h1 class="h2">{{ .title | markdownify | emojify }}</h1>
           <div class="animated-text">
             <strong class="cd-headline clip">
-              <span class="cd-words-wrapper">
+              <span class="cd-words-wrapper h6">
                 {{ range $index, $elements:= .occupations }} {{ if eq $index 0
                 }}
                 <b class="is-visible">{{ . }}</b>{{ else }}<b>{{ . }}</b>{{ end
