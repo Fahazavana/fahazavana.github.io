@@ -1,7 +1,25 @@
 baseURL = 'http://fahazavana.github.io/'
-languageCode = 'en-gb'
 title = 'Jean Lucien Randrianantenaina'
 
+
+[languages]
+  [languages.en]
+    disabled = false
+    languageName = 'English'
+    languageCode = 'en-gb'
+    weight = 1
+  
+  [languages.fr]
+      disabled = true
+      languageName = 'French'
+      languageCode = 'fr-FR'
+      weight = 2
+  
+  [languages.mg]
+    disabled = true
+    languageName = 'Malagasy'
+    languageCode = 'mg-mg'
+    weight = 3
 
 
 ############################# Site Map ##############################
@@ -86,9 +104,4 @@ link="https://twitter.com/rjlucienaina"
 icon = "fas fa-envelope"
 link = "mailto:rjlucienaina@gmail.com"
 
-
-
-
-contentDir = "content/english"
-weight = 1
-home = "Home"
+  
