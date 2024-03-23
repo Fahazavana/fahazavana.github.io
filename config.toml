@@ -59,9 +59,30 @@ URL = "#about"
 weight = 2
 
 [[menu.main]]
+name = "Educations"
+URL = "#educations"
+weight = 3
+
+[[menu.main]]
+name = "Publications"
+URL = "#publications"
+weight = 4
+
+[[menu.main]]
+name = "Skills"
+URL = "#skills"
+weight = 5
+
+[[menu.main]]
+name = "Portfolio"
+URL = "#portfolio"
+weight = 6
+
+
+[[menu.main]]
 name = "Contact"
 URL = "#contact"
-weight = 3
+weight = 7
 
 
 #################### default parameters ################################
