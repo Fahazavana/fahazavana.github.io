@@ -9,12 +9,14 @@
       <div class="col-md-6 col-sm-12 mb-5">
         <h2>{{ .title | safeHTML }}</h2>
         <p>{{ .content | markdownify | emojify }}</p>
+        {{ with .button }}
         <a href="{{ .link | relURL }}" target="_blank" rel="noreferrer" class="button download-cv mb-md-3 mb-0">
-          DOWNLOAD MY CV <i class="fa fa-download"></i></a>
+          {{ .label | markdownify }} <i class="fa {{ .icon }}"></i></a>
       </div>
+      {{ end }}
       {{ with .image }}
       <div class="col-md-6 col-sm-12 mb-5">
-        <img src="{{ . | relURL }}" alt="me" class="img-fluid rounded-circle">
+        <img src="{{ . | relURL }}" alt="me" class="img img-fluid rounded-circle" id="profile-pic">
       </div>
       {{end}}
     </div>

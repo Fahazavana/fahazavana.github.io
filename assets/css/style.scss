@@ -41,13 +41,13 @@ body {
 
 /* nav bar*/
 .navbar {
-  -webkit-transition: all ease-out .5s;
-  -moz-transition: all ease-out .5s;
-  -o-transition: all ease-out .5s;
-  transition: all ease-out .5s;
+    -webkit-transition: all ease-out .5s;
+    -moz-transition: all ease-out .5s;
+    -o-transition: all ease-out .5s;
+    transition: all ease-out .5s;
 }
 
-.bg-gray{
+.bg-gray {
     background: rgba(50, 50, 50, 0.6);
 }
 
@@ -140,6 +140,15 @@ header#hero {
 }
 
 /* About me*/
+#profile-pic {
+    display: block;
+    min-width: 200px;
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
 .button {
     text-decoration: none;
     color: #4d4d4d;
@@ -164,7 +173,9 @@ header#hero {
     margin-top: 40px;
 
     li {
-        span, p {
+
+        span,
+        p {
             color: #6f6f6f;
         }
     }

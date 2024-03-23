@@ -20,12 +20,12 @@ hero:
 about:
   enable: true
   image: 'images/profile.webp'
-  title: 'THIS IS ME'
+  title: 'This is me'
   content: Hi, thank you for taking a look around my site. If you have any questions feel free to reach out on [LinkedIn, Github, or by email](#contact)!
   button:
     enable: true
     label: 'DOWNLOAD MY RESUME'
-    link: 'files/cv.pdf'
+    link: 'files/Jean_Lucien_rand_CV.pdf'
     icon: 'fa-download'
 
 ###########################3 Experience ##############################
@@ -62,7 +62,7 @@ educations:
 ############################### Skill #################################
 skills:
   enable: true
-  title: 'SKILLS'
+  title: 'Skills'
   showpercent: false
   skill_1:
     skill_list:

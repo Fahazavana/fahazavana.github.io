@@ -8,14 +8,13 @@ window.addEventListener('load', function () {
   });
 
 // header
-const halfHeight = window.innerHeight;
+const halfHeight = window.innerHeight/2;
 window.addEventListener('scroll', ()=>{
-  const menu = document.getElementById('menu') 
+  const menu = document.getElementById('menu')
   if (window.scrollY > halfHeight){
     menu.classList.add("navbar-dark")
     menu.classList.add("bg-gray")
-
-  }else{
+      }else{
     menu.classList.remove("navbar-dark")
     menu.classList.remove("bg-gray")
 
@@ -32,9 +31,14 @@ skillElements.forEach((item)=>{
 })
 
 
-document.querySelectorAll('*').forEach(el => {
-  if (el.offsetWidth > document.documentElement.offsetWidth) {
-      el.style.backgroundColor='#f00'
-      console.log('Found the worst element ever: ', el);
-  }
-});
+// document.querySelectorAll('*').forEach(el => {
+//   if (el.offsetWidth > document.documentElement.offsetWidth) {
+//       el.style.backgroundColor='#f00'
+//       console.log('Found the worst element ever: ', el);
+//   }
+// });
+
+
+
+
+
