@@ -1,0 +1,89 @@
+########################## hero area ##########################
+hero:
+  title: "I am Jean Lucien Randrianantenaina"
+
+  # animated text loop
+  occupations:
+    - 'Msc Student in ML and AI at Stellenbosch University'
+    - 'Mathematicians'
+    - 'Python developper'
+    - 'Web developper'
+
+
+  # hero background image
+  # bg_image: 'images/background.jpg'
+  # optional mobile breakpoint background
+  # mobile_bg_image: 'images/gus_small.jpg'
+
+
+########################### About ##################################
+about:
+  enable: true
+  image: 'images/profile.webp'
+  title: 'THIS IS ME'
+  content: Hi, thank you for taking a look around my site. If you have any questions feel free to reach out on [LinkedIn, Github, or by email](#contact)!
+  button:
+    enable: true
+    label: 'DOWNLOAD MY RESUME'
+    link: 'files/cv.pdf'
+    icon: 'fa-download'
+
+###########################3 Experience ##############################
+educations:
+  enable: true
+  title: 'Educations'
+  educations_list:
+    - degree: Msc in Machine Learning and Artificial Intelligence
+      institution: Stellenbosch University, South Africa
+      duration: '2024-Current'
+      content: ''
+
+    - degree: Msc in Mathematical Sciences
+      institution: African Institute For Mathematical Sciences, Cameroon
+      duration: '2023'
+      content: ''
+
+    - degree: Msc in Mathematics abd Application
+      institution: Faculty of Scinces, University of Fianarantsoa Madagascar
+      duration: '2023'
+      content: ''
+    
+    - degree: Bsc in Mathematics abd Application
+      institution: Faculty of Scinces, University of Fianarantsoa Madagascar
+      duration: '2019'
+      content: ''
+
+    - degree: Baccalaureate
+      institution: Technical Highschool Fianarantsoa
+      duration: '2015'
+      content: ''
+
+
+############################### Skill #################################
+skills:
+  enable: true
+  title: 'SKILLS'
+  showpercent: false
+  skill_1:
+    skill_list:
+      - name: 'Python'
+        level: '75%'
+
+      - name: 'JavaScript/NodeJS'
+        level: '40%'
+
+      - name: 'HTML/CSS/SASS/Bootstrap'
+        level: '80%'
+        
+  skill_2:
+    skill_list:
+    - name: 'C/C++'
+      level: '10%'
+
+    - name: 'Mysql'
+      level: '30%'
+
+    - name: 'LaTeX'
+      level: '60%'
+
+############################### My Project #################################

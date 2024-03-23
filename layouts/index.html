@@ -1,0 +1,132 @@
+{{ define "main" }} {{- partial "menu.html" . -}} {{- partial "header.html" .
+-}}
+
+{{/* About me */}}
+<section id="about" class="mb-5">
+  <div class="container">
+    {{ if .Site.Data.content.about.enable }} {{ with .Site.Data.content.about }}
+    <div class="row justify align-items-center text-center">
+      <div class="col-md-6 col-sm-12 mb-5">
+        <h2>{{ .title | safeHTML }}</h2>
+        <p>{{ .content | markdownify | emojify }}</p>
+        <a href="{{ .link | relURL }}" target="_blank" rel="noreferrer" class="button download-cv mb-md-3 mb-0">
+          DOWNLOAD MY CV <i class="fa fa-download"></i></a>
+      </div>
+      {{ with .image }}
+      <div class="col-md-6 col-sm-12 mb-5">
+        <img src="{{ . | relURL }}" alt="me" class="img-fluid rounded-circle">
+      </div>
+      {{end}}
+    </div>
+    {{end}} {{end}}
+  </div>
+</section>
+
+{{/* Educations */}}
+{{ if .Site.Data.content.educations.enable }} {{ with
+.Site.Data.content.educations }}
+<section id="education" class="educations">
+  <div class="container">
+    <div class="row">
+      <h2>Educations</h2>
+      <div class="col-12 mb-5">
+        <ul class="timeline">
+          {{ range .educations_list }}
+          {{ if not (eq .enable false) }}
+          <li>
+            <div class="timeline-content mb-3">
+              <h3 class="h4">{{ .degree | markdownify }}</h3>
+              {{ with .institution }}
+              <span>{{ . | markdownify }} |</span>
+              {{ end }} {{ with .duration }}
+              <span>{{ . | markdownify }}</span>
+              {{ end }} {{ with .content }}
+              <p>{{ . | markdownify }}</p>
+              {{ end }}
+            </div>
+          </li>
+          {{end}} {{end}}
+        </ul>
+      </div>
+    </div>
+</section>
+{{end}} {{end}}
+
+{{/* Skills */}}
+{{ if .Site.Data.content.skills.enable}} {{ with
+.Site.Data.content.skills }}
+<section id="skill">
+  <div class="container">
+    <div class="row">
+      <h2>{{.title | markdownify}}</h2>
+      {{ with .skill_1 }}
+      <div class="col-md-6">
+        {{ range .skill_list }}
+        <div class="skill-bar">
+          <div class="clearfix">
+            <span class="skillbar-title">{{ .name }}</span>
+            {{ if .Site.Data.content.skills.showpercent }}
+            <span class="skill-bar-percent">{{ .level }}</span>
+            {{end}}
+            <div class="skillbar" data-level="{{ .level }}">
+              <div class="skillbar-bar"></div>
+            </div>
+          </div>
+        </div>
+        {{end}}
+      </div>
+      {{end}}
+      {{ with .skill_2 }}
+      <div class="col-md-6">
+        {{ range .skill_list }}
+        <div class="skill-bar">
+          <div class="clearfix">
+            <span class="skillbar-title">{{ .name }}</span>
+            {{ if .Site.Data.content.skills.showpercent }}
+            <span class="skill-bar-percent">{{ .level }}</span>
+            {{end}}
+            <div class="skillbar" data-level="{{ .level }}">
+              <div class="skillbar-bar"></div>
+            </div>
+          </div>
+        </div>
+        {{end}}
+      </div>
+      {{end}}
+    </div>
+  </div>
+</section>
+{{end}}{{end}}
+
+
+<!-- =============================
+       Start Portfolio
+    =============================== -->
+{{ if .Site.Data.content.portfolio.enable }} {{ with
+.Site.Data.content.portfolio }}
+<section class="portfolio" id="portfolio">
+  <div class="container-fluid text-center">
+    <div class="row portfolio-holder text-left">
+      <div class="col-12 text-center">
+        <h2>{{ .title }}</h2>
+      </div>
+      <ul id="og-grid" class="og-grid">
+        {{ range .portfolio_list }} {{ $parsed_name := replace .name "." "" }}
+        <li>
+          <p id="description-{{ $parsed_name | urlize }}" class="hidden">
+            {{ .description | markdownify }}
+          </p>
+          <a href="{{ .url }}" data-title="{{ .name }}" data-buttontext="SEE SITE">
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+</section>
+{{ end }} {{ end }}
+<!-- =============================
+       End Portfolio
+    =============================== -->
+
+{{- partial "footer.html" . -}} {{ end }}
