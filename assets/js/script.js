@@ -30,6 +30,11 @@ skillElements.forEach((item)=>{
   item.firstElementChild.style.width = level
 })
 
+// footer
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+const year = document.getElementById('current-year')
+year.innerText = currentYear
 
 // document.querySelectorAll('*').forEach(el => {
 //   if (el.offsetWidth > document.documentElement.offsetWidth) {

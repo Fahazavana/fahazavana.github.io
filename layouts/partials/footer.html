@@ -1,15 +1,17 @@
-<div class="footer container text-center" id="contact">
-  <ul class="footer-icons list-inline">
-    {{ range $.Site.Params.social }}
+<footer class="container">
+  <div class="row">
+    <ul class=" col-12  footer-icons list-inline mb-3">
+      {{ range $.Site.Params.social }}
     <li>
       <a href="{{ .link | safeURL }}" target="_blank" rel="noreferrer"
         ><i class="{{ .icon }} footer-icon fa-2x" aria-label="{{ .alt }}"></i
       ></a>
     </li>
     {{end}}
-  </ul>
-  <div class="credit">
-    {{ $.Site.Params.copyright | markdownify }}
-    <span id="current-year">2024</span>
+    </ul>
+    <div class="col-12 text-center pb-5">
+      {{ $.Site.Params.copyright | markdownify }}
+      <span id="current-year"></span>
+    </div>
   </div>
-</div>
+</footer>
