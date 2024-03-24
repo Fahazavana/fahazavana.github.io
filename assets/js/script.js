@@ -7,6 +7,12 @@ window.addEventListener("load", function () {
 	}, 100);
 });
 
+// scroll spy
+var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+	target: '#navbarNav'
+  })
+  
+
 // header
 const halfHeight = window.innerHeight / 2;
 window.addEventListener("scroll", () => {

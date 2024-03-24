@@ -47,12 +47,21 @@ body {
 	transition: all ease-out 0.5s;
 }
 
+.nav-link.active{
+	font-weight: bold;
+	-webkit-transition: all ease-out 0.5s;
+	-moz-transition: all ease-out 0.5s;
+	-o-transition: all ease-out 0.5s;
+	transition: all ease-out 0.5s;
+
+}
+
 .bg-gray {
 	background: rgba(50, 50, 50, 0.6);
 }
 
 /* Particle */
-header#hero {
+header#home {
 	overflow: hidden;
 	max-width: 100vw;
 	max-height: 100wh;
