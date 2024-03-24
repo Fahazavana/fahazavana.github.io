@@ -3,9 +3,15 @@
 {{ end }} {{ "<!-- Main Scripts -->" | safeHTML }} {{ $script := resources.Get
 "js/script.js" | minify }}
 <script src="{{ $script.RelPermalink }}"></script>
-{{ "<!-- Particle Scripts -->" | safeHTML }}
-{{ $script := resources.Get "js/particle.js" | minify }}<script src="{{ $script.RelPermalink }}"></script>    
-{{ $script := resources.Get "js/typing.js" | minify }}<script src="{{ $script.RelPermalink }}"></script>
+{{ "<!-- Particle Scripts -->" | safeHTML }} {{ $script := resources.Get
+"js/particle.js" | minify }}
+<script src="{{ $script.RelPermalink }}"></script>
+{{ $script := resources.Get "js/typing.js" | minify }}
+<script src="{{ $script.RelPermalink }}"></script>
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script
+	id="MathJax-script"
+	async
+	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>

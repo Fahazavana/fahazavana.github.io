@@ -1,19 +1,19 @@
 <header id="hero" class="mb-5">
-  <canvas id="particle"></canvas>
-  <div class="title">
-    {{ with .Site.Data.content.hero }}
-      <div class="container">
-        <h1 class="mb-0">{{ .title | markdownify | emojify }}</h1>
-        <strong class="h4 typing-wrapper">
-          <span class="typing-text" id="typing-text"></span><span class="cursor"></span>
-        </strong>
-        <div id="typing-data">
-          {{ range $element := .occupations }}
-              <span>{{ $element }}</span>
-          {{ end }}
-        </div>
-      </div>
-    {{ end }}
-  </div>
+	<canvas id="particle"></canvas>
+	<div class="title">
+		{{ with .Site.Data.content.hero }}
+		<div class="container">
+			<h1 class="mb-0">{{ .title | markdownify | emojify }}</h1>
+			<strong class="h4 typing-wrapper">
+				<span class="typing-text" id="typing-text"></span
+				><span class="cursor"></span>
+			</strong>
+			<div id="typing-data">
+				{{ range $element := .occupations }}
+				<span>{{ $element }}</span>
+				{{ end }}
+			</div>
+		</div>
+		{{ end }}
+	</div>
 </header>
-

@@ -4,4 +4,3 @@ date: {{ .Date }}
 author: "Jean Lucien Randrianantenaina"
 draft: false
 ---
-
