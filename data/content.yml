@@ -16,7 +16,7 @@ about:
   button:
     enable: true
     label: "DOWNLOAD MY RESUME"
-    link: "files/Jean_Lucien_rand_CV.pdf"
+    link: "https://raw.githubusercontent.com/Fahazavana/My_CV/main/Jean_Lucien_Randrianantenaina_CV.pdf"
     icon: "fa-download"
 
 ###########################3 Experience ##############################
