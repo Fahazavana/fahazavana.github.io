@@ -16,7 +16,7 @@ about:
   button:
     enable: true
     label: "DOWNLOAD MY RESUME"
-    link: "https://raw.githubusercontent.com/Fahazavana/My_CV/main/Jean_Lucien_Randrianantenaina_CV.pdf"
+    link: "https://raw.githubusercontent.com/Fahazavana/Curriculum_Vitae/main/Jean_Lucien_Randrianantenaina_CV.pdf"
     icon: "fa-download"
 
 ###########################3 Experience ##############################
@@ -26,22 +26,22 @@ educations:
   educations_list:
     - degree: Msc in Machine Learning and Artificial Intelligence
       institution: Stellenbosch University, South Africa
-      duration: "2024-Current"
-      content: ""
-
-    - degree: Msc in Mathematical Sciences
-      institution: African Institute For Mathematical Sciences, Cameroon
-      duration: "2023"
+      duration: "Jan. 2024- Dec 2024"
       content: ""
 
     - degree: Msc in Mathematics and Application
       institution: Faculty of Scinces, University of Fianarantsoa Madagascar
-      duration: "2023"
+      duration: "Jun. 2019 - Jan. 2024"
+      content: ""
+
+    - degree: Msc in Mathematical Sciences
+      institution: African Institute For Mathematical Sciences, Cameroon
+      duration: "Sep. 2022 - Jun. 2023"
       content: ""
 
     - degree: Bsc in Mathematics and Application
       institution: Faculty of Scinces, University of Fianarantsoa Madagascar
-      duration: "2019"
+      duration: "Nov. 2015 - Apr. 2019"
       content: ""
 
     - degree: Baccalaureate
@@ -67,9 +67,6 @@ skills:
 
   skill_2:
     skill_list:
-      - name: "C/C++"
-        level: "10%"
-
       - name: "Mysql"
         level: "30%"
 
@@ -97,6 +94,9 @@ project:
   enable: true
   title: My Projects
   project_list:
+    - name: N-Gram LMs and BPE
+      description: "From-scratch implementation with Python of a character-level trigram language model for language identification and Byte-Pair Encoding for language similarity analysis."
+      url: https://github.com/Fahazavana/NGramLMs_BPE
     - name: Mk-Forum
       description: "Creation of a forum dedicated to Mathematics with HTML,
         CSS/Bootstrap, JS for the Front-end and Python3/Django, MySQL for
