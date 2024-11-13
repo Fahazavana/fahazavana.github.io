@@ -3,7 +3,7 @@ hero:
   title: "I am Jean Lucien Randrianantenaina"
   occupations:
     - "Msc Student in ML and AI at Stellenbosch University"
-    - "Mathematicians"
+    - "Mathematician"
     - "Python developper"
     - "Web developper"
 
@@ -12,7 +12,7 @@ about:
   enable: true
   image: "images/profile.webp"
   title: "This is me"
-  content: Hi, thank you for taking a look around my site. If you have any questions feel free to reach out on [LinkedIn, Github, or by email](#contact)!
+  content: Hi, thank you for taking a look around my web site. If you have any questions feel free to reach out on [LinkedIn, or by email](#contact)!
   button:
     enable: true
     label: "DOWNLOAD MY RESUME"
@@ -26,11 +26,11 @@ educations:
   educations_list:
     - degree: Msc in Machine Learning and Artificial Intelligence
       institution: Stellenbosch University, South Africa
-      duration: "Jan. 2024- Dec 2024"
+      duration: "Jan. 2024 - Dec 2024"
       content: ""
 
     - degree: Msc in Mathematics and Application
-      institution: Faculty of Scinces, University of Fianarantsoa Madagascar
+      institution: Faculty of Sciences, University of Fianarantsoa Madagascar
       duration: "Jun. 2019 - Jan. 2024"
       content: ""
 
@@ -40,12 +40,12 @@ educations:
       content: ""
 
     - degree: Bsc in Mathematics and Application
-      institution: Faculty of Scinces, University of Fianarantsoa Madagascar
+      institution: Faculty of Sciences, University of Fianarantsoa Madagascar
       duration: "Nov. 2015 - Apr. 2019"
       content: ""
 
     - degree: Baccalaureate
-      institution: Technical Highschool Fianarantsoa
+      institution: Technical High-school Fianarantsoa
       duration: "2015"
       content: ""
 

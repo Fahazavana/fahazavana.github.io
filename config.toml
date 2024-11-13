@@ -115,7 +115,7 @@ link = "https://github.com/Fahazavana"
 
 [[params.social]]
 icon = "fab fa-linkedin"
-link = "https://mg.linkedin.com/in/randrianantenaina-jean-lucien-82b98622b"
+link = "https://linkedin.com/in/jean-lucien-randrianantenaina-82b98622b"
 
 [[params.social]]
 icon = "fab fa-x-twitter"
@@ -124,5 +124,3 @@ link="https://twitter.com/rjlucienaina"
 [[params.social]]
 icon = "fas fa-envelope"
 link = "mailto:rjlucienaina@gmail.com"
-
-  
