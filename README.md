@@ -5,15 +5,14 @@ Welcome to my personal website! This website showcases my skills, projects, and 
 ## Technologies Used
 
 This website was built using the following technologies:
-
-    * HTML
-    * CSS/Bootstrap
-    * JavaScript
-    * Hugo
+* HTML
+* SASS/CSS/Bootstrap
+* JavaScript
+* Hugo
 
 ## TODO
 
-FIX MOBILE VERSION
+* Add blog
 
 ## Resources:
 
