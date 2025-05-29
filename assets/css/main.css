@@ -1,0 +1,181 @@
+@import "tailwindcss";
+@source "hugo_stats.json";
+
+
+/* Your existing SCSS can go below, or be gradually removed */
+/* Basic reset styles removed as Tailwind's Preflight handles this. */
+
+/* Preloader */
+.preloader {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: #2b2c2f;
+	z-index: 99999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 1;
+	transition: opacity 0.5s linear;
+}
+
+.preloader.fade-out {
+	opacity: 0;
+	transition: opacity 0.5s linear;
+	display: none;
+}
+
+/* nav bar*/
+/* .navbar styles removed as Tailwind is used for menu.html */
+
+.nav-link.active{
+	font-weight: bold;
+	-webkit-transition: all ease-out 0.5s;
+	-moz-transition: all ease-out 0.5s;
+	-o-transition: all ease-out 0.5s;
+	transition: all ease-out 0.5s;
+	/* This style is kept for now, referenced in menu.html. Review for Tailwind replacement. */
+}
+
+/* .bg-gray styles removed as Tailwind is used for menu.html */
+
+/* Particle & Header section styles removed as Tailwind is used for header.html */
+/* Specific styles for the typing animation are kept below */
+
+/* Text */
+
+@keyframes blink {
+	0% {
+		opacity: 1;
+	}
+
+	40% {
+		opacity: 1;
+	}
+
+	60% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+.typing-wrapper {
+	display: block;
+	position: relative;
+	text-align: left;
+
+	span.typing-text::before {
+		content: "";
+		display: inline;
+		position: absolute;
+		white-space: nowrap;
+		display: none;
+		left: 0;
+		top: 0;
+	}
+
+	span.typing-text {
+		position: absolute;
+		// display: inline;
+		// white-space: nowrap;
+		overflow: hidden;
+		left: 0;
+		top: 0;
+	}
+
+	span.typing-text::after {
+		content: "";
+		position: relative;
+		top: 7px;
+		display: inline-block;
+		background-color: #2b2c2f;
+		height: 1.25em;
+		width: 2px;
+		animation: blink 0.3s linear infinite alternate;
+	}
+}
+
+/* #typing-data > * style removed as it's handled by Tailwind 'hidden' class in header.html */
+
+/* About me section styles removed as they are now handled by Tailwind utility classes in layouts/index.html */
+/* #profile-pic styles removed */
+/* .button styles removed (specific button instances are styled with Tailwind directly) */
+
+/* Timeline progressbar styles removed as the Education section is now styled with Tailwind utilities */
+/* .timeline, ul.timeline, .timeline-content styles removed */
+
+/* Skills section styles removed as they are now handled by Tailwind utility classes in layouts/index.html */
+/* .skill-bar, .skillbar, .skillbar-title, .skill-bar-percent, .skillbar-bar styles removed */
+
+/* form styles removed as they are now handled by Tailwind utility classes in layouts/index.html */
+/* button.button (override) style removed */
+
+.spinner {
+	// display: none;
+	display: inline-block;
+	position: relative;
+	top: 5px;
+	border: 4px solid #f3f3f3;
+	border-top: 4px solid #4d4d4d;
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	transition: all 0.2s ease;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* Footer */
+.footer {
+	padding-top: 50px;
+	padding-bottom: 70px;
+	position: relative;
+	z-index: 2;
+
+	hr {
+		border: 1px solid #fff;
+		margin-bottom: 5px;
+	}
+}
+
+.footer-icons {
+	display: flex;
+	width: fit-content;
+	margin: auto;
+	margin-top: 15px;
+
+	div {
+		display: inline-block;
+	}
+
+	a {
+		text-decoration: none;
+		color: #313131;
+		font-size: 17px;
+		margin: 0 8px;
+	}
+
+	i {
+		transition: all 0.3s;
+		background: #fff;
+		padding: 7px;
+
+		&:hover {
+			transform: scale3d(1.5, 1.5, 1);
+			color: rgb(0, 214, 214);
+		}
+	}
+}

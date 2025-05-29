@@ -1,14 +1,13 @@
-<header id="home" class="mb-5">
-	<canvas id="particle"></canvas>
-	<div class="title">
+<header id="home" class="min-h-screen flex flex-col items-center justify-center text-center relative mb-16">
+	<canvas id="particle" class="absolute top-0 left-0 w-full h-full z-0"></canvas>
+	<div class="relative z-10">
 		{{ with .Site.Data.content.hero }}
-		<div class="container">
-			<h1 class="mb-0">{{ .title | markdownify | emojify }}</h1>
-			<strong class="h4 typing-wrapper">
-				<span class="typing-text" id="typing-text"></span
-				><span class="cursor"></span>
+		<div class="container mx-auto px-4">
+			<h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800 dark:text-gray-100">{{ .title | markdownify | emojify }}</h1>
+			<strong class="text-xl md:text-2xl typing-wrapper text-gray-700 dark:text-gray-200">
+				<span class="typing-text" id="typing-text"></span>
 			</strong>
-			<div id="typing-data">
+			<div id="typing-data" class="hidden">
 				{{ range $element := .occupations }}
 				<span>{{ $element }}</span>
 				{{ end }}

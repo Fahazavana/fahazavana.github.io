@@ -1,0 +1,128 @@
+########################## hero area ##########################
+hero:
+  title: "[MG_TRANSLATE] I am Jean Lucien Randrianantenaina"
+  occupations:
+    - "[MG_TRANSLATE] Msc Student in ML and AI at Stellenbosch University"
+    - "[MG_TRANSLATE] Mathematician"
+    - "[MG_TRANSLATE] Python developper"
+    - "[MG_TRANSLATE] Web developper"
+
+########################### About ##################################
+about:
+  enable: true
+  image: "images/profile.webp"
+  title: "[MG_TRANSLATE] This is me"
+  content: "[MG_TRANSLATE] Hi, thank you for taking a look around my web site. If you have any questions feel free to reach out on [LinkedIn, or by email](#contact)!"
+  button:
+    enable: true
+    label: "[MG_TRANSLATE] DOWNLOAD MY RESUME"
+    link: "https://raw.githubusercontent.com/Fahazavana/Curriculum_Vitae/main/Jean_Lucien_Randrianantenaina_CV.pdf"
+    icon: "fa-download"
+
+###########################3 Experience ##############################
+educations:
+  enable: true
+  title: "[MG_TRANSLATE] Educations"
+  educations_list:
+    - degree: "[MG_TRANSLATE] Msc in Machine Learning and Artificial Intelligence"
+      institution: "[MG_TRANSLATE] Stellenbosch University, South Africa"
+      duration: "[MG_TRANSLATE] Jan. 2024 - Dec 2024"
+      content: ""
+
+    - degree: "[MG_TRANSLATE] Msc in Mathematics and Application"
+      institution: "[MG_TRANSLATE] Faculty of Sciences, University of Fianarantsoa Madagascar"
+      duration: "[MG_TRANSLATE] Jun. 2019 - Jan. 2024"
+      content: ""
+
+    - degree: "[MG_TRANSLATE] Msc in Mathematical Sciences"
+      institution: "[MG_TRANSLATE] African Institute For Mathematical Sciences, Cameroon"
+      duration: "[MG_TRANSLATE] Sep. 2022 - Jun. 2023"
+      content: ""
+
+    - degree: "[MG_TRANSLATE] Bsc in Mathematics and Application"
+      institution: "[MG_TRANSLATE] Faculty of Sciences, University of Fianarantsoa Madagascar"
+      duration: "[MG_TRANSLATE] Nov. 2015 - Apr. 2019"
+      content: ""
+
+    - degree: "[MG_TRANSLATE] Baccalaureate"
+      institution: "[MG_TRANSLATE] Technical High-school Fianarantsoa"
+      duration: "[MG_TRANSLATE] 2015"
+      content: ""
+
+############################### Skill #################################
+skills:
+  enable: true
+  title: "[MG_TRANSLATE] Skills"
+  showpercent: false
+  skill_1:
+    skill_list:
+      - name: "Python"
+        level: "75%"
+
+      - name: "JavaScript/NodeJS"
+        level: "40%"
+
+      - name: "HTML/CSS/SASS/Bootstrap"
+        level: "80%"
+
+  skill_2:
+    skill_list:
+      - name: "Mysql"
+        level: "30%"
+
+      - name: "LaTeX"
+        level: "60%"
+
+pubtalk:
+  title: "[MG_TRANSLATE] Publication & Talk"
+  enable: true
+  publications:
+    publication_list:
+      - title: "[MG_TRANSLATE] Florian Luca and Jean Lucien Randrianantenaina, There Is No Carmichael Number of the Form \\(2^np^2+1\\) with \\(p\\) prime, INTEGER, Volume 23 (2023)"
+        icon: fa-book
+        link:
+
+  talks:
+    talk_list:
+      - title: "[MG_TRANSLATE] Fermat last theorem, with \\(n=4\\)."
+        info: "[MG_TRANSLATE] Presented to AIMS Cameroon students,  2023"
+        icon: fa-comment
+        link:
+
+############################### My Project #################################
+project:
+  enable: true
+  title: "[MG_TRANSLATE] My Projects"
+  project_list:
+    - name: "[MG_TRANSLATE] N-Gram LMs and BPE"
+      description: "[MG_TRANSLATE] From-scratch implementation with Python of a character-level trigram language model for language identification and Byte-Pair Encoding for language similarity analysis."
+      url: https://github.com/Fahazavana/NGramLMs_BPE
+    - name: "[MG_TRANSLATE] Mk-Forum"
+      description: "[MG_TRANSLATE] Creation of a forum dedicated to Mathematics with HTML, CSS/Bootstrap, JS for the Front-end and Python3/Django, MySQL for the Back-End."
+      url: https://github.com/Fahazavana/MK-Forum
+
+    - name: "[MG_TRANSLATE] FCryptos"
+      description:
+        "[MG_TRANSLATE] Implementation of cryptography methods with Python (Console): Shift cipher, Vinegre cipher, SPN, RSA, and ENIGMA machine."
+      url: https://github.com/Fahazavana/FCryptos
+
+    - name: "[MG_TRANSLATE] Pendu Malagasy"
+      description: "[MG_TRANSLATE] A Malagasy version of the game hangman, built with Python3/TKinter."
+      url: https://github.com/Fahazavana/Pendu_Malagasy
+
+    - name: "[MG_TRANSLATE] Unbeatable TicTacToe"
+      description:
+        "[MG_TRANSLATE] Tic-Tac-Toe created with HTML, CSS and JavaScript, and features an automated computer player that uses a combination of random placement and min-max algorithm to make each move depending on the chosen level."
+      url: https://github.com/Fahazavana/SAYNA-JAVASCRIPT-MORPION-042022
+
+    - name: "[MG_TRANSLATE] Bellman-Kalaba"
+      description: "[MG_TRANSLATE] A graphical interface for the algorithm of Bellman-Kalaba (shortest-path) made with Python3/TKinter."
+      url: https://github.com/Fahazavana/Bellma-Kalaba
+
+# Google form
+googleform:
+  enable: enable
+  name: "entry.111960903"
+  email: "entry.1427661846"
+  message: "entry.1225228599"
+  icon: "fas fa-paper-plane"

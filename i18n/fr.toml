@@ -1,0 +1,23 @@
+[altProfilePic]
+other = "Une photo de moi"
+
+[seeOnGitHub]
+other = "Voir sur GitHub"
+
+[contactMe]
+other = "Contactez-moi"
+
+[formNameLabel]
+other = "Nom et Prénom"
+
+[formEmailLabel]
+other = "Votre adresse e-mail"
+
+[formMessageLabel]
+other = "Votre message"
+
+[formSendButton]
+other = "Envoyer"
+
+[copyrightText]
+other = "Jean Lucien Randrianantenaina &copy;"

@@ -1,0 +1,128 @@
+########################## hero area ##########################
+hero:
+  title: "Je suis Jean Lucien Randrianantenaina"
+  occupations:
+    - "Étudiant en Master en Apprentissage Automatique et Intelligence Artificielle à l'Université de Stellenbosch"
+    - "Mathématicien"
+    - "Développeur Python"
+    - "Développeur Web"
+
+########################### About ##################################
+about:
+  enable: true
+  image: "images/profile.webp"
+  title: "À propos de moi"
+  content: "Bonjour, merci de visiter mon site web. Si vous avez des questions, n'hésitez pas à me contacter sur [LinkedIn, ou par e-mail](#contact) !"
+  button:
+    enable: true
+    label: "TÉLÉCHARGER MON CV"
+    link: "https://raw.githubusercontent.com/Fahazavana/Curriculum_Vitae/main/Jean_Lucien_Randrianantenaina_CV.pdf"
+    icon: "fa-download"
+
+###########################3 Experience ##############################
+educations:
+  enable: true
+  title: "Formations"
+  educations_list:
+    - degree: "Master en Apprentissage Automatique et Intelligence Artificielle"
+      institution: "Université de Stellenbosch, Afrique du Sud"
+      duration: "Janv. 2024 - Déc. 2024"
+      content: ""
+
+    - degree: "Master en Mathématiques et Applications"
+      institution: "Faculté des Sciences, Université de Fianarantsoa Madagascar"
+      duration: "Juin 2019 - Janv. 2024"
+      content: ""
+
+    - degree: "Master en Sciences Mathématiques"
+      institution: "Institut Africain des Sciences Mathématiques, Cameroun"
+      duration: "Sept. 2022 - Juin 2023"
+      content: ""
+
+    - degree: "Licence en Mathématiques et Applications"
+      institution: "Faculté des Sciences, Université de Fianarantsoa Madagascar"
+      duration: "Nov. 2015 - Avr. 2019"
+      content: ""
+
+    - degree: "Baccalauréat"
+      institution: "Lycée Technique Fianarantsoa"
+      duration: "2015"
+      content: ""
+
+############################### Skill #################################
+skills:
+  enable: true
+  title: "Compétences"
+  showpercent: false
+  skill_1:
+    skill_list:
+      - name: "Python"
+        level: "75%"
+
+      - name: "JavaScript/NodeJS"
+        level: "40%"
+
+      - name: "HTML/CSS/SASS/Bootstrap"
+        level: "80%"
+
+  skill_2:
+    skill_list:
+      - name: "Mysql"
+        level: "30%"
+
+      - name: "LaTeX"
+        level: "60%"
+
+pubtalk:
+  title: "Publications et Présentations"
+  enable: true
+  publications:
+    publication_list:
+      - title: "Florian Luca et Jean Lucien Randrianantenaina, Il n'existe pas de nombre de Carmichael de la forme \\(2^np^2+1\\) avec \\(p\\) premier, INTEGER, Volume 23 (2023)"
+        icon: fa-book
+        link:
+
+  talks:
+    talk_list:
+      - title: "Dernier théorème de Fermat, avec \\(n=4\\)."
+        info: "Présenté aux étudiants de l'AIMS Cameroun, 2023"
+        icon: fa-comment
+        link:
+
+############################### My Project #################################
+project:
+  enable: true
+  title: "Mes Projets"
+  project_list:
+    - name: "Modèles de Langage N-Gram et BPE"
+      description: "Implémentation à partir de zéro avec Python d'un modèle de langage trigramme au niveau des caractères pour l'identification de la langue et d'un encodage par paires d'octets (BPE) pour l'analyse de similarité linguistique."
+      url: https://github.com/Fahazavana/NGramLMs_BPE
+    - name: "Mk-Forum"
+      description: "Création d'un forum dédié aux Mathématiques avec HTML, CSS/Bootstrap, JS pour le Front-end et Python3/Django, MySQL pour le Back-End."
+      url: https://github.com/Fahazavana/MK-Forum
+
+    - name: "FCryptos"
+      description:
+        "Implémentation de méthodes de cryptographie avec Python (Console) : Chiffre de César, Chiffre de Vigenère, SPN, RSA, et machine ENIGMA."
+      url: https://github.com/Fahazavana/FCryptos
+
+    - name: "Pendu Malagasy"
+      description: "Une version malgache du jeu du pendu, développée avec Python3/TKinter."
+      url: https://github.com/Fahazavana/Pendu_Malagasy
+
+    - name: "TicTacToe Imbattable"
+      description:
+        "Jeu de Tic-Tac-Toe (Morpion) créé avec HTML, CSS et JavaScript, doté d'un joueur ordinateur automatisé qui utilise une combinaison de placement aléatoire et d'algorithme min-max pour effectuer chaque coup en fonction du niveau choisi."
+      url: https://github.com/Fahazavana/SAYNA-JAVASCRIPT-MORPION-042022
+
+    - name: "Bellman-Kalaba"
+      description: "Une interface graphique pour l'algorithme de Bellman-Kalaba (plus court chemin) réalisée avec Python3/TKinter."
+      url: https://github.com/Fahazavana/Bellma-Kalaba
+
+# Google form
+googleform:
+  enable: enable
+  name: "entry.111960903"
+  email: "entry.1427661846"
+  message: "entry.1225228599"
+  icon: "fas fa-paper-plane"
