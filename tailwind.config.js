@@ -1,12 +1,14 @@
 module.exports = {
-  content: [
-    './layouts/**/*.html',   // All HTML files in layouts and its subdirectories
-    './content/**/*.md',    // Markdown files if any (might not be directly used for this theme)
-    './data/**/*.yml',      // YAML data files, in case classes are ever embedded here
-    './assets/js/**/*.js',  // JavaScript files
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+    darkMode: 'class', // This enables toggling via `.dark` class on <html>
+    content: [
+      './layouts/**/*.html',   // HTML templates
+      './content/**/*.md',     // Markdown content (optional)
+      './data/**/*.yml',       // YAML data (optional for class extraction)
+      './assets/js/**/*.js',   // JavaScript for dynamic class usage
+    ],
+    theme: {
+      extend: {},
+    },
+    plugins: [],
+  }
+  

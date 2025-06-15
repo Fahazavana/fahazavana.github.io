@@ -1,0 +1,48 @@
+{{/* Contact */}} {{ if .Site.Data.content.googleform.enable
+}} {{ with .Site.Data.content.googleform }}
+<section id="contact" class="py-12 md:py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+	<div class="container mx-auto px-4">
+		<div class="max-w-xl mx-auto">
+			<div class="text-center mb-12">
+				<h3 class="text-3xl font-bold text-gray-800 dark:text-white">{{ T "contactMe" }}</h3>
+			</div>
+			<form id="contactform" method="post" class="space-y-6">
+				<div>
+					<label for="{{ .name }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300 text-left">{{ T "formNameLabel" }}</label>
+					<input
+						type="text"
+						name="{{ .name }}"
+						id="{{ .name }}"
+						class="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 sm:text-sm"
+					/>
+				</div>
+
+				<div>
+					<label for="{{.email }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300 text-left">{{ T "formEmailLabel" }}</label>
+					<input
+						type="email"
+						name="{{ .email }}"
+						id="{{.email}}"
+						class="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 sm:text-sm"
+					/>
+				</div>
+
+				<div>
+					<label for="{{ .message}}" class="block text-sm font-medium text-gray-700 dark:text-gray-300 text-left">{{ T "formMessageLabel" }}</label>
+					<textarea
+						name="{{.message}}"
+						id="{{.message}}"
+						rows="4"
+						class="mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 sm:text-sm"
+					></textarea>
+				</div>
+				<div class="text-center">
+					<button id="send-msg" type="submit" class="bg-gray-700 hover:bg-gray-600 dark:bg-gray-600 dark:hover:bg-gray-500 text-white dark:text-gray-100 font-semibold py-3 px-6 rounded-lg inline-flex items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1">
+						{{ T "formSendButton" }} <i class="fas fa-paper-plane ml-2" id="send-icon"></i>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+{{end}} {{ end }} 

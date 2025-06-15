@@ -312,37 +312,46 @@ function isValidEmail(email) {
 //   }
 // });
 
-
-// Theme switcher logic
+// Theme switcher logic with icon update
 const themeToggle = () => {
-  const htmlEl = document.documentElement;
-  const currentTheme = localStorage.getItem('theme');
-  let newTheme;
-
-  if (currentTheme === 'dark') {
-    htmlEl.classList.remove('dark');
-    newTheme = 'light';
-  } else {
-    htmlEl.classList.add('dark');
-    newTheme = 'dark';
-  }
-  localStorage.setItem('theme', newTheme);
-};
-
-const applyInitialTheme = () => {
-  const htmlEl = document.documentElement;
-  const storedTheme = localStorage.getItem('theme');
-  const osPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  if (storedTheme === 'dark' || (!storedTheme && osPrefersDark)) {
-    htmlEl.classList.add('dark');
-  } else {
-    htmlEl.classList.remove('dark'); // Explicitly set light if not dark
-  }
-};
-
-applyInitialTheme();
-
-// Make themeToggle globally accessible if it's called from an inline onclick,
-// or attach it to an event listener on the button later.
-window.themeToggle = themeToggle;
+    const htmlEl = document.documentElement;
+    const iconEl = document.getElementById("theme-icon");
+    const currentTheme = localStorage.getItem("theme");
+    let newTheme;
+  
+    if (currentTheme === "dark") {
+      htmlEl.classList.remove("dark");
+      iconEl.classList.remove("fa-moon");
+      iconEl.classList.add("fa-sun");
+      newTheme = "light";
+    } else {
+      htmlEl.classList.add("dark");
+      iconEl.classList.remove("fa-sun");
+      iconEl.classList.add("fa-moon");
+      newTheme = "dark";
+    }
+  
+    localStorage.setItem("theme", newTheme);
+  };
+  
+  const applyInitialTheme = () => {
+    const htmlEl = document.documentElement;
+    const iconEl = document.getElementById("theme-icon");
+    const storedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  
+    const useDark = storedTheme === "dark" || (!storedTheme && prefersDark);
+  
+    if (useDark) {
+      htmlEl.classList.add("dark");
+      iconEl.classList.remove("fa-sun");
+      iconEl.classList.add("fa-moon");
+    } else {
+      htmlEl.classList.remove("dark");
+      iconEl.classList.remove("fa-moon");
+      iconEl.classList.add("fa-sun");
+    }
+  };
+  
+  document.addEventListener("DOMContentLoaded", applyInitialTheme);
+  window.themeToggle = themeToggle;
