@@ -1,6 +1,23 @@
+[build]
+  [build.buildStats]
+    enable = true
+  [[build.cachebusters]]
+    source = 'assets/notwatching/hugo_stats\.json'
+    target = 'css'
+  [[build.cachebusters]]
+    source = '(postcss|tailwind)\.config\.js'
+    target = 'css'
+[module]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    disableWatch = true
+    source = 'hugo_stats.json'
+    target = 'assets/notwatching/hugo_stats.json'
+
 baseURL = 'http://fahazavana.github.io/'
 title = 'Jean Lucien Randrianantenaina'
-
 
 [languages]
   [languages.en]
@@ -8,19 +25,103 @@ title = 'Jean Lucien Randrianantenaina'
     languageName = 'English'
     languageCode = 'en-gb'
     weight = 1
-  
+    default = true
+    [[languages.en.menu.main]]
+      name = "Home"
+      URL = "#home"
+      weight = 1
+    [[languages.en.menu.main]]
+      name = "About me"
+      URL = "#about"
+      weight = 2
+    [[languages.en.menu.main]]
+      name = "Educations"
+      URL = "#educations"
+      weight = 3
+    [[languages.en.menu.main]]
+      name = "Publications"
+      URL = "#publications"
+      weight = 4
+    [[languages.en.menu.main]]
+      name = "Skills"
+      URL = "#skills"
+      weight = 5
+    [[languages.en.menu.main]]
+      name = "Portfolio"
+      URL = "#portfolio"
+      weight = 6
+    [[languages.en.menu.main]]
+      name = "Contact"
+      URL = "#contact"
+      weight = 7
+
   [languages.fr]
-      disabled = true
+      disabled = false
       languageName = 'French'
       languageCode = 'fr-FR'
       weight = 2
-  
+      [[languages.fr.menu.main]]
+        name = "Accueil"
+        URL = "#home"
+        weight = 1
+      [[languages.fr.menu.main]]
+        name = "À propos de moi"
+        URL = "#about"
+        weight = 2
+      [[languages.fr.menu.main]]
+        name = "Formations"
+        URL = "#educations"
+        weight = 3
+      [[languages.fr.menu.main]]
+        name = "Publications"
+        URL = "#publications"
+        weight = 4
+      [[languages.fr.menu.main]]
+        name = "Compétences"
+        URL = "#skills"
+        weight = 5
+      [[languages.fr.menu.main]]
+        name = "Portfolio"
+        URL = "#portfolio"
+        weight = 6
+      [[languages.fr.menu.main]]
+        name = "Contact"
+        URL = "#contact"
+        weight = 7
+
   [languages.mg]
-    disabled = true
+    disabled = false
     languageName = 'Malagasy'
     languageCode = 'mg-mg'
     weight = 3
-
+    [[languages.mg.menu.main]]
+      name = "Fandraisana"
+      URL = "#home"
+      weight = 1
+    [[languages.mg.menu.main]]
+      name = "Momba ahy"
+      URL = "#about"
+      weight = 2
+    [[languages.mg.menu.main]]
+      name = "Fianarana"
+      URL = "#educations"
+      weight = 3
+    [[languages.mg.menu.main]]
+      name = "Asa soratra"
+      URL = "#publications"
+      weight = 4
+    [[languages.mg.menu.main]]
+      name = "Fahaizana"
+      URL = "#skills"
+      weight = 5
+    [[languages.mg.menu.main]]
+      name = "Portfolio"
+      URL = "#portfolio"
+      weight = 6
+    [[languages.mg.menu.main]]
+      name = "Fifandraisana"
+      URL = "#contact"
+      weight = 7
 
 ############################# Site Map ##############################
 [sitemap]
@@ -28,68 +129,25 @@ title = 'Jean Lucien Randrianantenaina'
   filename = 'sitemap.xml'
   priority = -1
 
-
-
 ############################# Plugins ##############################
 
 # CSS Plugins
-[[params.plugins.css]]
-link = "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
 [[params.plugins.css]]
 link = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 [[params.plugins.css]]
 link = "https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap"
 
 # JS Plugins
-[[params.plugins.js]]
-link = "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-
 
 ############################## navigation ###############################
 
 # main menu
-[[menu.main]]
-name = "Home"
-URL = "#home"
-weight = 1
-
-[[menu.main]]
-name = "About me"
-URL = "#about"
-weight = 2
-
-[[menu.main]]
-name = "Educations"
-URL = "#educations"
-weight = 3
-
-[[menu.main]]
-name = "Publications"
-URL = "#publications"
-weight = 4
-
-[[menu.main]]
-name = "Skills"
-URL = "#skills"
-weight = 5
-
-[[menu.main]]
-name = "Portfolio"
-URL = "#portfolio"
-weight = 6
-
-
-[[menu.main]]
-name = "Contact"
-URL = "#contact"
-weight = 7
-
 
 #################### default parameters ################################
 [params]
     logo_light = "images/favicon_io/android-chrome-192x192.png"
     logo_dark = "images/favicon_io/android-chrome-192x192.png"
-    copyright = "Jean Lucien Randrianantenaina &copy;"
+    copyright = "Jean Lucien Randrianantenaina ©"
 
     # Meta data
     description = "Personal Portfolio"
