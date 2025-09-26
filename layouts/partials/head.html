@@ -1,55 +1,182 @@
 <head>
-    <meta charset="utf-8"/>
-    <title>Jean Lucien Randrianantenaina</title>
+	<meta charset="utf-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	{{ "<!-- mobile responsive meta --> " | safeHTML }}
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta
-            name="description"
-            content="{{ with .Params.Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}"
-    />
+	{{/* SEO, Open Graph, Twitter Card, Canonical, Hreflang, JSON‑LD */}}
+	{{ $siteTitle := .Site.Params.title }}
+	{{ $pageTitle := .Title }}
+	{{ $isHome := .IsHome }}
+	{{ $title := cond $isHome $siteTitle (printf "%s — %s" $pageTitle $siteTitle) }}
+	{{ $desc := or .Params.description .Params.Description .Summary .Site.Params.description }}
+	{{ $desc = $desc | plainify | htmlUnescape | truncate 180 }}
+	{{ $url := .Permalink }}
+	{{ $scheme := "https" }}
+	{{ with .Site.BaseURL }}
+	{{ if hasPrefix . "http://" }}{{ $scheme = "http" }}{{ end }}
+	{{ if hasPrefix . "https://" }}{{ $scheme = "https" }}{{ end }}
+	{{ end }}
+	{{ if hasPrefix $url "//" }}{{ $url = printf "%s:%s" $scheme $url }}{{ end }}
+	{{ $type := cond .IsPage "article" "website" }}
+	{{ $image := or .Params.image (printf "%s" ( ("images/profile.webp" | relURL) | absURL )) }}
+	{{ $noindex := or .Params.noindex .Params.draft }}
 
-    {{ with .Site.Params.googleSiteVerification}}
-    <meta name="{{ .name}}" content="{{ .content}}"/>
-    {{end}}
-    {{ with .Site.Params.author }}
-    <meta name="author" content="{{ . }}"/>
-    {{ end }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    {{ range .Site.Params.plugins.css }}
-    <link rel="stylesheet" href="{{ .link | relURL }}"/>
-    {{ end }}
-    {{ partialCached "css.html" . }}
 
-    {{ if isset .Site.Params "special_favicon" }}
-    <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="{{ .Site.Params.special_favicon.apple_touch }}"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="{{ .Site.Params.special_favicon.fav32 }}"
-    />
-    <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="{{ .Site.Params.special_favicon.fav16 }}"
-    />
-    <link rel="manifest" href="{{ .Site.Params.special_favicon.manifest }}"/>
-    <link
-            rel="mask-icon"
-            href="{{ .Site.Params.special_favicon.mask_icon }}"
-            color="{{ .Site.Params.special_favicon.mask_icon_color }}"
-    />
-    <meta
-            name="theme-color"
-            content="{{ .Site.Params.special_favicon.theme_color }}"
-    />
-    {{ else }}
-    <link rel="icon" type="image/png" href="{{ .Site.Params.favicon }}"/>
-    {{ end }}
+	<title>{{ $title }}</title>
+	<meta name="description" content="{{ $desc }}" />
+	{{ with .Site.Params.author }}
+	<meta name="author" content="{{ . }}" />{{ end }}
+	{{ with .Site.Params.googleSiteVerification }}
+	<meta name="{{ .name }}" content="{{ .content }}" />{{ end }}
+	<link rel="canonical" href="{{ $url }}" />
+	{{ if $noindex }}
+	<meta name="robots" content="noindex,nofollow" />{{ else }}
+	<meta name="robots" content="index,follow" />{{ end }}
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="{{ $title }}" />
+	<meta property="og:description" content="{{ $desc }}" />
+	<meta property="og:type" content="{{ $type }}" />
+	<meta property="og:url" content="{{ $url }}" />
+	<meta property="og:image" content="{{ $image }}" />
+	<meta property="og:site_name" content="{{ $siteTitle }}" />
+	<meta property="og:locale" content="{{ (or .Site.Language.LanguageCode .Site.Language.Lang) | replace "-" "_" }}" />
+	{{ range .AllTranslations }}
+	<meta property="og:locale:alternate" content="{{ (or .Language.LanguageCode .Language.Lang) | replace "-" "_" }}" />
+	{{ end }}
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="{{ $title }}" />
+	<meta name="twitter:description" content="{{ $desc }}" />
+	<meta name="twitter:image" content="{{ $image }}" />
+	{{ with .Site.Params.twitter }}
+	<meta name="twitter:site" content="@{{ . }}" />{{ end }}
+
+	<!-- Hreflang alternates -->
+	{{ if .IsHome }}
+	{{ $home := .Site.Home }}
+	{{ $href := $home.Permalink }}
+	{{ if hasPrefix $href "//" }}{{ $href = printf "%s:%s" $scheme $href }}{{ end }}
+	<link rel="alternate" href="{{ $href }}" hreflang="{{ or $home.Language.LanguageCode $home.Language.Lang }}" />
+	{{ range $t := $home.AllTranslations }}
+	  {{ $thref := $t.Permalink }}
+	  {{ if hasPrefix $thref "//" }}{{ $thref = printf "%s:%s" $scheme $thref }}{{ end }}
+	  <link rel="alternate" href="{{ $thref }}" hreflang="{{ or $t.Language.LanguageCode $t.Language.Lang }}" />
+	{{ end }}
+	{{ else }}
+	{{ $phref := .Permalink }}
+	{{ if hasPrefix $phref "//" }}{{ $phref = printf "%s:%s" $scheme $phref }}{{ end }}
+	<link rel="alternate" href="{{ $phref }}" hreflang="{{ or .Site.Language.LanguageCode .Site.Language.Lang }}" />
+	{{ range $t := .AllTranslations }}
+	  {{ $thref := $t.Permalink }}
+	  {{ if hasPrefix $thref "//" }}{{ $thref = printf "%s:%s" $scheme $thref }}{{ end }}
+	  <link rel="alternate" href="{{ $thref }}" hreflang="{{ or $t.Language.LanguageCode $t.Language.Lang }}" />
+	{{ end }}
+	{{ end }}
+	{{ $xd := .Site.Home.Permalink }}
+	{{ if hasPrefix $xd "//" }}{{ $xd = printf "%s:%s" $scheme $xd }}{{ end }}
+	<link rel="alternate" href="{{ $xd }}" hreflang="x-default" />
+
+	<!-- JSON-LD: WebSite -->
+	{{ $sameAs := slice }}
+	{{ range .Site.Params.social }}
+	{{ with .link }}{{ $sameAs = $sameAs | append . }}{{ end }}
+	{{ end }}
+
+	<!-- JSON-LD: WebSite -->
+	<script type="application/ld+json">
+	{{ jsonify (dict
+	  "@context" "https://schema.org"
+	  "@type" "WebSite"
+	  "name" $siteTitle
+	  "url" (print .Site.BaseURL)
+	  "sameAs" $sameAs
+	) | safeJS }}
+	</script>
+
+	{{ if .IsPage }}
+	<!-- JSON-LD: Article/Page -->
+	<script type="application/ld+json">
+	{{ $article := dict
+	  "@context" "https://schema.org"
+	  "@type" (cond .IsPage "Article" "WebPage")
+	  "headline" $pageTitle
+	  "description" $desc
+	  "image" (slice $image)
+	  "datePublished" (.Date | time.Format "2006-01-02T15:04:05Z07:00")
+	  "dateModified" (.Lastmod | time.Format "2006-01-02T15:04:05Z07:00")
+	  "author" (dict "@type" "Person" "name" (.Site.Params.author | default $siteTitle))
+	  "mainEntityOfPage" (dict "@type" "WebPage" "@id" $url)
+	}}
+	{{ jsonify $article | safeJS }}
+	</script>
+	{{ end }}
+
+	<!-- JSON-LD: Person -->
+	{{ with .Site.Params.author }}
+	<script type="application/ld+json">
+	{{ $person := dict
+	  "@context" "https://schema.org"
+	  "@type" "Person"
+	  "name" .
+	  "url" (print $.Site.BaseURL)
+	  "image" (("images/profile.webp" | relURL) | absURL)
+	  "sameAs" $sameAs
+	}}
+	{{ jsonify $person | safeJS }}
+	</script>
+	{{ end }}
+
+	<!-- JSON-LD: Organization -->
+	<script type="application/ld+json">
+	{{ $org := dict
+	  "@context" "https://schema.org"
+	  "@type" "Organization"
+	  "name" $siteTitle
+	  "url" (print .Site.BaseURL)
+	  "logo" (("images/favicon_io/android-chrome-192x192.png" | relURL) | absURL)
+	  "sameAs" $sameAs
+	}}
+	{{ jsonify $org | safeJS }}
+	</script>
+
+	<!-- Preload critical image -->
+	<link rel="preload" as="image" href="{{ "images/profile.webp" | relURL }}" type="image/webp" />
+
+	<!-- Color scheme hint for user agents -->
+	<meta name="color-scheme" content="light dark" />
+
+	<!-- Resource Hints -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+	<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+	<link rel="preconnect" href="https://cdn.simpleicons.org" crossorigin />
+	<!-- Font Awesome and other CSS plugins are loaded via params.plugins.css -->
+	{{ "<!-- plugins --> " | safeHTML }}
+	{{ range .Site.Params.plugins.css }}
+	<link rel="stylesheet" href="{{ .link | relURL }}" />
+	{{ end }}
+	{{ partialCached "css.html" . }}
+
+	<!-- Web App Manifest -->
+	<link rel="manifest" href="{{ "manifest.webmanifest" | relURL }}" />
+
+	{{ "<!--Favicon--> " | safeHTML }} {{ if isset .Site.Params "special_favicon" }}
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.Params.special_favicon.apple_touch }}" />
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ .Site.Params.special_favicon.fav32 }}" />
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.Params.special_favicon.fav16 }}" />
+	<link rel="manifest" href="{{ .Site.Params.special_favicon.manifest }}" />
+	<link rel="mask-icon" href="{{ .Site.Params.special_favicon.mask_icon }}"
+		color="{{ .Site.Params.special_favicon.mask_icon_color }}" />
+	<meta name="theme-color" content="{{ .Site.Params.special_favicon.theme_color }}" />
+	{{ else }}
+	<link rel="icon" type="image/png" href="{{ .Site.Params.favicon }}" />
+	{{ end }}
+
+	<!-- Dynamic theme-color for light/dark -->
+	<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+	<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220" />
 </head>

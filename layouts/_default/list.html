@@ -1,21 +1,32 @@
 {{ define "main" }}
   {{- partial "menu.html" . -}}
-  <div class="col-12 text-center blog under-menu">
-    <h1>{{ .Title }}</h1>
-    <div class="posts mt-4">
-      {{ range .Pages }}
-        <a href="{{ .RelPermalink }}">
-          <div class="post col-lg-8 col-md-10 col-12 mx-auto text-left card">
-            <img src="{{ .Params.image }}" alt="{{ .Title }}" />
-            <div class="content">
-              <h2>{{ .Title }}</h2>
-              <span>{{ .Date.Format "1/2/2006" }}</span>
-              <p>{{ .Description }}</p>
+
+  <section class="pt-28 pb-16 bg-background transition-colors duration-300">
+    <div class="container mx-auto px-4">
+      <header class="text-center mb-10">
+        <h1 class="text-3xl font-bold text-foreground">{{ .Title }}</h1>
+      </header>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {{ range .Pages }}
+        <a href="{{ .RelPermalink }}" class="block group">
+          <div class="card overflow-hidden h-full">
+            {{ with .Params.image }}
+              <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-44 object-cover"/>
+            {{ end }}
+            <div class="p-5">
+              <h2 class="text-xl font-semibold text-foreground group-hover:text-primary">{{ .Title }}</h2>
+              <p class="text-xs text-muted mt-1">{{ .Date.Format "Jan 2, 2006" }}</p>
+              {{ with .Description }}
+                <p class="text-muted mt-3 leading-relaxed">{{ . }}</p>
+              {{ end }}
             </div>
           </div>
         </a>
-      {{ end }}
+        {{ end }}
+      </div>
     </div>
-  </div>
+  </section>
+
   {{- partial "footer.html" . -}}
 {{ end }}

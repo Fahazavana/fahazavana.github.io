@@ -3,10 +3,19 @@
 		<div class="w-full mb-8">
 			<ul class="flex justify-center space-x-6">
 				{{ range $.Site.Params.social }}
+				{{ $label := .label }}
+				{{ if not $label }}
+				  {{ if or (in .icon "github") (in .link "github.com") }}{{ $label = "GitHub" }}
+				  {{ else if or (in .icon "linkedin") (in .link "linkedin.com") }}{{ $label = "LinkedIn" }}
+				  {{ else if or (in .icon "x-twitter") (in .icon "twitter") (in .link "twitter.com") }}{{ $label = "Twitter" }}
+				  {{ else if or (in .icon "whatsapp") (in .link "wa.me") }}{{ $label = "WhatsApp" }}
+				  {{ else if or (in .icon "envelope") (hasPrefix .link "mailto:") }}{{ $label = "Email" }}
+				  {{ else }}{{ $label = "External link" }}{{ end }}
+				{{ end }}
 				<li>
-					<a href="{{ .link | safeURL }}" target="_blank" rel="noreferrer" class="text-muted hover:text-foreground transition-colors duration-300"
-						><i class="{{ .icon }} fa-2x"></i
-					></a>
+					<a href="{{ .link | safeURL }}" target="_blank" rel="noopener noreferrer" class="text-muted hover:text-foreground transition-colors duration-300" aria-label="{{ $label }}" title="{{ $label }}">
+						<i class="{{ .icon }} fa-2x" aria-hidden="true"></i>
+					</a>
 				</li>
 				{{end}}
 			</ul>

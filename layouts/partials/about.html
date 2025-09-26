@@ -2,24 +2,24 @@
 {{ $about := index .Site.Data.content.about $lang }}
 
 {{ if $about.enable }}
-<section id="about" class="py-12 md:py-16 bg-background transition-colors duration-300">
+<section id="about" class="py-12 md:py-16 transition-colors duration-300">
 	<div class="container mx-auto px-4">
-		<div class="flex flex-wrap -mx-4 items-center text-center">
-			<div class="w-full md:w-1/2 px-4 mb-8 md:mb-0 text-center md:text-left">
-				<h2 class="text-3xl font-bold mb-4 text-foreground">
-					{{ $about.title }}
-				</h2>
-				<p class="text-muted leading-relaxed mb-6">
-					{{ $about.content | markdownify | emojify }}
-				</p>
+        <div class="flex flex-wrap -mx-4 items-center text-center">
+            <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0 text-center md:text-left">
+                <h2 class="text-3xl font-bold mb-4 text-foreground">
+                    {{ $about.title }}
+                </h2>
+                <p class="text-muted leading-relaxed mb-6">
+                    {{ $about.content | markdownify | emojify }}
+                </p>
 
 				{{ if $about.button.enable }}
 				<a
 					href="{{ $about.button.link }}"
 					target="_blank"
-					rel="noreferrer"
+					rel="noopener noreferrer"
 					download="Jean_Lucien_Randrianantenaina_CV_{{ $lang }}.pdf"
-					class="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-6 rounded-lg inline-flex items-center transition duration-300 ease-in-out transform hover:-translate-y-1 mb-0 md:mb-3"
+					class="btn btn-primary mb-0 md:mb-3"
 				>
 					{{ $about.button.label | markdownify }}
 					<i class="fa {{ $about.button.icon }} ml-2"></i>
@@ -28,14 +28,15 @@
 			</div>
 
 			{{ if $about.image }}
-			<div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
-				<img
-					src="{{ $about.image | relURL }}"
-					alt="{{ i18n "altProfilePic" }}"
-					class="block mx-auto w-full max-w-xs md:max-w-sm rounded-full shadow-lg"
-					id="profile-pic"
-				/>
-			</div>
+            <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
+                <img
+                    src="{{ $about.image | relURL }}"
+                    alt="{{ i18n "altProfilePic" }}"
+                    class="block mx-auto w-full max-w-xs md:max-w-sm rounded-full shadow-lg"
+                    loading="lazy" decoding="async"
+                    id="profile-pic"
+                />
+            </div>
 			{{ end }}
 		</div>
 	</div>

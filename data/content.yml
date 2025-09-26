@@ -6,7 +6,7 @@ hero:
     alt: "Jean Lucien Randrianantenaina picture"
     occupations:
       - "Mathematician"
-      - "AI/ML developper"
+      - "AI/ML developer"
       - "Python developer"
       - "Web developer"
     location: "Madagascar"
@@ -33,7 +33,7 @@ about:
     enable: true
     image: "images/profile.webp"
     title: "This is me"
-    content: "Hi, thank you for taking a look around my web site. If you have any questions feel free to reach out on [LinkedIn, or by email](#contact)!"
+    content: "Hi, thank you for taking a look around my website. If you have any questions, feel free to reach out on [LinkedIn or by email](#contact)!"
     button:
       enable: true
       label: "DOWNLOAD MY RESUME"
@@ -131,24 +131,24 @@ experience:
 educations:
   en:
     enable: true
-    title: "Educations"
+    title: "Education"
     educations_list:
-      - degree: Msc in Machine Learning and Artificial Intelligence
+      - degree: MSc in Machine Learning and Artificial Intelligence
         institution: Stellenbosch University, South Africa
         duration: "Jan. 2024 - Dec 2024"
         content: ""
 
-      - degree: Msc in Mathematics and Application
+      - degree: MSc in Mathematics and Applications
         institution: Faculty of Sciences, University of Fianarantsoa Madagascar
         duration: "Jun. 2019 - Jan. 2024"
         content: ""
 
-      - degree: Msc in Mathematical Sciences
-        institution: African Institute For Mathematical Sciences, Cameroon
+      - degree: MSc in Mathematical Sciences
+        institution: African Institute for Mathematical Sciences, Cameroon
         duration: "Sep. 2022 - Jun. 2023"
         content: ""
 
-      - degree: Bsc in Mathematics and Application
+      - degree: BSc in Mathematics and Applications
         institution: Faculty of Sciences, University of Fianarantsoa Madagascar
         duration: "Nov. 2015 - Apr. 2019"
         content: ""
@@ -330,22 +330,53 @@ project:
     - name: N-Gram LMs and BPE
       description: "From-scratch implementation with Python of a character-level trigram language model for language identification and Byte-Pair Encoding for language similarity analysis."
       url: https://github.com/Fahazavana/NGramLMs_BPE
+      stack:
+        - name: Python
+          icon: python
+          color: 3776AB
     - name: Mk-Forum
       description: "Creation of a forum dedicated to Mathematics with HTML,
         CSS/Bootstrap, JS for the Front-end and Python3/Django, MySQL for
         the Back-End."
       url: https://github.com/Fahazavana/MK-Forum
+      stack:
+        - name: HTML5
+          icon: html5
+          color: E34F26
+        - name: CSS
+          icon: css
+          color: 1572B6
+        - name: Bootstrap
+          icon: bootstrap
+          color: 7952B3
+        - name: JavaScript
+          icon: javascript
+          color: F7DF1E
+        - name: Django
+          icon: django
+          color: 092E20
+        - name: MySQL
+          icon: mysql
+          color: 4479A1
 
     - name: FCryptos
       description:
-        "Implementation of cryptography methods with Python (Console):
-        Shift cipher, Vinegre cipher, SPN, RSA, and ENIGMA machine."
+        "Implementation of cryptography methods with Python (console):
+        Shift cipher, Vigenère cipher, SPN, RSA, and Enigma machine."
       url: https://github.com/Fahazavana/FCryptos
+      stack:
+        - name: Python
+          icon: python
+          color: 3776AB
 
     - name: Pendu Malagasy
-      description: "A Malagasy version of the game hangman, built with
-        Python3/TKinter."
+      description: "A Malagasy version of the game Hangman, built with
+        Python/Tkinter."
       url: https://github.com/Fahazavana/Pendu_Malagasy
+      stack:
+        - name: Python
+          icon: python
+          color: 3776AB
 
     - name: Unbeatable TicTacToe
       description:
@@ -354,11 +385,25 @@ project:
         placement and min-max algorithm to make each move depending on the
         chosen level.
       url: https://github.com/Fahazavana/SAYNA-JAVASCRIPT-MORPION-042022
+      stack:
+        - name: HTML5
+          icon: html5
+          color: E34F26
+        - name: CSS
+          icon: css
+          color: 1572B6
+        - name: JavaScript
+          icon: javascript
+          color: F7DF1E
 
     - name: Bellman-Kalaba
       description: A graphical interface for the algorithm of Bellman-Kalaba
         (shortest-path) made with Python3/TKinter.
       url: https://github.com/Fahazavana/Bellma-Kalaba
+      stack:
+        - name: Python
+          icon: python
+          color: 3776AB
 
 # Google form
 googleform:
@@ -367,3 +412,51 @@ googleform:
   email: "entry.1427661846"
   message: "entry.1225228599"
   icon: "fas fa-paper-plane"
+
+########################### Publications & Talks ##############################
+pubtalk:
+  en:
+    title: Publication & Talk
+    enable: true
+    publications:
+      publication_list:
+        - title: 'Florian Luca and Jean Lucien Randrianantenaina, There Is No Carmichael Number of the Form \(2^np^2+1\) with \(p\) prime, INTEGER, Volume 23 (2023)'
+          icon: fa-book
+          link: https://math.colgate.edu/~integers/x51/x51.pdf
+
+    talks:
+      talk_list:
+        - title: 'Fermat last theorem, with \(n=4\).'
+          info: Presented to AIMS Cameroon students,  2023
+          icon: fa-comment
+          link:
+  fr:
+    title: "Publications et Présentations"
+    enable: true
+    publications:
+      publication_list:
+        - title: "Florian Luca et Jean Lucien Randrianantenaina, Il n'existe pas de nombre de Carmichael de la forme \\(2^np^2+1\\) avec \\(p\\) premier, INTEGER, Volume 23 (2023)"
+          icon: fa-book
+          link: https://math.colgate.edu/~integers/x51/x51.pdf
+
+    talks:
+      talk_list:
+        - title: "Dernier théorème de Fermat, avec \\(n=4\\)."
+          info: "Présenté aux étudiants de l'AIMS Cameroun, 2023"
+          icon: fa-comment
+          link:
+  mg:
+    title: "Famoahana sy Fizarana"
+    enable: true
+    publications:
+      publication_list:
+        - title: "Florian Luca sy Jean Lucien Randrianantenaina, Tsy Misy Isa Carmichael amin'ny Endrika \\(2^np^2+1\\) miaraka amin'ny \\(p\\) isa tsimivaky, INTEGER, Boky 23 (2023)"
+          icon: fa-book
+          link: https://math.colgate.edu/~integers/x51/x51.pdf
+
+    talks:
+      talk_list:
+        - title: "Teôrema farany an'i Fermat, miaraka amin'ny \\(n=4\\)."
+          info: "Naseho tamin'ireo mpianatra AIMS Cameroun, 2023"
+          icon: fa-comment
+          link:

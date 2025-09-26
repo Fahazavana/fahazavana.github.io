@@ -1,0 +1,43 @@
+{{ if .Site.Data.content.project.enable }}
+{{ with .Site.Data.content.project }}
+<section id="portfolio" class="py-12 md:py-16 transition-colors duration-300">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="section-title text-3xl font-bold text-foreground">{{ .title }}</h2>
+    </div>
+    <div class="flex flex-wrap -mx-4">
+      {{ range .project_list }}
+      {{ $parsed_name := replace .name "." "" }}
+      <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+        <div class="card project-card timeline-card rounded-lg overflow-hidden flex flex-col h-full group reveal">
+          <div class="p-6 flex flex-col flex-grow gap-3">
+            <div class="card-header">
+              <h3 class="card-title text-xl text-foreground">{{ .name }}</h3>
+              <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="text-muted hover:text-primary" aria-label="Open {{ .name }} on GitHub">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+            <p id="description-{{ $parsed_name | urlize }}" class="text-muted leading-relaxed flex-grow clamp-3">
+              {{ .description | markdownify }}
+            </p>
+            {{ with .stack }}
+            <div class="tech-row" aria-label="Technologies used">
+              {{ range . }}
+                {{ if .icon }}
+                  <img src="https://cdn.simpleicons.org/{{ .icon }}/{{ .color }}" alt="{{ .name }} logo" title="{{ .name }}" decoding="async" loading="lazy" />
+                {{ else if .svg }}
+                  <span title="{{ .name }}">{{ .svg | safeHTML }}</span>
+                {{ end }}
+              {{ end }}
+            </div>
+            {{ end }}
+            
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}

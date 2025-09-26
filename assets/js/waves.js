@@ -4,12 +4,12 @@ const ctx = canvas.getContext('2d');
 
 // Configuration constants
 const CONFIG = {
-    SEPARATION: 20, // Distance between particles
-    AMOUNTX: 500,  // Number of particles in x-axis
-    AMOUNTY: 30,   // Number of particles in z-axis
-    PARTICLE_SIZE: 0.35, // Base size of particles
-    ANIMATION_SPEED: 0.15, // Speed of wave animation
-    WAVE_AMPLITUDE: 25, // Height of wave effect
+    SEPARATION: 24, // Distance between particles
+    AMOUNTX: 120,  // Base number of particles in x-axis (will be responsive)
+    AMOUNTY: 24,   // Base number in y-axis (will be responsive)
+    PARTICLE_SIZE: 0.45, // Base size of particles
+    ANIMATION_SPEED: 0.12, // Speed of wave animation
+    WAVE_AMPLITUDE: 22, // Height of wave effect
     WAVE_FREQUENCY: 0.25 // Frequency of wave oscillation
 };
 
@@ -21,12 +21,26 @@ const camera = {
     fov: 700 // Field of view for projection scaling
 };
 
-let width, height;
+let width, height, dpr;
 let particles = [];
 let animationCount = 0;
+let running = false;
+let prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+function shouldEnable() {
+  const isSmall = window.matchMedia('(max-width: 767px)').matches;
+  const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+  return !prefersReducedMotion.matches && !isSmall && !isCoarse;
+}
 
 // Initialize the canvas and particles
 function init() {
+    if (!shouldEnable()) {
+        running = false;
+        canvas.style.display = 'none';
+        return;
+    }
+    canvas.style.display = 'block';
     resizeCanvas();
     createParticleGrid();
     startAnimation();
@@ -36,26 +50,53 @@ function init() {
 function resizeCanvas() {
     width = window.innerWidth;
     height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height;
+    dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 }
 
 // Create a grid of particles in 3D space (x,z plane, y=0 initially)
 function createParticleGrid() {
     particles = [];
-    for (let ix = 0; ix < CONFIG.AMOUNTX; ix++) {
-        for (let iz = 0; iz < CONFIG.AMOUNTY; iz++) {
+    // Responsive density
+    const isSmall = width < 768;
+    const amountX = Math.max(40, Math.floor(width / CONFIG.SEPARATION / (isSmall ? 1.2 : 0.9)));
+    const amountY = isSmall ? 14 : Math.max(18, Math.floor(height / (CONFIG.SEPARATION * 2)));
+
+    for (let ix = 0; ix < amountX; ix++) {
+        for (let iz = 0; iz < amountY; iz++) {
             particles.push({
-                x: ix * CONFIG.SEPARATION - (CONFIG.AMOUNTX * CONFIG.SEPARATION) / 2,
+                x: ix * CONFIG.SEPARATION - (amountX * CONFIG.SEPARATION) / 2,
                 y: 0,
-                z: iz * CONFIG.SEPARATION - (CONFIG.AMOUNTY * CONFIG.SEPARATION) / 2
+                z: iz * CONFIG.SEPARATION - (amountY * CONFIG.SEPARATION) / 2
             });
         }
     }
 }
 
 // Handle window resize events
-window.addEventListener('resize', resizeCanvas);
+function onResize() {
+    if (!shouldEnable()) {
+        running = false;
+        canvas.style.display = 'none';
+        return;
+    }
+    if (!running) {
+        // Re-enable if we crossed the threshold to desktop
+        canvas.style.display = 'block';
+        resizeCanvas();
+        createParticleGrid();
+        startAnimation();
+        return;
+    }
+    resizeCanvas();
+    createParticleGrid();
+}
+
+window.addEventListener('resize', onResize);
 
 // Project 3D coordinates to 2D canvas using perspective projection
 function project(particle) {
@@ -72,6 +113,7 @@ function project(particle) {
 
 // Animation loop
 function animate() {
+    if (!running) return;
     requestAnimationFrame(animate);
     render();
     animationCount += CONFIG.ANIMATION_SPEED;
@@ -80,9 +122,8 @@ function animate() {
 // Render particles to canvas
 function render() {
     // Clear canvas with theme-aware background
-    ctx.fillStyle = document.documentElement.classList.contains('dark') ? '#101828' : '#f9fafb';
-    ctx.fillRect(0, 0, width, height);
-    ctx.fillStyle = document.documentElement.classList.contains('dark') ? '#f9fafb' : '#101828';
+    ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = document.documentElement.classList.contains('dark') ? '#cbd5e1' : '#0f172a';
 
     // Process each particle
     for (const particle of particles) {
@@ -109,8 +150,23 @@ function render() {
 
 // Start the animation
 function startAnimation() {
+    if (!shouldEnable()) {
+        running = false;
+        return;
+    }
+    running = true;
     animate();
 }
 
 // Initialize everything
 init();
+
+// Pause animation when tab is hidden to save battery/CPU
+document.addEventListener('visibilitychange', () => {
+    running = !document.hidden;
+});
+
+// React to reduced motion preference changes
+prefersReducedMotion.addEventListener('change', () => {
+    startAnimation();
+});

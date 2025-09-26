@@ -1,26 +1,19 @@
-{{ "<!-- JS Plugins -->" | safeHTML }} {{ range .Site.Params.plugins.js }}
+{{ "<!-- JS Plugins -->" | safeHTML }}
+{{ range .Site.Params.plugins.js }}
 <script src="{{ .link | relURL }}"></script>
-{{ end }} 
+{{ end }}
 
-{{ "<!-- Main Scripts -->" | safeHTML }} {{ $script := resources.Get
-"js/script.js" | minify }}
-<script src="{{ $script.RelPermalink }}"></script>
-{{ "<!-- Particle Scripts -->" | safeHTML }} {{ $script := resources.Get
-"js/waves.js" | minify }}
-
-
-
-<script src="{{ $script.RelPermalink }}"></script>
-{{ $script := resources.Get "js/typing.js" | minify }}
+{{ "<!-- Main Scripts -->" | safeHTML }}
+{{ $script := resources.Get "js/script.js" | minify }}
 <script src="{{ $script.RelPermalink }}"></script>
 
-<!--<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>-->
-<script
-	id="MathJax-script"
-	async
-	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-></script>
+{{ "<!-- Particle + Typing -->" | safeHTML }}
+{{ $waves := resources.Get "js/waves.js" | minify }}
+<script src="{{ $waves.RelPermalink }}"></script>
+{{ $typing := resources.Get "js/typing.js" | minify }}
+<script src="{{ $typing.RelPermalink }}"></script>
 
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJ25EGXGTC"></script>

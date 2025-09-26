@@ -4,16 +4,16 @@
 {{ $about := index .Site.Data.content.about $lang }}
 
 <header id="home" class="min-h-screen flex flex-col items-center justify-center relative py-20 pt-32 md:pt-20">
-    <canvas id="particle" class="absolute inset-0 w-full h-full z-0 " aria-label="Waves canvas"></canvas>
+    <canvas id="particle" class="absolute inset-0 w-full h-full z-0 hidden md:block" aria-label="Decorative waves" aria-hidden="true"></canvas>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 z-10 flex flex-col justify-center flex-grow">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            <div class="flex flex-col space-y-4 text-center md:text-left">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-6 items-center">
+            <div class="order-2 md:order-1 flex flex-col space-y-4 text-center md:text-left">
                 <div>
-                    <h1 class="text-3xl sm:text-4xl font-bold text-foreground mb-2">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2">
                         {{ $hero.name | markdownify | emojify }}
                     </h1>
-                    <strong class="flex items-center justify-center md:justify-start text-lg sm:text-xl text-muted h-8">
+                    <strong class="flex items-center justify-center md:justify-start text-base sm:text-lg md:text-xl text-muted h-8">
                         <span id="typing-text"
                               class="typing-text inline-block whitespace-nowrap overflow-hidden max-w-full"></span>
                     </strong>
@@ -24,26 +24,24 @@
                     </div>
                 </div>
 
-
-                <div class="flex sm:flex-col space-y-4 flex-row sm:space-x-4 sm:space-y-0 items-center justify-center md:justify-start">
-                    <p class="text-base sm:text-lg text-muted leading-relaxed mb-6">
+                <div>
+                    <p class="text-sm sm:text-base md:text-lg text-muted leading-relaxed mb-4 md:mb-6">
                         {{ $about.content | markdownify | emojify }}
                     </p>
                     <a
-                            href="{{ $about.button.link }}"
-                            target="_blank"
-                            rel="noreferrer"
-                            download="Jean_Lucien_Randrianantenaina_CV_{{ $lang }}.pdf"
-                            class="btn bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2 px-4 rounded-lg flex items-center justify-center sm:justify-start transition duration-300 ease-in-out transform hover:-translate-y-1 w-full sm:w-auto"
+                        href="{{ $about.button.link }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        download="Jean_Lucien_Randrianantenaina_CV_{{ $lang }}.pdf"
+                        class="btn btn-primary w-full sm:w-auto"
                     >
                         {{ $about.button.label | markdownify }}
                         <i class="fa {{ $about.button.icon }} ml-2"></i>
                     </a>
-
                 </div>
             </div>
 
-            <div class="flex flex-col items-center sm:items-end space-y-4 mt-4 sm:mt-0">
+            <div class="order-1 md:order-2 flex flex-col items-center sm:items-end space-y-4 mt-2 sm:mt-0">
                 <div class="flex flex-col items-center gap-4">
                     <img class="mx-auto rounded-full w-32 sm:w-36 md:w-40 max-w-full object-cover border-2 border-border shadow-lg"
                          src="{{ $hero.image | relURL }}"
@@ -51,18 +49,27 @@
 
                     <div class="w-full sm:w-auto ">
                         <div class="text-center text-muted mb-4">
-                            <i class="{{ .Site.Params.location.icon }} mr-2 text-primary"></i>
+                            <i class="{{ .Site.Params.location.icon }} mr-2 text-primary" aria-hidden="true"></i>
                             <span>{{ .Site.Params.location.place }}</span>
                         </div>
                         <ul class="flex justify-center sm:justify-center space-x-6">
                             {{ range $.Site.Params.social }}
-                            <li key={social.link}>
-                                <a href={{ .link | safeURL }} target="_blank" rel="noreferrer"
-                                   class="transition-colors duration-300 ease-in-out transform hover:scale-110
-                                   {{.class}}"
-                                ><i class="{{ .icon }} fa-2x"></i></a>
+                            {{ $label := .label }}
+                            {{ if not $label }}
+                              {{ if or (in .icon "github") (in .link "github.com") }}{{ $label = "GitHub" }}
+                              {{ else if or (in .icon "linkedin") (in .link "linkedin.com") }}{{ $label = "LinkedIn" }}
+                              {{ else if or (in .icon "x-twitter") (in .icon "twitter") (in .link "twitter.com") }}{{ $label = "Twitter" }}
+                              {{ else if or (in .icon "whatsapp") (in .link "wa.me") }}{{ $label = "WhatsApp" }}
+                              {{ else if or (in .icon "envelope") (hasPrefix .link "mailto:") }}{{ $label = "Email" }}
+                              {{ else }}{{ $label = "External link" }}{{ end }}
+                            {{ end }}
+                            <li>
+                                <a href="{{ .link | safeURL }}" target="_blank" rel="noopener noreferrer"
+                                   class="transition-colors duration-300 ease-in-out transform hover:scale-110 {{ .class }}"
+                                   aria-label="{{ $label }}" title="{{ $label }}"
+                                ><i class="{{ .icon }} fa-2x" aria-hidden="true"></i></a>
                             </li>
-                            {{end}}
+                            {{ end }}
                         </ul>
                     </div>
                 </div>
@@ -75,7 +82,7 @@
         <div class="mb-4">
             <div class="flex flex-wrap justify-center gap-3">
                 {{ range .technologies }}
-                <div class="flex items-center gap-2 px-3 py-1 bg-card rounded-lg hover:scale-105 transition-transform">
+                <div class="flex items-center gap-2 px-3 py-1 bg-surface border border-border rounded-lg hover:scale-105 transition-transform">
                     {{ if .icon }}
                     <img class="w-6 h-6 shrink-0"
                          src="https://cdn.simpleicons.org/{{ .icon }}/{{ .color }}"
@@ -83,7 +90,7 @@
                     {{ else if .svg }}
                     {{ .svg | safeHTML }}
                     {{ end }}
-                    <span class="text-sm text-foreground">{{ .name }}</span>
+                    <span class="text-sm text-muted">{{ .name }}</span>
                 </div>
                 {{end}}
             </div>

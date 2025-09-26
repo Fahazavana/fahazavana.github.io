@@ -1,14 +1,22 @@
 {{ define "main" }}
-  {{ partial "menu" . }}
+  {{- partial "menu.html" . -}}
 
-  <div class="under-menu col-lg-8 col-md-10 col-12 mx-auto post-container">
-    <h1>{{ .Title }}</h1>
-    <span class="date">Posted on: {{ .Date.Format "1/2/2006" }}</span>
-    <img src="{{ .Params.image }}" alt="{{ .Title }}" />
-    <div class="body">
-      {{ .Content }}
+  <section class="pt-28 pb-16 bg-background transition-colors duration-300">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <header class="mb-6">
+        <h1 class="text-3xl font-bold text-foreground">{{ .Title }}</h1>
+        <p class="text-sm text-muted mt-1">Posted on {{ .Date.Format "Jan 2, 2006" }}</p>
+      </header>
+
+      {{ with .Params.image }}
+      <img src="{{ . }}" alt="{{ $.Title }}" class="w-full rounded-xl border border-border shadow-sm mb-6"/>
+      {{ end }}
+
+      <article class="text-foreground leading-relaxed space-y-4">
+        {{ .Content }}
+      </article>
     </div>
-  </div>
+  </section>
 
-  {{ partial "footer" . }}
+  {{- partial "footer.html" . -}}
 {{ end }}

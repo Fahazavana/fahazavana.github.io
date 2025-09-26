@@ -1,13 +1,17 @@
 <!-- Navbar -->
+
+<!-- Navbar -->
 <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center" aria-label="Main navigation">
     <div
             id="navbar"
-            class="bg-card/10 backdrop-blur-sm shadow-xl px-2 flex items-center justify-between rounded-full relative transition-all duration-300 py-2"
+            class="navbar-glass px-3 md:px-4 flex items-center justify-between rounded-none md:rounded-full relative transition-all duration-300 py-2"
     >
         <!-- Logo -->
         <a
-                class="w-10 h-10 flex items-center justify-center rounded-full shadow-lg bg-card text-foreground hover:scale-110 transition-transform duration-200 focus:outline-none font-bold min-w-10"
+                class="w-10 h-10 flex items-center justify-center rounded-full shadow-lg bg-surface text-foreground hover:scale-110 transition-transform duration-200 focus:outline-none font-bold min-w-10"
                 href="{{ .Site.BaseURL | relLangURL }}"
+                aria-label="Home"
+                title="Home"
         >
             JL
         </a>
@@ -17,10 +21,9 @@
             <!-- Navigation Links -->
             <ul class="flex space-x-6 justify-around" aria-label="navigation list">
                 {{ range $i, $e := .Site.Menus.main }}
-                {{ if gt $i 0 }}
                 <li>
                     <a
-                            class="block whitespace-nowrap px-3 rounded text-foreground hover:bg-muted/20 py-2"
+                            class="nav-link block whitespace-nowrap px-3 rounded text-muted hover:bg-surface py-2"
                             href="{{ $e.URL }}"
                     >
                         {{ if $e.Params.icon }}
@@ -29,7 +32,6 @@
                         {{ $e.Name }}
                     </a>
                 </li>
-                {{ end }}
                 {{ end }}
             </ul>
 
@@ -40,7 +42,7 @@
                         aria-haspopup="true"
                         aria-expanded="false"
                         aria-controls="lang-menu"
-                        class="cursor-pointer w-10 h-10 flex shadow-lg bg-card text-foreground items-center rounded-full justify-center"
+                        class="cursor-pointer w-10 h-10 flex shadow-lg bg-surface text-foreground items-center rounded-full justify-center"
                         title="Select language"
                 >
                     <i class="fa-solid fa-globe text-sm"></i>
@@ -49,12 +51,12 @@
                         id="lang-menu"
                         role="menu"
                         aria-labelledby="lang-switch"
-                        class="absolute hidden mt-2 right-0 w-20 bg-card rounded-lg shadow-lg overflow-hidden"
+                        class="absolute hidden mt-2 right-0 w-20 bg-surface rounded-lg shadow-lg overflow-hidden border border-border"
                 >
                     {{ $currentPage := . }}
                     {{ range .Site.Home.AllTranslations }}
                     <li
-                            class="px-3 py-2 text-foreground hover:bg-muted/20 cursor-pointer transition"
+                            class="px-3 py-2 text-foreground hover:bg-elevated cursor-pointer transition"
                             role="menuitem"
                     >
                         <a href="{{ .Permalink }}">
@@ -71,7 +73,7 @@
         <div class="relative md:hidden">
                 <button
                         id="mobile-toggle"
-                        class="w-10 h-10 flex items-center justify-center rounded-full shadow-lg bg-card text-foreground cursor-pointer"
+                        class="w-10 h-10 flex items-center justify-center rounded-full shadow-lg bg-surface text-foreground cursor-pointer"
                         aria-label="Open mobile menu"
                 >
                     <i class="md:hidden fas fa-bars"></i>
@@ -89,7 +91,7 @@
         aria-labelledby="mobile-menu-title"
 >
     <div
-            class="fixed bottom-0 left-0 right-0 bg-card p-6 rounded-t-2xl shadow-lg transform transition-transform duration-300 ease-in-out"
+            class="fixed bottom-0 left-0 right-0 drawer-glass p-6 rounded-t-2xl transform transition-transform duration-300 ease-in-out border-border"
             onclick="event.stopPropagation()"
     >
         <div class="flex justify-between items-center mb-6">
@@ -107,16 +109,14 @@
         <nav class="mb-6">
             <ul class="space-y-2">
                 {{ range $i, $e := .Site.Menus.main }}
-                {{ if gt $i 0 }}
                 <li>
                     <a
                             href="{{ $e.URL }}"
-                            class="block w-full text-left text-lg py-3 px-4 rounded-lg text-foreground hover:bg-muted/20"
+                            class="nav-link block w-full text-left text-lg py-3 px-4 rounded-lg text-foreground hover:bg-surface"
                     >
                         {{ $e.Name }}
                     </a>
                 </li>
-                {{ end }}
                 {{ end }}
             </ul>
         </nav>
@@ -125,15 +125,12 @@
         <div class="border-t border-border pt-6 space-y-4">
             <div>
                 <span class="text-sm font-medium text-muted">Language</span>
-                <div class="mt-2 flex rounded-lg shadow-sm bg-card p-1">
+                <div class="mt-2 flex rounded-lg shadow-sm bg-surface p-1 border border-border">
                     {{ $currentPage := . }}
                     {{ range .Site.Home.AllTranslations }}
                     <a
                             href="{{ .Permalink }}"
-                            class="w-full text-center py-2 rounded-md text-sm font-medium transition-colors
-              {{ if eq .Language.Lang $currentPage.Language.Lang }}
-                bg-card text-primary shadow
-              {{ end }}"
+                            class="w-full text-center py-2 rounded-md text-sm font-medium transition-colors {{ if eq .Language.Lang $currentPage.Language.Lang }} bg-elevated text-primary shadow {{ end }}"
                     >
                         {{ .Language.Lang | upper }}
                     </a>
@@ -144,10 +141,10 @@
             <div class="mt-2">
                 <button
                         id="theme-toggle-2"
-                        class="w-full flex justify-between items-center px-4 py-3 rounded-lg bg-card cursor-pointer"
+                        class="w-full flex justify-between items-center px-4 py-3 rounded-lg bg-surface cursor-pointer border border-border"
                 >
                     <span class="text-foreground">Light</span>
-                    <i id="theme-icon-2" class="fa-solid fa-moon"></i>
+                    <i id="theme-icon-2" class="fa-solid fa-moon text-primary"></i>
                 </button>
             </div>
         </div>
@@ -158,7 +155,7 @@
 <div class="fixed bottom-10 right-10 cursor-pointer z-50">
     <button
             id="theme-toggle"
-            class="w-10 h-10 flex items-center justify-center rounded-full shadow-lg bg-card text-foreground hover:scale-110 transition-transform duration-200 focus:outline-none"
+            class="w-10 h-10 flex items-center justify-center rounded-full shadow-lg bg-surface text-foreground hover:scale-110 transition-transform duration-200 focus:outline-none border border-border"
             title="Toggle theme"
             aria-pressed="false"
     >

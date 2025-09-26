@@ -42,5 +42,11 @@ window.onload = () => {
 		children = Array.from(datas.children),
 		display = "typing-text";
 	textArray = Array.from(children, (element) => element.innerText);
+
+	const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	if (reduce) {
+		document.getElementById(display).textContent = textArray[0] || '';
+		return;
+	}
 	typingTextEffect(textArray, display);
 };
