@@ -135,6 +135,7 @@ link = "https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&displa
     # Meta data
 	baseURL = 'https://fahazavana.github.io/'
 	title = 'Jean Lucien Randrianantenaina'
+	screenshot="images/og_image.png"
     description = "Personal Portfolio"
     author = "Jean Lucien Randrianantenaina"
     favicon = "images/favicon_io/android-chrome-192x192.png"

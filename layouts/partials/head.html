@@ -9,7 +9,7 @@
 	{{ $pageTitle := .Title }}
 	{{ $isHome := .IsHome }}
 	{{ $title := cond $isHome $siteTitle (printf "%s — %s" $pageTitle $siteTitle) }}
-	{{ $desc := or .Params.description .Params.Description .Summary .Site.Params.description }}
+	{{ $desc := or .Site.Params.description .Site.Params.Description .Summary .Site.Params.description }}
 	{{ $desc = $desc | plainify | htmlUnescape | truncate 180 }}
 	{{ $url := .Permalink }}
 	{{ $scheme := "https" }}
@@ -19,7 +19,7 @@
 	{{ end }}
 	{{ if hasPrefix $url "//" }}{{ $url = printf "%s:%s" $scheme $url }}{{ end }}
 	{{ $type := cond .IsPage "article" "website" }}
-	{{ $image := or .Params.image (printf "%s" ( ("images/profile.webp" | relURL) | absURL )) }}
+	{{ $image := (printf "%s" ( ("images/og_image.png" | relURL) | absURL )) }}
 	{{ $noindex := or .Params.noindex .Params.draft }}
 
 
