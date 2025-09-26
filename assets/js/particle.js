@@ -28,7 +28,7 @@ class Particle {
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 5, false);
-        ctx.fillStyle = document.documentElement.classList.contains('dark') ? '#ffffff' : '#000000';
+        ctx.fillStyle = this.col;
         ctx.fill();
     }
 
@@ -62,16 +62,31 @@ class Particle {
     }
 }
 
+function getToken(name) {
+    const styles = getComputedStyle(document.documentElement);
+    return styles.getPropertyValue(name).trim() || "#ffffff";
+}
+
+function hexToRgba(hex, a = 1) {
+    const h = hex.replace('#', '');
+    const bigint = parseInt(h.length === 3 ? h.split('').map(c => c + c).join('') : h, 16);
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+    return `rgba(${r}, ${g}, ${b}, ${a})`;
+}
+
 function init() {
     particleArray = [];
     let numberOfParticle = (canvas.height * canvas.width) / 15000;
+    const primary = getToken('--color-primary');
     for (let i = 0; i < numberOfParticle; i++) {
         let size = Math.random() * 10 + 1;
         let x = Math.random() * (canvas.width - size * 2 - size * 2) + size * 2;
         let y = Math.random() * (canvas.height - size * 2 - size * 2) + size * 2;
         let dirX = Math.random() * 5 - 2.5;
         let dirY = Math.random() * 5 - 2.5;
-        let color = document.documentElement.classList.contains('dark') ? '#ffffff' : '#ff0000';
+        let color = primary;
         particleArray.push(new Particle(x, y, dirX, dirY, size, color));
     }
 }
@@ -86,7 +101,6 @@ function animate() {
 }
 
 function connect() {
-    let opacityVal = 1;
     for (let a = 0; a < particleArray.length; a++) {
         for (let b = 0; b < particleArray.length; b++) {
             let dist =
@@ -95,7 +109,8 @@ function connect() {
                 (particleArray[a].y - particleArray[b].y) *
                 (particleArray[a].y - particleArray[b].y);
             if (dist < (canvas.width / 7) * (canvas.height / 7)) {
-                ctx.strokeStyle = document.documentElement.classList.contains('dark') ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.5)';
+                const muted = getToken('--color-muted') || '#64748b';
+                ctx.strokeStyle = hexToRgba(muted, 0.5);
                 ctx.lineWidth = 0.5;
                 ctx.beginPath();
                 ctx.moveTo(particleArray[a].x, particleArray[a].y);

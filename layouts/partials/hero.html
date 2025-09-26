@@ -3,17 +3,17 @@
 {{ $skills := index .Site.Data.content.skills }}
 {{ $about := index .Site.Data.content.about $lang }}
 
-<header id="home" class="min-h-screen flex flex-col items-center justify-center relative">
+<header id="home" class="min-h-screen flex flex-col items-center justify-center relative py-20 pt-32 md:pt-20">
     <canvas id="particle" class="absolute inset-0 w-full h-full z-0 " aria-label="Waves canvas"></canvas>
 
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
-            <div class="flex flex-col space-y-4 text-left">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 z-10 flex flex-col justify-center flex-grow">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div class="flex flex-col space-y-4 text-center md:text-left">
                 <div>
                     <h1 class="text-3xl sm:text-4xl font-bold text-foreground mb-2">
                         {{ $hero.name | markdownify | emojify }}
                     </h1>
-                    <strong class="flex items-center text-lg sm:text-xl text-muted">
+                    <strong class="flex items-center justify-center md:justify-start text-lg sm:text-xl text-muted h-8">
                         <span id="typing-text"
                               class="typing-text inline-block whitespace-nowrap overflow-hidden max-w-full"></span>
                     </strong>
@@ -24,32 +24,30 @@
                     </div>
                 </div>
 
-                <p class="text-base sm:text-lg text-muted leading-relaxed">
-                    {{ $about.content | markdownify | emojify }}
-                </p>
 
-                <div class="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                    {{ if $about.button.enable }}
+                <div class="flex sm:flex-col space-y-4 flex-row sm:space-x-4 sm:space-y-0 items-center justify-center md:justify-start">
+                    <p class="text-base sm:text-lg text-muted leading-relaxed mb-6">
+                        {{ $about.content | markdownify | emojify }}
+                    </p>
                     <a
                             href="{{ $about.button.link }}"
                             target="_blank"
                             rel="noreferrer"
                             download="Jean_Lucien_Randrianantenaina_CV_{{ $lang }}.pdf"
-                            class="btn bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2 px-4 rounded-lg flex items-center transition duration-300 ease-in-out transform hover:-translate-y-1"
+                            class="btn bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2 px-4 rounded-lg flex items-center justify-center sm:justify-start transition duration-300 ease-in-out transform hover:-translate-y-1 w-full sm:w-auto"
                     >
                         {{ $about.button.label | markdownify }}
                         <i class="fa {{ $about.button.icon }} ml-2"></i>
                     </a>
-                    {{ end }}
+
                 </div>
             </div>
 
             <div class="flex flex-col items-center sm:items-end space-y-4 mt-4 sm:mt-0">
-                <div>
+                <div class="flex flex-col items-center gap-4">
                     <img class="mx-auto rounded-full w-32 sm:w-36 md:w-40 max-w-full object-cover border-2 border-border shadow-lg"
                          src="{{ $hero.image | relURL }}"
-                         alt="{{ $hero.altpic }}">
-
+                         alt="{{ $hero.altpic }}"/>
 
                     <div class="w-full sm:w-auto ">
                         <div class="text-center text-muted mb-4">
@@ -58,11 +56,11 @@
                         </div>
                         <ul class="flex justify-center sm:justify-center space-x-6">
                             {{ range $.Site.Params.social }}
-                            <li>
-                                <a href="{{ .link | safeURL }}" target="_blank" rel="noreferrer"
-                                   class="ease-in-out transform hover:scale-110 {{ .class}}"
-                                ><i class="{{ .icon }} fa-2x"></i
-                                ></a>
+                            <li key={social.link}>
+                                <a href={{ .link | safeURL }} target="_blank" rel="noreferrer"
+                                   class="transition-colors duration-300 ease-in-out transform hover:scale-110
+                                   {{.class}}"
+                                ><i class="{{ .icon }} fa-2x"></i></a>
                             </li>
                             {{end}}
                         </ul>
@@ -71,7 +69,8 @@
             </div>
         </div>
     </div>
-    <div class="max-w-5xl mx-auto z-10">
+
+    <div class="w-full max-w-5xl mx-auto z-10">
         {{ range $skills.sections }}
         <div class="mb-4">
             <div class="flex flex-wrap justify-center gap-3">
@@ -86,12 +85,9 @@
                     {{ end }}
                     <span class="text-sm text-foreground">{{ .name }}</span>
                 </div>
-                {{ end }}
+                {{end}}
             </div>
         </div>
-        {{ end }}
+        {{end}}
     </div>
 </header>
-
-
-

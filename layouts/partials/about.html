@@ -2,14 +2,14 @@
 {{ $about := index .Site.Data.content.about $lang }}
 
 {{ if $about.enable }}
-<section id="about" class="py-12 md:py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
+<section id="about" class="py-12 md:py-16 bg-background transition-colors duration-300">
 	<div class="container mx-auto px-4">
 		<div class="flex flex-wrap -mx-4 items-center text-center">
 			<div class="w-full md:w-1/2 px-4 mb-8 md:mb-0 text-center md:text-left">
-				<h2 class="text-3xl font-bold mb-4 text-gray-800 dark:text-white">
+				<h2 class="text-3xl font-bold mb-4 text-foreground">
 					{{ $about.title }}
 				</h2>
-				<p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+				<p class="text-muted leading-relaxed mb-6">
 					{{ $about.content | markdownify | emojify }}
 				</p>
 
@@ -19,7 +19,7 @@
 					target="_blank"
 					rel="noreferrer"
 					download="Jean_Lucien_Randrianantenaina_CV_{{ $lang }}.pdf"
-					class="bg-gray-700 hover:bg-gray-600 dark:bg-gray-600 dark:hover:bg-gray-500 text-white dark:text-gray-100 font-semibold py-3 px-6 rounded-lg inline-flex items-center transition duration-300 ease-in-out transform hover:-translate-y-1 mb-0 md:mb-3"
+					class="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-6 rounded-lg inline-flex items-center transition duration-300 ease-in-out transform hover:-translate-y-1 mb-0 md:mb-3"
 				>
 					{{ $about.button.label | markdownify }}
 					<i class="fa {{ $about.button.icon }} ml-2"></i>
