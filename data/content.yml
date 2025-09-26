@@ -1,25 +1,31 @@
 ########################## hero area ##########################
 hero:
   en:
-    title: "I am Jean Lucien Randrianantenaina"
+    name: "Jean Lucien Randrianantenaina"
+    image: "images/profile.webp"
+    alt: "Jean Lucien Randrianantenaina picture"
     occupations:
       - "Mathematician"
       - "AI/ML developper"
       - "Python developer"
       - "Web developer"
+    location: "Madagascar"
   fr:
-    title: "Je suis Jean Lucien Randrianantenaina"
+    name: "Jean Lucien Randrianantenaina"
+    image: "images/profile.webp"
     occupations:
       - "Mathématicien"
       - "Développeur Python"
       - "Développeur Web"
   mg:
-    title: "Izaho dia Jean Lucien Randrianantenaina"
+    name: "Jean Lucien Randrianantenaina"
+    image: "images/profile.webp"
     occupations:
       - "Matematisianina"
       - "Mpamorona AI/ML"
       - "Mpanamboatra rindranasa Python"
       - "Mpanamboatra tranonkala"
+
 
 ########################### About ##################################
 about:
@@ -56,9 +62,71 @@ about:
       link: "https://raw.githubusercontent.com/Fahazavana/Curriculum_Vitae/main/Jean_Lucien_Randrianantenaina_CV.pdf"
       icon: "fa-download"
 
-###########################3 Experience ##############################
+########################### experience ##############################
+experience:
+  en:
+    enable: true
+    title: "Professional Experience"
+    experience_list:
+      - title: "Backend, AI/ML, and Automation Developer"
+        company: "ARATO Fianarantsoa"
+        duration: "2025 - Present"
+        details:
+          - "Design and development of artificial intelligence models (RAG, ChatBot, Facial and image recognition), recommendation solutions and natural language processing (LangChain, Ollama, OpenAI)."
+          - "Design and implementation of web data extraction pipelines and workflow automation (Selenium, Selenium Base, N8N)."
+          - "Design and development of backend systems and creation of RESTful programming interfaces (FastAPI, Django, Odoo)."
+          - "Integration of payment systems such as Stripe."
+      - title: "Part-time Lecturer"
+        company: "University of Fianarantsoa"
+        duration: "2025 - Present"
+        details:
+          - "Responsible for courses in linear algebra and mathematics applied to artificial intelligence."
+          - "Creation of educational materials."
+          - "Evaluation of students through exams and project reports."
+
+  fr:
+    enable: true
+    title: "Expériences Professionnelles"
+    experience_list:
+      - title: "Développeur Backend, AI/ML et Automatisation"
+        company: "ARATO Fianarantsoa"
+        duration: "2025 - Maintenant"
+        details:
+          - "Conception et développement de modèles d’intelligence artificielle (RAG, ChatBot, Reconnaissance Faciale et image), solutions de recommandation et traitement du langage naturel (LangChain, Ollama, OpenAI)."
+          - "Conception et mise en place de pipelines d’extraction de données web et d’automatisation de flux de travail (Selenium, Selenium Base, N8N)."
+          - "Conception et développement de systèmes backend et création d’interfaces de programmation RESTful (FastAPI, Django, Odoo)."
+          - "Intégration de systèmes de paiement tels que Stripe."
+      - title: "Enseignant vacataire"
+        company: "Université de Fianarantsoa"
+        duration: "2025 - Maintenant"
+        details:
+          - "Responsable des cours d’algèbre linéaire et de mathématiques appliquées à l’intelligence artificielle."
+          - "Création de matériel pédagogique."
+          - "Évaluation des étudiants par des examens et des rapports de projet."
+
+  mg:
+    enable: true
+    title: "Traikefa arak'asa"
+    experience_list:
+      - title: "Mpamolavola Backend, AI/ML ary Automation"
+        company: "ARATO Fianarantsoa"
+        duration: "2025 - Ankehitriny"
+        details:
+          - "Famolavolana sy fampandrosoana modely ara-tsaina artifisialy (RAG, ChatBot, Fankatoavana endrika sy sary), vahaolana fanolorana ary fanodinana fiteny voajanahary (LangChain, Ollama, OpenAI)."
+          - "Famolavolana sy fametrahana fantsona fitrandrahana angon-drakitra amin'ny tranonkala sy fanamorana ny fizotran'ny asa (Selenium, Selenium Base, N8N)."
+          - "Famolavolana sy fampandrosoana rafitra backend ary famoronana interface fandaharana RESTful (FastAPI, Django, Odoo)."
+          - "Fampidirana rafitra fandoavam-bola toa an'i Stripe."
+      - title: "Mpampianatra mpisolo toerana"
+        company: "Oniversiten'i Fianarantsoa"
+        duration: "2025 - Ankehitriny"
+        details:
+          - "Tompon'andraikitra amin'ny taranja algebra linéaire sy matematika ampiharina amin'ny faharanitan-tsaina artifisialy."
+          - "Famoronana fitaovam-pampianarana."
+          - "Fanombanana ny mpianatra amin'ny alalan'ny fanadinana sy tatitry ny tetikasa."
 
 
+
+########################### Education ##############################
 
 educations:
   en:
@@ -150,72 +218,107 @@ educations:
 skills:
   enable: true
   title: "Skills"
-  showpercent: false
-  skill_1:
-    skill_list:
-      - name: "Python"
-        level: "75%"
+  sections:
+    - title: "Programming Languages"
+      technologies:
+        - name: "Python"
+          icon: "python"
+          color: "3776AB"
+        - name: "JavaScript"
+          icon: "javascript"
+          color: "F7DF1E"
 
-      - name: "JavaScript/NodeJS"
-        level: "40%"
+    - title: "AI, Data Science & Machine Learning"
+      technologies:
+        - name: "PyTorch"
+          icon: "pytorch"
+          color: "EE4C2C"
+        - name: "TensorFlow"
+          icon: "tensorflow"
+          color: "FF6F00"
+        - name: "JAX"
+          svg: '
+              <svg class="w-8 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 260.81"><defs><style>.cls-1{fill:#5e97f6;}.cls-1,.cls-2,.cls-3,.cls-4,.cls-5,.cls-6,.cls-7,.cls-8,.cls-9{stroke:#dce0df;stroke-linejoin:round;}.cls-2{fill:#2a56c6;}.cls-3{fill:#00796b;}.cls-4{fill:#3367d6;}.cls-5{fill:#26a69a;}.cls-6{fill:#9c27b0;}.cls-7{fill:#6a1b9a;}.cls-8{fill:#00695c;}.cls-9{fill:#ea80fc;}</style></defs><title>JAX Light Stroke</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon class="cls-1" points="50.5 130.4 25.5 173.71 75.5 173.71 100.5 130.4 50.5 130.4"/><polygon class="cls-1" points="0.5 217.01 25.5 173.71 75.5 173.71 50.5 217.01 0.5 217.01"/><polygon class="cls-1" points="125.5 173.71 75.5 173.71 50.5 217.01 100.5 217.01 125.5 173.71"/><polygon class="cls-1" points="175.5 173.71 125.5 173.71 100.5 217.01 150.5 217.01 175.5 173.71"/><polygon class="cls-1" points="150.5 130.4 125.5 173.71 175.5 173.71 200.5 130.4 150.5 130.4"/><polygon class="cls-1" points="175.5 87.1 150.5 130.4 200.5 130.4 225.5 87.1 175.5 87.1"/><polygon class="cls-1" points="200.5 43.8 175.5 87.1 225.5 87.1 250.5 43.8 200.5 43.8"/><polygon class="cls-1" points="225.5 0.5 200.5 43.8 250.5 43.8 275.5 0.5 225.5 0.5"/><polygon class="cls-2" points="0.5 217.01 25.5 260.31 75.5 260.31 50.5 217.01 0.5 217.01"/><polygon class="cls-2" points="125.5 260.31 75.5 260.31 50.5 217.01 100.5 217.01 125.5 260.31"/><polygon class="cls-2" points="175.5 260.31 125.5 260.31 100.5 217.01 150.5 217.01 175.5 260.31"/><polygon class="cls-3" points="200.5 217.01 175.5 173.71 150.5 217.01 175.5 260.31 200.5 217.01"/><polygon class="cls-3" points="250.5 130.4 225.5 87.1 200.5 130.4 250.5 130.4"/><polygon class="cls-3" points="250.5 43.8 225.5 87.1 250.5 130.4 275.5 87.1 250.5 43.8"/><polygon class="cls-4" points="125.5 173.71 100.5 130.4 75.5 173.71 125.5 173.71"/><polygon class="cls-5" points="250.5 130.4 200.5 130.4 175.5 173.71 225.5 173.71 250.5 130.4"/><polygon class="cls-5" points="300.5 130.4 250.5 130.4 225.5 173.71 275.5 173.71 300.5 130.4"/><polygon class="cls-6" points="350.5 43.8 325.5 0.5 300.5 43.8 325.5 87.1 350.5 43.8"/><polygon class="cls-6" points="375.5 87.1 350.5 43.8 325.5 87.1 350.5 130.4 375.5 87.1"/><polygon class="cls-6" points="400.5 130.4 375.5 87.1 350.5 130.4 375.5 173.71 400.5 130.4"/><polygon class="cls-6" points="425.5 173.71 400.5 130.4 375.5 173.71 400.5 217.01 425.5 173.71"/><polygon class="cls-6" points="450.5 217.01 425.5 173.71 400.5 217.01 425.5 260.31 450.5 217.01"/><polygon class="cls-6" points="425.5 0.5 400.5 43.8 425.5 87.1 450.5 43.8 425.5 0.5"/><polygon class="cls-6" points="375.5 87.1 400.5 43.8 425.5 87.1 400.5 130.4 375.5 87.1"/><polygon class="cls-6" points="350.5 130.4 325.5 173.71 350.5 217.01 375.5 173.71 350.5 130.4"/><polygon class="cls-6" points="325.5 260.31 300.5 217.01 325.5 173.71 350.5 217.01 325.5 260.31"/><polygon class="cls-7" points="275.5 260.31 250.5 217.01 300.5 217.01 325.5 260.31 275.5 260.31"/><polygon class="cls-8" points="225.5 173.71 175.5 173.71 200.5 217.01 250.5 217.01 225.5 173.71"/><polygon class="cls-8" points="275.5 173.71 225.5 173.71 250.5 217.01 275.5 173.71"/><polygon class="cls-8" points="275.5 87.1 300.5 130.4 350.5 130.4 325.5 87.1 275.5 87.1"/><polygon class="cls-8" points="300.5 43.8 250.5 43.8 275.5 87.1 325.5 87.1 300.5 43.8"/><polygon class="cls-8" points="425.5 260.31 400.5 217.01 350.5 217.01 375.5 260.31 425.5 260.31"/><polygon class="cls-8" points="375.5 173.71 350.5 217.01 400.5 217.01 375.5 173.71"/><polygon class="cls-9" points="325.5 0.5 275.5 0.5 250.5 43.8 300.5 43.8 325.5 0.5"/><polygon class="cls-9" points="325.5 173.71 275.5 173.71 250.5 217.01 300.5 217.01 325.5 173.71"/><polygon class="cls-9" points="350.5 130.4 300.5 130.4 275.5 173.71 325.5 173.71 350.5 130.4"/><polygon class="cls-9" points="425.5 0.5 375.5 0.5 350.5 43.8 400.5 43.8 425.5 0.5"/><polygon class="cls-9" points="375.5 87.1 350.5 43.8 400.5 43.8 375.5 87.1"/></g></g></svg>
+          '
+          color: "00A3E0"
+        - name: "Pandas"
+          icon: "pandas"
+          color: "150458"
+        - name: "Scikit-learn"
+          icon: "scikitlearn"
+          color: "F7931E"
 
-      - name: "HTML/CSS/SASS/Bootstrap"
-        level: "80%"
+    - title: "Backend Frameworks & Runtimes"
+      technologies:
+        - name: "Django"
+          icon: "django"
+          color: "092E20"
+        - name: "Flask"
+          icon: "flask"
+          color: "000000"
+        - name: "FastAPI"
+          icon: "fastapi"
+          color: "009688"
+        - name: "Node.js"
+          icon: "nodedotjs"
+          color: "339933"
+        - name: "Odoo"
+          icon: "odoo"
+          color: "714B67"
 
-  skill_2:
-    skill_list:
-      - name: "Mysql"
-        level: "30%"
+        #    - title: "Frontend Frameworks & Tools"
+        #      technologies:
+        - name: "HTML5"
+          icon: "html5"
+          color: "E34F26"
+        - name: "CSS"
+          icon: "css"
+          color: "1572B6"
+        - name: "Sass"
+          icon: "Sass"
+          color: "CC6699"
+        - name: "Tailwind CSS"
+          icon: "tailwindcss"
+          color: "06B6D4"
+        - name: "Bootstrap"
+          icon: "bootstrap"
+          color: "7952B3"
+        - name: "Vue.js"
+          icon: "vuedotjs"
+          color: "4FC08D"
+        #
+        #    - title: "Automation"
+        #      technologies:
+        - name: "n8n"
+          icon: "n8n"
+          color: "F05A24"
+        - name: "Selenium"
+          icon: "selenium"
+          color: "43B02A"
 
-      - name: "LaTeX"
-        level: "60%"
+    - title: "Databases"
+      technologies:
+        - name: "MySQL"
+          icon: "mysql"
+          color: "4479A1"
+        - name: "PostgreSQL"
+          icon: "postgresql"
+          color: "4169E1"
+        - name: "MongoDB"
+          icon: "mongodb"
+          color: "47A248"
 
-pubtalk:
-  en:
-    title: Publication & Talk
-    enable: true
-    publications:
-      publication_list:
-        - title: Florian Luca and Jean Lucien Randrianantenaina, There Is No Carmichael Number of the Form \(2^np^2+1\) with \(p\) prime, INTEGER, Volume 23 (2023)
-          icon: fa-book
-          link:
+        #    - title: "Containerization"
+        #      technologies:
+        - name: "Docker"
+          icon: "docker"
+          color: "2496ED"
 
-    talks:
-      talk_list:
-        - title: Fermat last theorem, with \(n=4\).
-          info: Presented to AIMS Cameroon students,  2023
-          icon: fa-comment
-          link:
-  fr:
-    title: "Publications et Présentations"
-    enable: true
-    publications:
-      publication_list:
-        - title: "Florian Luca et Jean Lucien Randrianantenaina, Il n'existe pas de nombre de Carmichael de la forme \\(2^np^2+1\\) avec \\(p\\) premier, INTEGER, Volume 23 (2023)"
-          icon: fa-book
-          link:
-
-    talks:
-      talk_list:
-        - title: "Dernier théorème de Fermat, avec \\(n=4\\)."
-          info: "Présenté aux étudiants de l'AIMS Cameroun, 2023"
-          icon: fa-comment
-          link:
-  mg:
-    title: "Famoahana sy Fizarana"
-    enable: true
-    publications:
-      publication_list:
-        - title: "Florian Luca sy Jean Lucien Randrianantenaina, Tsy Misy Isa Carmichael amin'ny Endrika \\(2^np^2+1\\) miaraka amin'ny \\(p\\) isa tsimivaky, INTEGER, Boky 23 (2023)"
-          icon: fa-book
-          link:
-
-    talks:
-      talk_list:
-        - title: "Teôrema farany an'i Fermat, miaraka amin'ny \\(n=4\\)."
-          info: "Naseho tamin'ireo mpianatra AIMS Cameroun, 2023"
-          icon: fa-comment
-          link:
+        #    - title: "Version Control"
+        #      technologies:
+        - name: "Git"
+          icon: "git"
+          color: "F05032"
 
 
 

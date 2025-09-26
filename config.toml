@@ -163,16 +163,24 @@ link = "https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&displa
 # Preloader
 [params.preloader]
     enable = true
-    preloader = "images/preloader.gif" 
+    preloader = "images/preloader.gif"
+
+
+############################# Localisation ########################
+[params.location]
+    icon = "fa-solid fa-location-dot"
+    place = "Fianarantsoa, Madagascar"
 
 ############################# social site ########################
 
 [[params.social]]
 icon = "fab fa-github"
+class = "hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
 link = "https://github.com/Fahazavana"
 
 [[params.social]]
 icon = "fab fa-linkedin"
+class = "hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-400"
 link = "https://linkedin.com/in/jean-lucien-randrianantenaina-82b98622b"
 
 [[params.social]]
@@ -180,5 +188,11 @@ icon = "fab fa-x-twitter"
 link="https://twitter.com/rjlucienaina"
 
 [[params.social]]
-icon = "fas fa-envelope"
+icon = "fa fa-envelope"
+class = "hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400"
 link = "mailto:rjlucienaina@gmail.com"
+
+[[params.social]]
+icon = "fa-brands fa-whatsapp"
+class = "hover:text-green-500 dark:text-gray-400 dark:hover:text-green-300"
+link = "https://wa.me/261345898164"

@@ -6,7 +6,9 @@
 "js/script.js" | minify }}
 <script src="{{ $script.RelPermalink }}"></script>
 {{ "<!-- Particle Scripts -->" | safeHTML }} {{ $script := resources.Get
-"js/particle.js" | minify }}
+"js/waves.js" | minify }}
+
+
 
 <script src="{{ $script.RelPermalink }}"></script>
 {{ $script := resources.Get "js/typing.js" | minify }}
@@ -18,3 +20,14 @@
 	async
 	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 ></script>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WJ25EGXGTC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WJ25EGXGTC');
+</script>

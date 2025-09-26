@@ -1,49 +1,167 @@
-<nav class="bg-gray-100 dark:bg-gray-800 shadow-md py-3 fixed top-0 left-0 right-0 z-50 transition-colors duration-300" id="menu">
-    <div class="container mx-auto flex items-center justify-between flex-wrap px-4">
-      <a class="text-xl font-bold text-gray-900 dark:text-white" href="{{ .Site.BaseURL | relLangURL }}"> JL </a>
-      <button
-        class="text-gray-900 dark:text-white focus:outline-none md:hidden"
-        type="button"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-        onclick="document.getElementById('navbarNav').classList.toggle('hidden'); document.getElementById('navbarNav').classList.toggle('flex');"
-      >
-        <i class="fas fa-bars fa-lg"></i>
-      </button>
-      <div class="hidden w-full md:flex md:items-center md:w-auto" id="navbarNav">
-        <ul class="flex flex-col md:flex-row md:space-x-4 mt-4 md:mt-0">
-          {{ range .Site.Menus.main }}
-          <li class="block md:inline-block">
-            <a class="nav-link py-2 px-3 rounded text-gray-700 hover:bg-gray-200 dark:text-gray-200 dark:hover:bg-gray-700" href="{{ .URL }}">
-              {{ if .Params.icon }}
-                <i class="fa-solid fa-{{ .Params.icon }} mr-1"></i>
-              {{ end }}
-              {{ .Name }}
-            </a>
-          </li>
-          {{ end }}
-  
-          {{/* Language Switcher */}}
-          {{ $currentPage := . }}
-          {{ if $currentPage.IsTranslated }}
-            {{ range $currentPage.Translations }}
-            <li class="block md:inline-block">
-              <a href="{{ .Permalink }}" class="nav-link py-2 px-3 rounded text-gray-700 hover:bg-gray-200 dark:text-gray-200 dark:hover:bg-gray-700">
-                {{ .Language.Lang | upper }}
-              </a>
-            </li>
-            {{ end }}
-          {{ end }}
-  
-          {{/* Theme Switcher Button with icon */}}
-          <li onclick="window.themeToggle()" class="md:inline-block px-2 cursor-pointer nav-link rounded text-gray-700 hover:bg-gray-200 dark:text-gray-200 dark:hover:bg-gray-700 flex items-center space-x-2 select-none">
-            <span >
-              <i id="theme-icon" class="fas fa-sun"></i>
-            </span>
-          </li>
-        </ul>
-      </div>
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-center" aria-label="Main navigation">
+    <div
+            id="navbar"
+            class="bg-card/10 backdrop-blur-sm shadow-xl px-2 flex items-center justify-between rounded-full relative transition-all duration-300 py-2"
+    >
+        <!-- Logo -->
+        <a
+                class="w-10 h-10 flex items-center justify-center rounded-full shadow-lg bg-card text-foreground hover:scale-110 transition-transform duration-200 focus:outline-none font-bold min-w-10"
+                href="{{ .Site.BaseURL | relLangURL }}"
+        >
+            JL
+        </a>
+
+        <!-- Links + Lang switch -->
+        <div class="hidden md:flex items-center space-x-6 px-2 menu-list">
+            <!-- Navigation Links -->
+            <ul class="flex space-x-6 justify-around" aria-label="navigation list">
+                {{ range $i, $e := .Site.Menus.main }}
+                {{ if gt $i 0 }}
+                <li>
+                    <a
+                            class="block whitespace-nowrap px-3 rounded text-foreground hover:bg-muted/20 py-2"
+                            href="{{ $e.URL }}"
+                    >
+                        {{ if $e.Params.icon }}
+                        <i class="fa-solid fa-{{ $e.Params.icon }} mr-1"></i>
+                        {{ end }}
+                        {{ $e.Name }}
+                    </a>
+                </li>
+                {{ end }}
+                {{ end }}
+            </ul>
+
+            <!-- Lang Switch -->
+            <div class="relative">
+                <button
+                        id="lang-switch"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        aria-controls="lang-menu"
+                        class="cursor-pointer w-10 h-10 flex shadow-lg bg-card text-foreground items-center rounded-full justify-center"
+                        title="Select language"
+                >
+                    <i class="fa-solid fa-globe text-sm"></i>
+                </button>
+                <ul
+                        id="lang-menu"
+                        role="menu"
+                        aria-labelledby="lang-switch"
+                        class="absolute hidden mt-2 right-0 w-20 bg-card rounded-lg shadow-lg overflow-hidden"
+                >
+                    {{ $currentPage := . }}
+                    {{ range .Site.Home.AllTranslations }}
+                    <li
+                            class="px-3 py-2 text-foreground hover:bg-muted/20 cursor-pointer transition"
+                            role="menuitem"
+                    >
+                        <a href="{{ .Permalink }}">
+                            {{ .Language.Lang | upper }}
+                        </a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+
+
+
+        </div>
+        <div class="relative md:hidden">
+                <button
+                        id="mobile-toggle"
+                        class="w-10 h-10 flex items-center justify-center rounded-full shadow-lg bg-card text-foreground cursor-pointer"
+                        aria-label="Open mobile menu"
+                >
+                    <i class="md:hidden fas fa-bars"></i>
+                </button>
+            </div>
     </div>
-  </nav>
-  
+</nav>
+
+<!-- Mobile Menu (hidden by default) -->
+<div
+        id="mobile-menu"
+        class="fixed inset-0 bg-black/50 z-[100] hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="mobile-menu-title"
+>
+    <div
+            class="fixed bottom-0 left-0 right-0 bg-card p-6 rounded-t-2xl shadow-lg transform transition-transform duration-300 ease-in-out"
+            onclick="event.stopPropagation()"
+    >
+        <div class="flex justify-between items-center mb-6">
+            <h2 id="mobile-menu-title" class="text-lg font-semibold text-foreground">Menu</h2>
+            <button
+                    id="mobile-close"
+                    class="text-muted hover:text-foreground"
+                    aria-label="Close menu"
+            >
+                <i class="fas fa-times fa-lg"></i>
+            </button>
+        </div>
+
+        <!-- Menu Links -->
+        <nav class="mb-6">
+            <ul class="space-y-2">
+                {{ range $i, $e := .Site.Menus.main }}
+                {{ if gt $i 0 }}
+                <li>
+                    <a
+                            href="{{ $e.URL }}"
+                            class="block w-full text-left text-lg py-3 px-4 rounded-lg text-foreground hover:bg-muted/20"
+                    >
+                        {{ $e.Name }}
+                    </a>
+                </li>
+                {{ end }}
+                {{ end }}
+            </ul>
+        </nav>
+
+        <!-- Language + Theme -->
+        <div class="border-t border-border pt-6 space-y-4">
+            <div>
+                <span class="text-sm font-medium text-muted">Language</span>
+                <div class="mt-2 flex rounded-lg shadow-sm bg-card p-1">
+                    {{ $currentPage := . }}
+                    {{ range .Site.Home.AllTranslations }}
+                    <a
+                            href="{{ .Permalink }}"
+                            class="w-full text-center py-2 rounded-md text-sm font-medium transition-colors
+              {{ if eq .Language.Lang $currentPage.Language.Lang }}
+                bg-card text-primary shadow
+              {{ end }}"
+                    >
+                        {{ .Language.Lang | upper }}
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+
+            <div class="mt-2">
+                <button
+                        id="theme-toggle-2"
+                        class="w-full flex justify-between items-center px-4 py-3 rounded-lg bg-card cursor-pointer"
+                >
+                    <span class="text-foreground">Light</span>
+                    <i id="theme-icon-2" class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Floating Theme Button -->
+<div class="fixed bottom-10 right-10 cursor-pointer z-50">
+    <button
+            id="theme-toggle"
+            class="w-10 h-10 flex items-center justify-center rounded-full shadow-lg bg-card text-foreground hover:scale-110 transition-transform duration-200 focus:outline-none"
+            title="Toggle theme"
+            aria-pressed="false"
+    >
+        <i id="theme-icon" class="fas fa-moon text-sm"></i>
+    </button>
+</div>

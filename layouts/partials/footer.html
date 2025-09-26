@@ -1,19 +1,18 @@
-<footer class="container mx-auto px-4 py-12 md:py-16 relative z-10 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
+<footer class="container mx-auto px-4 py-12 md:py-16 relative z-10 border-t border-border transition-colors duration-300">
 	<div class="flex flex-wrap -mx-4 justify-center">
 		<div class="w-full mb-8">
 			<ul class="flex justify-center space-x-6">
 				{{ range $.Site.Params.social }}
 				<li>
-					<a href="{{ .link | safeURL }}" target="_blank" rel="noreferrer" class="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-300"
+					<a href="{{ .link | safeURL }}" target="_blank" rel="noreferrer" class="text-muted hover:text-foreground transition-colors duration-300"
 						><i class="{{ .icon }} fa-2x"></i
 					></a>
-					<!-- Removed custom footer-icon class, relying on fa-2x and direct styling if needed for bg/padding -->
 				</li>
 				{{end}}
 			</ul>
 		</div>
 		<div class="w-full text-center">
-			<p class="text-gray-600 dark:text-gray-400 text-sm">
+			<p class="text-muted text-sm">
 				{{ T "copyrightText" | safeHTML }}
 				<span id="current-year"></span>
 			</p>
