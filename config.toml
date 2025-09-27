@@ -136,7 +136,7 @@ link = "https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&displa
 	baseURL = 'https://fahazavana.github.io/'
 	title = 'Jean Lucien Randrianantenaina'
 	screenshot="images/og_image.png"
-    description = "Personal Portfolio"
+    description = "Jean Lucien Randrianantenaina is a PhD student in the AI/ML research group within the Computer Science Department at the University of Bath, UK. A dedicated Mathematician and experienced AI/ML Developer, his academic background includes multiple Master of Science degrees, such as an MSc in Machine Learning and Artificial Intelligence from Stellenbosch University. His research interests lie at the intersection of mathematics and computer science (machine learning, deep learning), aiming for efficient and affordable AI models. In addition to his research, he is an experienced back-end developer and a published academic author."
     author = "Jean Lucien Randrianantenaina"
     favicon = "images/favicon_io/android-chrome-192x192.png"
     google_analytics = "GTM-WFHLNFTN"

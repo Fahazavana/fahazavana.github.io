@@ -1,7 +1,7 @@
 <!-- Navbar -->
 
 <!-- Navbar -->
-<nav class="fixed top-0 left-0 right-0 z-50 flex justify-center" aria-label="Main navigation">
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-center container mx-auto" aria-label="Main navigation">
     <div
             id="navbar"
             class="navbar-glass px-3 md:px-4 flex items-center justify-between rounded-none md:rounded-full relative transition-all duration-300 py-2"
@@ -51,7 +51,7 @@
                         id="lang-menu"
                         role="menu"
                         aria-labelledby="lang-switch"
-                        class="absolute hidden mt-2 right-0 w-20 bg-surface rounded-lg shadow-lg overflow-hidden border border-border"
+                        class="absolute hidden mt-2 -left-5 w-20 bg-surface rounded-lg shadow-lg overflow-hidden border border-border"
                 >
                     {{ $currentPage := . }}
                     {{ range .Site.Home.AllTranslations }}
@@ -59,7 +59,7 @@
                             class="px-3 py-2 text-foreground hover:bg-elevated cursor-pointer transition"
                             role="menuitem"
                     >
-                        <a href="{{ .Permalink }}">
+                        <a href="{{ .Permalink }}" class="block">
                             {{ .Language.Lang | upper }}
                         </a>
                     </li>

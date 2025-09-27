@@ -227,6 +227,9 @@ skills:
         - name: "JavaScript"
           icon: "javascript"
           color: "F7DF1E"
+        - name: "TypeScript"
+          icon: "typescript"
+          color: "3178C6"
 
     - title: "AI, Data Science & Machine Learning"
       technologies:

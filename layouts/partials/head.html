@@ -148,19 +148,19 @@
 	<!-- Color scheme hint for user agents -->
 	<meta name="color-scheme" content="light dark" />
 
-	<!-- Resource Hints -->
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-	<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-	<link rel="preconnect" href="https://cdn.simpleicons.org" crossorigin />
+
 	<!-- Font Awesome and other CSS plugins are loaded via params.plugins.css -->
 	{{ "<!-- plugins --> " | safeHTML }}
 	{{ range .Site.Params.plugins.css }}
 	<link rel="stylesheet" href="{{ .link | relURL }}" />
 	{{ end }}
 	{{ partialCached "css.html" . }}
-
+	<!-- Resource Hints -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+	<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+	<link rel="preconnect" href="https://cdn.simpleicons.org" crossorigin />
 	<!-- Web App Manifest -->
 	<link rel="manifest" href="{{ "manifest.webmanifest" | relURL }}" />
 
