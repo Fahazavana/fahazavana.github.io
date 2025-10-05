@@ -5,6 +5,7 @@ hero:
     image: "images/profile.webp"
     alt: "Jean Lucien Randrianantenaina picture"
     occupations:
+      - "PhD Student in Computer Science, U. Bath"
       - "Mathematician"
       - "AI/ML developer"
       - "Python developer"
@@ -14,6 +15,7 @@ hero:
     name: "Jean Lucien Randrianantenaina"
     image: "images/profile.webp"
     occupations:
+      - "Doctorant en Informatique, U. Bath"
       - "Mathématicien"
       - "Développeur Python"
       - "Développeur Web"
@@ -21,6 +23,7 @@ hero:
     name: "Jean Lucien Randrianantenaina"
     image: "images/profile.webp"
     occupations:
+      - "Mpianatra Dokotera momba ny Siansa informatika, U. Bath"
       - "Matematisianina"
       - "Mpamorona AI/ML"
       - "Mpanamboatra rindranasa Python"

@@ -1,59 +1,54 @@
-{{- /* Custom sitemap with multilingual support */ -}}
-{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\"?>" | safeHTML -}}
-{{- $cfg := .Site.Params.sitemap -}}
-{{- $cf := or $cfg.changefreq "weekly" -}}
-{{- $pr := or $cfg.priority 0.5 -}}
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  {{- /* Iterate all sites (languages); fallback to current site if .Sites unavailable */ -}}
-  {{- range .Sites }}
-    <url>
-      <loc>{{ .BaseURL }}</loc>
-      {{- $home := .Home -}}
-      {{- if $home }}
-        <xhtml:link rel="alternate" hreflang="{{ $home.Language.Lang }}" href="{{ $home.Permalink }}" />
-        {{- range $home.Translations }}
-          <xhtml:link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
-        {{- end }}
-      {{- end }}
-      <changefreq>{{ $cf }}</changefreq>
-      <priority>{{ $pr }}</priority>
-    </url>
-    {{- range .RegularPages }}
-    <url>
-      <loc>{{ .Permalink }}</loc>
-      <xhtml:link rel="alternate" hreflang="{{ .Site.Language.Lang }}" href="{{ .Permalink }}" />
-      {{- range .Translations }}
-        <xhtml:link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
-      {{- end }}
-      {{- with .Lastmod }}<lastmod>{{ .Format "2006-01-02T15:04:05Z07:00" }}</lastmod>{{ end }}
-      <changefreq>{{ $cf }}</changefreq>
-      <priority>{{ $pr }}</priority>
-    </url>
-    {{- end }}
-  {{- else }}
-    <url>
-      <loc>{{ .Site.BaseURL }}</loc>
-      {{- $home := .Site.Home -}}
-      {{- if $home }}
-        <xhtml:link rel="alternate" hreflang="{{ $home.Language.Lang }}" href="{{ $home.Permalink }}" />
-        {{- range $home.Translations }}
-          <xhtml:link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
-        {{- end }}
-      {{- end }}
-      <changefreq>{{ $cf }}</changefreq>
-      <priority>{{ $pr }}</priority>
-    </url>
-    {{- range .Site.RegularPages }}
-    <url>
-      <loc>{{ .Permalink }}</loc>
-      <xhtml:link rel="alternate" hreflang="{{ .Site.Language.Lang }}" href="{{ .Permalink }}" />
-      {{- range .Translations }}
-        <xhtml:link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
-      {{- end }}
-      {{- with .Lastmod }}<lastmod>{{ .Format "2006-01-02T15:04:05Z07:00" }}</lastmod>{{ end }}
-      <changefreq>{{ $cf }}</changefreq>
-      <priority>{{ $pr }}</priority>
-    </url>
-    {{- end }}
-  {{- end }}
+{{- printf "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" | safeHTML -}}
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+{{- /* Determine default site and list other languages */ -}}
+{{- $default := .Site -}}
+{{- $origin := "https://fahazavana.github.io" -}}
+
+<url>
+  <loc>{{ printf "%s%s" $origin $default.Home.RelPermalink }}</loc>
+  <lastmod>{{ now.Format "2006-01-02T15:04:05Z07:00" }}</lastmod>
+  <priority>1.00</priority>
+</url>
+{{- range $s := $.Sites -}}
+  {{- if ne $s.Language.Lang $default.Language.Lang -}}
+<url>
+  <loc>{{ printf "%s%s" $origin $s.Home.RelPermalink }}</loc>
+  <lastmod>{{ now.Format "2006-01-02T15:04:05Z07:00" }}</lastmod>
+  <priority>0.80</priority>
+</url>
+  {{- end -}}
+{{- end -}}
+
+{{- /* Try to source CV URL from data; fallback to local static file */ -}}
+{{- $cv := "" -}}
+{{- with .Site.Data.content }}
+  {{- with .about }}
+    {{- if .en }}
+      {{- with .en.button }}{{- $cv = or .link $cv -}}{{- end -}}
+    {{- end -}}
+    {{- if and (not $cv) .fr }}
+      {{- with .fr.button }}{{- $cv = or .link $cv -}}{{- end -}}
+    {{- end -}}
+    {{- if and (not $cv) .mg }}
+      {{- with .mg.button }}{{- $cv = or .link $cv -}}{{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $cv }}
+  {{- /* Hardcode GitHub raw URL for CV as requested */ -}}
+  {{- $cv = "https://raw.githubusercontent.com/Fahazavana/Curriculum_Vitae/main/Jean_Lucien_Randrianantenaina_CV.pdf" -}}
+{{- end -}}
+
+<url>
+  <loc>{{ $cv }}</loc>
+  <lastmod>{{ now.Format "2006-01-02T15:04:05Z07:00" }}</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
 </urlset>
