@@ -3,6 +3,7 @@
   <channel>
     <title>{{ .Site.Title }}</title>
     <link>{{ .Site.BaseURL }}</link>
+    <link>https://rjlucien.cc</link>
     <description>{{ or .Site.Params.description .Site.Title }}</description>
     <generator>Hugo</generator>
     <language>{{ .Site.Language.LanguageCode | default .Site.Language.Lang }}</language>

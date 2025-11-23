@@ -30,6 +30,7 @@
 	{{ with .Site.Params.googleSiteVerification }}
 	<meta name="{{ .name }}" content="{{ .content }}" />{{ end }}
 	<link rel="canonical" href="{{ $url }}" />
+	<link rel="canonical" href="https://rjlucien.cc/"/>
 	{{ if $noindex }}
 	<meta name="robots" content="noindex,nofollow" />{{ else }}
 	<meta name="robots" content="index,follow" />{{ end }}
