@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" class="scroll-smooth">
+  {{- partial "head.html" . -}}
+  <body class="transition-colors duration-300">
+    {{- partial "preloader.html" . -}}
+    {{- block "main" . }}{{- end }}
+    {{- partial "scripts.html" . -}}
+  </body>
+</html>

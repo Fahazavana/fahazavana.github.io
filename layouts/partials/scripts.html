@@ -1,0 +1,26 @@
+{{ "<!-- JS Plugins -->" | safeHTML }}
+{{ range .Site.Params.plugins.js }}
+<script src="{{ .link | relURL }}"></script>
+{{ end }}
+
+{{ "<!-- Main Scripts -->" | safeHTML }}
+{{ $script := resources.Get "js/script.js" | minify }}
+<script src="{{ $script.RelPermalink }}"></script>
+
+{{ "<!-- Particle + Typing -->" | safeHTML }}
+{{ $waves := resources.Get "js/waves.js" | minify }}
+<script src="{{ $waves.RelPermalink }}"></script>
+{{ $typing := resources.Get "js/typing.js" | minify }}
+<script src="{{ $typing.RelPermalink }}"></script>
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WJ25EGXGTC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WJ25EGXGTC');
+</script>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fahazavana.github.io/sitemap.xml
