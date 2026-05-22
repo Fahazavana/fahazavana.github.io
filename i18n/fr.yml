@@ -24,8 +24,14 @@ educationIntro:
   other: "Mon parcours académique entre mathématiques, apprentissage automatique et informatique."
 projectsIntro:
   other: "Une sélection de travaux qui reflètent mes intérêts actuels en recherche et en ingénierie."
+publicationsIntro:
+  other: "Publications et présentations mises en valeur avec des résumés courts et lisibles."
 contactIntro:
   other: "Si vous souhaitez collaborer, discuter de recherche ou simplement échanger, je serai ravi de vous lire."
+readPublication:
+  other: "Lire l'article"
+viewTalk:
+  other: "Voir la présentation"
 currentLabel:
   other: "En cours"
 languageLabel:

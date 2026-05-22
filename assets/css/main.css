@@ -223,6 +223,38 @@ article a:hover {
     min-width: 0;
 }
 
+.education-card {
+    position: relative;
+    padding-top: 1.5rem;
+    padding-right: 4.75rem;
+}
+
+.education-mark {
+    position: absolute;
+    top: 1.1rem;
+    right: 1.1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: .9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .8rem;
+    font-weight: 800;
+    letter-spacing: .04em;
+    color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 10%, var(--elevated));
+    border: 1px solid color-mix(in srgb, var(--primary) 16%, var(--border));
+    box-shadow: 0 8px 18px rgba(79, 70, 229, .08);
+}
+
+.education-mark img {
+    max-width: 1.7rem;
+    max-height: 1.7rem;
+    object-fit: contain;
+    display: block;
+}
+
 .timeline-date {
     display: inline-flex;
     align-items: center;
@@ -348,6 +380,59 @@ article a:hover {
     letter-spacing: .04em;
     text-transform: uppercase;
     padding: .3rem .65rem;
+}
+
+.publication-card {
+    position: relative;
+}
+
+.publication-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: .9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 10%, var(--elevated));
+    border: 1px solid color-mix(in srgb, var(--primary) 16%, var(--border));
+    box-shadow: 0 8px 18px rgba(79, 70, 229, .08);
+    flex-shrink: 0;
+}
+
+.publication-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    font-size: .875rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.publication-link::after {
+    content: "\f35d";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: .75rem;
+}
+
+.publication-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem 1rem;
+    font-size: .9rem;
+    color: var(--muted);
+}
+
+.publication-meta span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.publication-abstract {
+    font-size: .98rem;
+    line-height: 1.75;
+    color: var(--muted);
 }
 
 /* Line clamp utility */

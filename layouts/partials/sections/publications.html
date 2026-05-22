@@ -6,6 +6,7 @@
   <div class="container mx-auto px-4">
     <div class="mb-12 text-center">
       <h2 class="section-title text-3xl font-bold text-foreground">{{ $pubtalk.title }}</h2>
+      <p class="eyebrow-copy">{{ T "publicationsIntro" }}</p>
     </div>
 
     {{ with $pubtalk.publications }}
@@ -13,20 +14,31 @@
       {{ with .title }}
       <h3 class="mb-6 text-center text-2xl font-semibold text-foreground md:text-left">{{ . }}</h3>
       {{ end }}
-      <div class="space-y-6">
-        {{ range .items }}
-        <div class="card reveal flex items-start gap-4 p-6">
-          <i class="fa {{ .icon }} mt-1 fa-lg text-muted" aria-hidden="true"></i>
-          <div>
-            <p class="leading-relaxed text-muted">
-              {{ if .link }}
-              <a href="{{ .link }}" target="_blank" rel="noopener noreferrer">{{ .title | safeHTML }}</a>
-              {{ else }}
-              {{ .title | safeHTML }}
-              {{ end }}
-            </p>
+      <div class="grid gap-5">
+        {{ range $item := .items }}
+        <article class="card publication-card reveal p-6">
+          <div class="card-header mb-4 items-start">
+            <div class="flex items-center gap-3">
+              <span class="publication-icon" aria-hidden="true"><i class="fa {{ $item.icon }}"></i></span>
+              {{ with $item.year }}<span class="project-kicker">{{ . }}</span>{{ end }}
+            </div>
+            {{ with $item.link }}
+            <a class="publication-link" href="{{ . }}" target="_blank" rel="noopener noreferrer">
+              {{ $item.link_label | default (T "readPublication") }}
+            </a>
+            {{ end }}
           </div>
-        </div>
+          <h4 class="text-xl font-semibold text-foreground md:text-2xl">{{ $item.title | markdownify }}</h4>
+          {{ with $item.authors }}
+          <p class="mt-2 text-sm text-muted">{{ . | markdownify }}</p>
+          {{ end }}
+          <div class="publication-meta mt-3">
+            {{ with $item.venue }}<span>{{ . | markdownify }}</span>{{ end }}
+          </div>
+          {{ with $item.abstract }}
+          <p class="publication-abstract mt-4">{{ . | markdownify }}</p>
+          {{ end }}
+        </article>
         {{ end }}
       </div>
     </div>
@@ -37,14 +49,29 @@
       {{ with .title }}
       <h3 class="mb-6 text-center text-2xl font-semibold text-foreground md:text-left">{{ . }}</h3>
       {{ end }}
-      <div class="space-y-6">
-        {{ range .items }}
-        <div class="card reveal flex items-start gap-4 p-6">
-          <i class="fa {{ .icon }} mt-1 fa-lg text-muted" aria-hidden="true"></i>
-          <div>
-            <p class="leading-relaxed text-muted">{{ .title | safeHTML }} {{ .info | markdownify }}</p>
+      <div class="grid gap-5">
+        {{ range $item := .items }}
+        <article class="card publication-card reveal p-6">
+          <div class="card-header mb-4 items-start">
+            <div class="flex items-center gap-3">
+              <span class="publication-icon" aria-hidden="true"><i class="fa {{ $item.icon }}"></i></span>
+              {{ with $item.year }}<span class="project-kicker">{{ . }}</span>{{ end }}
+            </div>
+            {{ with $item.link }}
+            <a class="publication-link" href="{{ . }}" target="_blank" rel="noopener noreferrer">
+              {{ $item.link_label | default (T "viewTalk") }}
+            </a>
+            {{ end }}
           </div>
-        </div>
+          <h4 class="text-xl font-semibold text-foreground md:text-2xl">{{ $item.title | markdownify }}</h4>
+          <div class="publication-meta mt-3">
+            {{ with $item.venue }}<span>{{ . | markdownify }}</span>{{ end }}
+            {{ with $item.info }}<span>{{ . | markdownify }}</span>{{ end }}
+          </div>
+          {{ with $item.abstract }}
+          <p class="publication-abstract mt-4">{{ . | markdownify }}</p>
+          {{ end }}
+        </article>
         {{ end }}
       </div>
     </div>

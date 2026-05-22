@@ -24,8 +24,14 @@ educationIntro:
   other: "My academic path across mathematics, machine learning, and computer science."
 projectsIntro:
   other: "Selected work that reflects my current research and engineering interests."
+publicationsIntro:
+  other: "Research outputs and talks presented through concise, readable summaries."
 contactIntro:
   other: "If you'd like to collaborate, discuss research, or say hello, I'd be glad to hear from you."
+readPublication:
+  other: "Read paper"
+viewTalk:
+  other: "View talk"
 currentLabel:
   other: "Current"
 languageLabel:

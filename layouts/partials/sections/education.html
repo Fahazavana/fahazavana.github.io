@@ -26,11 +26,35 @@
             {{ end }}
           </div>
           <div class="timeline-entry-body">
-            <div class="timeline-card rounded-lg border border-border bg-elevated p-5 leading-relaxed shadow-sm md:p-6">
+            <div class="timeline-card education-card rounded-lg border border-border bg-elevated p-5 leading-relaxed shadow-sm md:p-6">
+              {{ $institutionURL := $e.institution_url }}
+              {{ if $e.logo }}
+                {{ if $institutionURL }}
+                <a class="education-mark" href="{{ $institutionURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $e.institution }}">
+                  <img src="{{ $e.logo | relURL }}" alt="" loading="lazy" decoding="async" />
+                </a>
+                {{ else }}
+                <span class="education-mark" aria-hidden="true">
+                  <img src="{{ $e.logo | relURL }}" alt="" loading="lazy" decoding="async" />
+                </span>
+                {{ end }}
+              {{ else }}
+                {{ with $e.mark }}
+                  {{ if $institutionURL }}
+                  <a class="education-mark" href="{{ $institutionURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $e.institution }}">{{ . }}</a>
+                  {{ else }}
+                  <span class="education-mark" aria-hidden="true">{{ . }}</span>
+                  {{ end }}
+                {{ end }}
+              {{ end }}
               {{ if $e.current }}<span class="project-kicker mb-4">{{ T "currentLabel" }}</span>{{ end }}
               <h3 class="mb-1 text-xl font-semibold md:text-2xl">{{ $e.degree | markdownify }}</h3>
               {{ with $e.institution }}
-              <span class="mb-2 block text-sm text-muted">{{ . | markdownify }}</span>
+                {{ if $institutionURL }}
+                <a class="mb-2 block text-sm text-muted transition-colors hover:text-primary" href="{{ $institutionURL }}" target="_blank" rel="noopener noreferrer">{{ . }}</a>
+                {{ else }}
+                <span class="mb-2 block text-sm text-muted">{{ . }}</span>
+                {{ end }}
               {{ end }}
               {{ with $e.content }}
               <p class="mt-2 text-base text-muted">{{ . | markdownify }}</p>
