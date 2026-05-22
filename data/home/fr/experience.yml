@@ -1,18 +1,16 @@
 enable: true
 title: "Expériences Professionnelles"
 items:
-  - title: "Développeur Backend, AI/ML et Automatisation"
-    company: "ARATO Fianarantsoa"
-    duration: "2025 - Maintenant"
+  - title: "Développeur ML/IA et Backend"
+    company: "Arato, Fianarantsoa, Madagascar"
+    duration: "Janv. 2025 - Sept. 2025"
     details:
-      - "Conception et développement de modèles d’intelligence artificielle (RAG, ChatBot, Reconnaissance Faciale et image), solutions de recommandation et traitement du langage naturel (LangChain, Ollama, OpenAI)."
-      - "Conception et mise en place de pipelines d’extraction de données web et d’automatisation de flux de travail (Selenium, Selenium Base, N8N)."
-      - "Conception et développement de systèmes backend et création d’interfaces de programmation RESTful (FastAPI, Django, Odoo)."
-      - "Intégration de systèmes de paiement tels que Stripe."
+      - "Conception et déploiement de pipelines RAG et de systèmes de chatbot."
+      - "Mise en place de workflows d’automatisation avec Selenium et n8n pour la collecte de données à grande échelle et le support opérationnel."
+      - "Développement de services backend et d’API REST."
   - title: "Enseignant vacataire"
-    company: "Université de Fianarantsoa"
-    duration: "2025 - Maintenant"
+    company: "Université de Fianarantsoa, Madagascar"
+    duration: "Janv. 2025 - Sept. 2025"
     details:
-      - "Responsable des cours d’algèbre linéaire et de mathématiques appliquées à l’intelligence artificielle."
-      - "Création de matériel pédagogique."
-      - "Évaluation des étudiants par des examens et des rapports de projet."
+      - "Dispense de cours d’algèbre linéaire et de mathématiques pour l’IA à des étudiants de licence et de master."
+      - "Préparation des supports de cours, devoirs et évaluations."

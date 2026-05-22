@@ -1,25 +1,21 @@
 {{ $lang := .Site.Language.Lang }}
 {{ $skills := index .Site.Data.home $lang "skills" }}
 
-{{ if and $skills $skills.sections }}
-<section id="skills" class="py-10 transition-colors duration-300">
+{{ if and $skills $skills.items }}
+<section id="skills" class="bg-surface py-10 transition-colors duration-300">
   <div class="container mx-auto px-4">
     <div class="mb-8 text-center">
       <h2 class="section-title text-3xl font-bold text-foreground">{{ $skills.title }}</h2>
     </div>
-    <div class="space-y-4">
-      {{ range $skills.sections }}
-      <div class="flex flex-wrap items-center justify-center gap-3">
-        {{ range .technologies }}
-        <div class="flex items-center gap-2 rounded-lg border border-border bg-surface px-3 py-1 transition-transform hover:scale-105">
-          {{ if .icon }}
-          <img class="h-6 w-6 shrink-0" src="https://cdn.simpleicons.org/{{ .icon }}/{{ .color }}" alt="{{ .name }} logo" />
-          {{ else if .svg }}
-          {{ .svg | safeHTML }}
-          {{ end }}
-          <span class="text-sm text-muted">{{ .name }}</span>
-        </div>
+    <div class="flex flex-wrap items-center justify-center gap-3">
+      {{ range $skills.items }}
+      <div class="flex items-center gap-2 rounded-lg border border-border bg-elevated px-3 py-1 transition-transform hover:scale-105">
+        {{ if .icon }}
+        <img class="h-6 w-6 shrink-0" src="https://cdn.simpleicons.org/{{ .icon }}/{{ .color }}" alt="{{ .name }} logo" />
+        {{ else if .svg }}
+        {{ .svg | safeHTML }}
         {{ end }}
+        <span class="text-sm text-muted">{{ .name }}</span>
       </div>
       {{ end }}
     </div>

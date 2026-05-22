@@ -2,9 +2,8 @@
 {{ $experience := index .Site.Data.home $lang "experience" }}
 
 {{ if and $experience (or (not (isset $experience "enable")) $experience.enable) }}
-<section id="experience">
-  <div class="container mx-auto bg-surface py-12 transition-colors duration-300 md:py-16">
-    <div class="px-4">
+<section id="experience" class="bg-background py-12 transition-colors duration-300 md:py-16">
+  <div class="container mx-auto px-4">
       <div class="mb-12 text-center">
         <h2 class="section-title text-3xl font-bold text-foreground">
           {{ $experience.title | default "Experience" }}
@@ -51,7 +50,6 @@
           {{ end }}
         </ul>
       </div>
-    </div>
   </div>
 </section>
 {{ end }}

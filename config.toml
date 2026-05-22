@@ -131,7 +131,7 @@ disableKinds = ["taxonomy", "term"]
   logo_dark = "images/favicon_io/android-chrome-192x192.png"
   copyright = "Jean Lucien Randrianantenaina ©"
   screenshot = "images/og_image.png"
-  description = "Jean Lucien Randrianantenaina is a PhD student in the AI/ML research group within the Computer Science Department at the University of Bath, UK. A dedicated mathematician and experienced AI/ML developer, his research sits at the intersection of mathematics and computer science."
+  description = "Jean Lucien Randrianantenaina is a PhD student in Computer Science at the University of Bath and an ML/AI and backend developer with a strong background in mathematics."
   author = "Jean Lucien Randrianantenaina"
   favicon = "images/favicon_io/android-chrome-192x192.png"
   twitter = "rjlucienaina"
@@ -159,29 +159,34 @@ disableKinds = ["taxonomy", "term"]
     link = "https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap"
 
   [[params.social]]
+    icon = "fab fa-linkedin"
+    class = "text-muted hover:text-primary"
+    link = "https://www.linkedin.com/in/rj-lucien/"
+    label = "LinkedIn"
+
+  [[params.social]]
     icon = "fab fa-github"
     class = "text-muted hover:text-primary"
     link = "https://github.com/Fahazavana"
-
-  [[params.social]]
-    icon = "fab fa-linkedin"
-    class = "text-muted hover:text-primary"
-    link = "https://linkedin.com/in/jean-lucien-randrianantenaina-82b98622b"
-
-  [[params.social]]
-    icon = "fab fa-x-twitter"
-    class = "text-muted hover:text-primary"
-    link = "https://twitter.com/rjlucienaina"
+    label = "GitHub"
 
   [[params.social]]
     icon = "fa fa-envelope"
     class = "text-muted hover:text-primary"
     link = "mailto:rjlucienaina@gmail.com"
+    label = "Email"
 
   [[params.social]]
-    icon = "fa-brands fa-whatsapp"
+    icon = "fa-solid fa-phone"
     class = "text-muted hover:text-primary"
-    link = "https://wa.me/261345898164"
+    link = "tel:+447380665442"
+    label = "Phone"
+
+  [[params.social]]
+    icon = "fa-solid fa-globe"
+    class = "text-muted hover:text-primary"
+    link = "https://fahazavana.github.io"
+    label = "Portfolio"
 
 [sitemap]
   changefreq = "weekly"

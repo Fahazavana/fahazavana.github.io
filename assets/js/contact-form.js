@@ -35,36 +35,75 @@
   };
 
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const nameRequiredMessage = contactForm.dataset.nameRequired || "Please enter your name.";
+  const emailInvalidMessage = contactForm.dataset.emailInvalid || "Please enter a valid email address.";
+  const messageRequiredMessage = contactForm.dataset.messageRequired || "Please enter a message.";
+
+  const setFieldError = (input, message) => {
+    if (!input) return;
+
+    const errorElement = document.getElementById(`${input.id}-error`);
+    input.classList.add("border-red-500");
+    input.setAttribute("aria-invalid", "true");
+
+    if (errorElement) {
+      errorElement.textContent = message;
+      errorElement.classList.remove("hidden");
+    }
+  };
+
+  const clearFieldError = (input) => {
+    if (!input) return;
+
+    const errorElement = document.getElementById(`${input.id}-error`);
+    input.classList.remove("border-red-500");
+    input.removeAttribute("aria-invalid");
+
+    if (errorElement) {
+      errorElement.textContent = "";
+      errorElement.classList.add("hidden");
+    }
+  };
 
   const validateContactForm = (nameInput, emailInput, messageInput) => {
     let isValid = true;
+    let firstInvalidInput = null;
 
     [nameInput, emailInput, messageInput].forEach((input) => {
-      if (input) input.classList.remove("border-red-500");
+      clearFieldError(input);
     });
 
     if (!nameInput?.value.trim()) {
-      nameInput.classList.add("border-red-500");
+      setFieldError(nameInput, nameRequiredMessage);
+      firstInvalidInput ||= nameInput;
       isValid = false;
     }
 
     if (!emailInput?.value.trim() || !isValidEmail(emailInput.value.trim())) {
-      emailInput.classList.add("border-red-500");
+      setFieldError(emailInput, emailInvalidMessage);
+      firstInvalidInput ||= emailInput;
       isValid = false;
     }
 
     if (!messageInput?.value.trim()) {
-      messageInput.classList.add("border-red-500");
+      setFieldError(messageInput, messageRequiredMessage);
+      firstInvalidInput ||= messageInput;
       isValid = false;
     }
 
-    return isValid;
+    return { isValid, firstInvalidInput };
   };
 
   modalCloseButton?.addEventListener("click", hideModal);
   modal?.addEventListener("click", (event) => {
     if (event.target === modal) hideModal();
   });
+
+  [contactForm.querySelector("input[type='text']"), contactForm.querySelector("input[type='email']"), contactForm.querySelector("textarea")]
+    .filter(Boolean)
+    .forEach((input) => {
+      input.addEventListener("input", () => clearFieldError(input));
+    });
 
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -73,13 +112,20 @@
     const emailInput = contactForm.querySelector("input[type='email']");
     const messageInput = contactForm.querySelector("textarea");
 
-    if (!validateContactForm(nameInput, emailInput, messageInput)) {
+    const { isValid, firstInvalidInput } = validateContactForm(nameInput, emailInput, messageInput);
+    if (!isValid) {
+      firstInvalidInput?.focus();
       return;
     }
 
     const formAction = contactForm.dataset.formAction;
     const successMessage = contactForm.dataset.successMessage || "Thank you, your message has been sent!";
     const errorMessage = contactForm.dataset.errorMessage || "Sorry! Something went wrong.";
+
+    if (!formAction) {
+      showModal(errorMessage);
+      return;
+    }
 
     submitButton.disabled = true;
     if (submitIcon) {
@@ -95,6 +141,7 @@
       .then(() => {
         showModal(successMessage);
         contactForm.reset();
+        [nameInput, emailInput, messageInput].forEach((input) => clearFieldError(input));
       })
       .catch(() => {
         showModal(errorMessage);

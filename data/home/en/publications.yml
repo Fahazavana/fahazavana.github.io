@@ -3,12 +3,12 @@ enable: true
 publications:
   title: "Publications"
   items:
-    - title: "Florian Luca and Jean Lucien Randrianantenaina, There Is No Carmichael Number of the Form \\(2^np^2+1\\) with \\(p\\) prime, INTEGER, Volume 23 (2023)"
+    - title: "Florian Luca and Jean Lucien Randrianantenaina, There Is No Carmichael Number of the Form \\(2^np^2+1\\), INTEGER, Volume 23 (2023)"
       icon: "fa-book"
       link: "https://math.colgate.edu/~integers/x51/x51.pdf"
 talks:
   title: "Talks"
   items:
-    - title: "Fermat last theorem, with \\(n=4\\)."
-      info: "Presented to AIMS Cameroon students, 2023"
+    - title: "Fermat's Last Theorem, with \\(n=4\\)."
+      info: "Talk at AIMS Cameroon, 2023"
       icon: "fa-comment"

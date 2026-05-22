@@ -32,6 +32,12 @@ formMessageLabel:
   other: "Ny hafatrao"
 formMessagePlaceholder:
   other: "Ahoana no ahafahako manampy anao?"
+formNameRequired:
+  other: "Ampidiro azafady ny anaranao."
+formEmailInvalid:
+  other: "Ampidiro azafady ny adiresy mailaka manan-kery."
+formMessageRequired:
+  other: "Ampidiro azafady ny hafatrao."
 formSendButton:
   other: "Alefaso"
 notificationTitle:

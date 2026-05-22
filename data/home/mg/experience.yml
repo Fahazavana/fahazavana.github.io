@@ -1,18 +1,16 @@
 enable: true
 title: "Traikefa arak'asa"
 items:
-  - title: "Mpamolavola Backend, AI/ML ary Automation"
-    company: "ARATO Fianarantsoa"
-    duration: "2025 - Ankehitriny"
+  - title: "Mpamorona ML/AI sy Backend"
+    company: "Arato, Fianarantsoa, Madagasikara"
+    duration: "Janoary 2025 - Septambra 2025"
     details:
-      - "Famolavolana sy fampandrosoana modely ara-tsaina artifisialy (RAG, ChatBot, Fankatoavana endrika sy sary), vahaolana fanolorana ary fanodinana fiteny voajanahary (LangChain, Ollama, OpenAI)."
-      - "Famolavolana sy fametrahana fantsona fitrandrahana angon-drakitra amin'ny tranonkala sy fanamorana ny fizotran'ny asa (Selenium, Selenium Base, N8N)."
-      - "Famolavolana sy fampandrosoana rafitra backend ary famoronana interface fandaharana RESTful (FastAPI, Django, Odoo)."
-      - "Fampidirana rafitra fandoavam-bola toa an'i Stripe."
+      - "Namolavola sy nametraka pipelines RAG ary rafitra chatbot."
+      - "Nanangana workflows automatique tamin'ny Selenium sy n8n ho an'ny fanangonana angona lehibe sy fanohanana ny asa andavanandro."
+      - "Namorona backend services sy REST API."
   - title: "Mpampianatra mpisolo toerana"
-    company: "Oniversiten'i Fianarantsoa"
-    duration: "2025 - Ankehitriny"
+    company: "Oniversiten'i Fianarantsoa, Madagasikara"
+    duration: "Janoary 2025 - Septambra 2025"
     details:
-      - "Tompon'andraikitra amin'ny taranja algebra linéaire sy matematika ampiharina amin'ny faharanitan-tsaina artifisialy."
-      - "Famoronana fitaovam-pampianarana."
-      - "Fanombanana ny mpianatra amin'ny alalan'ny fanadinana sy tatitry ny tetikasa."
+      - "Nampianatra Algebra Linear sy Matematika ho an'ny AI ho an'ny mpianatra licence sy master."
+      - "Nanomana lesona, asa homena ary fanombanana."

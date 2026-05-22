@@ -3,12 +3,12 @@ enable: true
 publications:
   title: "Publications"
   items:
-    - title: "Florian Luca et Jean Lucien Randrianantenaina, Il n'existe pas de nombre de Carmichael de la forme \\(2^np^2+1\\) avec \\(p\\) premier, INTEGER, Volume 23 (2023)"
+    - title: "Florian Luca et Jean Lucien Randrianantenaina, Il n'existe pas de nombre de Carmichael de la forme \\(2^np^2+1\\), INTEGER, Volume 23 (2023)"
       icon: "fa-book"
       link: "https://math.colgate.edu/~integers/x51/x51.pdf"
 talks:
   title: "Présentations"
   items:
     - title: "Dernier théorème de Fermat, avec \\(n=4\\)."
-      info: "Présenté aux étudiants de l'AIMS Cameroun, 2023"
+      info: "Présentation à l'AIMS Cameroun, 2023"
       icon: "fa-comment"

@@ -32,6 +32,12 @@ formMessageLabel:
   other: "Your message"
 formMessagePlaceholder:
   other: "How can I help you?"
+formNameRequired:
+  other: "Please enter your name."
+formEmailInvalid:
+  other: "Please enter a valid email address."
+formMessageRequired:
+  other: "Please enter your message."
 formSendButton:
   other: "Send"
 notificationTitle:

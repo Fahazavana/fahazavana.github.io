@@ -44,14 +44,22 @@
   }
 
   const sections = Array.from(document.querySelectorAll("header[id], section[id]"));
-  const navLinks = Array.from(document.querySelectorAll('a.nav-link[href^="#"]'));
+  const getHashTarget = (href) => {
+    if (!href) return "";
+
+    try {
+      const url = new URL(href, window.location.origin);
+      return url.hash.replace(/^#/, "");
+    } catch {
+      return href.startsWith("#") ? href.replace(/^#/, "") : "";
+    }
+  };
+  const navLinks = Array.from(document.querySelectorAll("a.nav-link")).filter((link) => getHashTarget(link.getAttribute("href")));
 
   const setActiveLink = (id) => {
     navLinks.forEach((link) => {
-      const href = link.getAttribute("href");
-      if (!href) return;
-
-      const target = href.replace("#", "");
+      const target = getHashTarget(link.getAttribute("href"));
+      if (!target) return;
       const isActive = target === id;
       link.classList.toggle("active", isActive);
 

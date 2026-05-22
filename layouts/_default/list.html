@@ -10,10 +10,11 @@
 
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {{ range .Pages }}
+        {{ $page := . }}
         <a href="{{ .RelPermalink }}" class="block group">
           <div class="card overflow-hidden h-full">
-            {{ with .Params.image }}
-              <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-44 object-cover"/>
+            {{ with $page.Params.image }}
+              <img src="{{ . }}" alt="{{ $page.Title }}" class="w-full h-44 object-cover"/>
             {{ end }}
             <div class="p-5">
               <h2 class="text-xl font-semibold text-foreground group-hover:text-primary">{{ .Title }}</h2>

@@ -2,8 +2,8 @@
 {{ $education := index .Site.Data.home $lang "education" }}
 
 {{ if and $education (or (not (isset $education "enable")) $education.enable) }}
-<section id="education" class="container mx-auto w-full bg-surface py-12 transition-colors duration-300 md:py-16">
-  <div class="px-4">
+<section id="education" class="bg-surface py-12 transition-colors duration-300 md:py-16">
+  <div class="container mx-auto px-4">
     <div class="mb-12 text-center">
       <h2 class="section-title text-3xl font-bold text-foreground">
         {{ $education.title | default "Education" }}

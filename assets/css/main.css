@@ -116,7 +116,6 @@ a {
 
 a:hover {
     color: var(--primary-hover);
-    text-decoration: underline;
 }
 
 .text-muted a,
@@ -151,15 +150,6 @@ article a:hover {
 .btn-primary:focus-visible {
     outline: 2px solid var(--primary-hover);
     outline-offset: 2px;
-}
-
-/* Zebra background for top-level sections */
-body > section:nth-of-type(odd) {
-    background-color: var(--surface);
-}
-
-body > section:nth-of-type(even) {
-    background-color: var(--bg);
 }
 
 /* Timeline styles */
@@ -521,4 +511,3 @@ body > section:nth-of-type(even) {
     border-right: 1px solid var(--border);
     box-shadow: 0 -6px 20px rgba(2, 6, 23, .08);
 }
-
