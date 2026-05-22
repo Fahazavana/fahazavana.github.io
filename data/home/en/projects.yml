@@ -1,0 +1,71 @@
+enable: true
+title: "Projects"
+items:
+  - name: "N-Gram LMs and BPE"
+    description: "From-scratch implementation with Python of a character-level trigram language model for language identification and Byte-Pair Encoding for language similarity analysis."
+    url: "https://github.com/Fahazavana/NGramLMs_BPE"
+    stack:
+      - name: "Python"
+        icon: "python"
+        color: "3776AB"
+
+  - name: "Mk-Forum"
+    description: "Creation of a forum dedicated to Mathematics with HTML, CSS/Bootstrap, JS for the Front-end and Python3/Django, MySQL for the Back-End."
+    url: "https://github.com/Fahazavana/MK-Forum"
+    stack:
+      - name: "HTML5"
+        icon: "html5"
+        color: "E34F26"
+      - name: "CSS"
+        icon: "css"
+        color: "1572B6"
+      - name: "Bootstrap"
+        icon: "bootstrap"
+        color: "7952B3"
+      - name: "JavaScript"
+        icon: "javascript"
+        color: "F7DF1E"
+      - name: "Django"
+        icon: "django"
+        color: "092E20"
+      - name: "MySQL"
+        icon: "mysql"
+        color: "4479A1"
+
+  - name: "FCryptos"
+    description: "Implementation of cryptography methods with Python (console): Shift cipher, Vigenere cipher, SPN, RSA, and Enigma machine."
+    url: "https://github.com/Fahazavana/FCryptos"
+    stack:
+      - name: "Python"
+        icon: "python"
+        color: "3776AB"
+
+  - name: "Pendu Malagasy"
+    description: "A Malagasy version of the Hangman game built with Python/Tkinter."
+    url: "https://github.com/Fahazavana/Pendu_Malagasy"
+    stack:
+      - name: "Python"
+        icon: "python"
+        color: "3776AB"
+
+  - name: "Unbeatable TicTacToe"
+    description: "Tic-Tac-Toe created with HTML, CSS and JavaScript, featuring an automated player that combines random placement and the minimax algorithm."
+    url: "https://github.com/Fahazavana/SAYNA-JAVASCRIPT-MORPION-042022"
+    stack:
+      - name: "HTML5"
+        icon: "html5"
+        color: "E34F26"
+      - name: "CSS"
+        icon: "css"
+        color: "1572B6"
+      - name: "JavaScript"
+        icon: "javascript"
+        color: "F7DF1E"
+
+  - name: "Bellman-Kalaba"
+    description: "A graphical interface for the Bellman-Kalaba shortest-path algorithm made with Python3/Tkinter."
+    url: "https://github.com/Fahazavana/Bellma-Kalaba"
+    stack:
+      - name: "Python"
+        icon: "python"
+        color: "3776AB"

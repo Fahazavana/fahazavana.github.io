@@ -1,0 +1,66 @@
+{{ with .Site.Data.home.contact }}
+{{ if .enable }}
+<section id="contact" class="bg-surface py-12 transition-colors duration-300 md:py-16">
+  <div class="container mx-auto px-4">
+    <div class="mx-auto max-w-xl">
+      <div class="mb-8 text-center">
+        <h2 class="section-title text-3xl font-bold text-foreground">{{ T "contactMe" }}</h2>
+      </div>
+      <div class="card p-6">
+        <form
+          id="contactform"
+          method="post"
+          class="space-y-5"
+          novalidate
+          data-form-action="{{ .form_action }}"
+          data-success-message="{{ T "contactFormSuccess" }}"
+          data-error-message="{{ T "contactFormError" }}"
+        >
+          <div>
+            <label for="{{ .fields.name }}" class="block text-left text-sm font-medium text-muted">{{ T "formNameLabel" }}</label>
+            <input
+              type="text"
+              name="{{ .fields.name }}"
+              id="{{ .fields.name }}"
+              required
+              placeholder='{{ T "formNamePlaceholder" }}'
+              class="mt-1 block w-full rounded-md border border-border bg-elevated px-3 py-2 text-foreground placeholder:text-[color:var(--muted)] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm"
+            />
+          </div>
+
+          <div>
+            <label for="{{ .fields.email }}" class="block text-left text-sm font-medium text-muted">{{ T "formEmailLabel" }}</label>
+            <input
+              type="email"
+              name="{{ .fields.email }}"
+              id="{{ .fields.email }}"
+              required
+              placeholder='{{ T "formEmailPlaceholder" }}'
+              class="mt-1 block w-full rounded-md border border-border bg-elevated px-3 py-2 text-foreground placeholder:text-[color:var(--muted)] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm"
+            />
+          </div>
+
+          <div>
+            <label for="{{ .fields.message }}" class="block text-left text-sm font-medium text-muted">{{ T "formMessageLabel" }}</label>
+            <textarea
+              name="{{ .fields.message }}"
+              id="{{ .fields.message }}"
+              rows="5"
+              required
+              placeholder='{{ T "formMessagePlaceholder" }}'
+              class="mt-1 block w-full rounded-md border border-border bg-elevated px-3 py-2 text-foreground placeholder:text-[color:var(--muted)] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm"
+            ></textarea>
+          </div>
+
+          <div class="text-center">
+            <button id="send-msg" type="submit" class="btn btn-primary px-6 py-3">
+              {{ T "formSendButton" }} <i class="fas fa-paper-plane ml-2" id="send-icon" aria-hidden="true"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}

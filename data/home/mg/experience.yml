@@ -1,0 +1,18 @@
+enable: true
+title: "Traikefa arak'asa"
+items:
+  - title: "Mpamolavola Backend, AI/ML ary Automation"
+    company: "ARATO Fianarantsoa"
+    duration: "2025 - Ankehitriny"
+    details:
+      - "Famolavolana sy fampandrosoana modely ara-tsaina artifisialy (RAG, ChatBot, Fankatoavana endrika sy sary), vahaolana fanolorana ary fanodinana fiteny voajanahary (LangChain, Ollama, OpenAI)."
+      - "Famolavolana sy fametrahana fantsona fitrandrahana angon-drakitra amin'ny tranonkala sy fanamorana ny fizotran'ny asa (Selenium, Selenium Base, N8N)."
+      - "Famolavolana sy fampandrosoana rafitra backend ary famoronana interface fandaharana RESTful (FastAPI, Django, Odoo)."
+      - "Fampidirana rafitra fandoavam-bola toa an'i Stripe."
+  - title: "Mpampianatra mpisolo toerana"
+    company: "Oniversiten'i Fianarantsoa"
+    duration: "2025 - Ankehitriny"
+    details:
+      - "Tompon'andraikitra amin'ny taranja algebra linéaire sy matematika ampiharina amin'ny faharanitan-tsaina artifisialy."
+      - "Famoronana fitaovam-pampianarana."
+      - "Fanombanana ny mpianatra amin'ny alalan'ny fanadinana sy tatitry ny tetikasa."

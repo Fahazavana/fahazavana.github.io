@@ -4,7 +4,6 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @source "hugo_stats.json";
 
-.root,
 :root {
     /* Neutrals */
     --bg: #ffffff;
@@ -63,6 +62,50 @@
 body {
     background-color: var(--bg);
     color: var(--text);
+}
+
+.content-body > * + * {
+    margin-top: 1rem;
+}
+
+.content-body h2,
+.content-body h3,
+.content-body h4 {
+    color: var(--text);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 2rem;
+}
+
+.content-body h2 {
+    font-size: 1.75rem;
+}
+
+.content-body h3 {
+    font-size: 1.4rem;
+}
+
+.content-body ul,
+.content-body ol {
+    padding-left: 1.25rem;
+}
+
+.content-body li + li {
+    margin-top: .4rem;
+}
+
+.content-body blockquote {
+    border-left: 3px solid var(--primary);
+    padding-left: 1rem;
+    color: var(--muted);
+}
+
+.content-body pre {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    padding: 1rem;
 }
 
 /* Links */
@@ -478,5 +521,4 @@ body > section:nth-of-type(even) {
     border-right: 1px solid var(--border);
     box-shadow: 0 -6px 20px rgba(2, 6, 23, .08);
 }
-
 

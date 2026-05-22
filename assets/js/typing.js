@@ -37,16 +37,26 @@ function waitForMs(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-window.onload = () => {
-	const datas = document.getElementById("typing-data"),
-		children = Array.from(datas.children),
-		display = "typing-text";
-	textArray = Array.from(children, (element) => element.innerText);
+document.addEventListener("DOMContentLoaded", () => {
+	const datas = document.getElementById("typing-data");
+	const display = document.getElementById("typing-text");
 
-	const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-	if (reduce) {
-		document.getElementById(display).textContent = textArray[0] || '';
+	if (!datas || !display) {
 		return;
 	}
-	typingTextEffect(textArray, display);
-};
+
+	const children = Array.from(datas.children);
+	const textArray = Array.from(children, (element) => element.innerText).filter(Boolean);
+
+	if (!textArray.length) {
+		return;
+	}
+
+	const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+	if (reduce) {
+		display.textContent = textArray[0] || "";
+		return;
+	}
+
+	typingTextEffect(textArray, "typing-text");
+});

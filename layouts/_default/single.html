@@ -5,14 +5,14 @@
     <div class="container mx-auto px-4 max-w-3xl">
       <header class="mb-6">
         <h1 class="text-3xl font-bold text-foreground">{{ .Title }}</h1>
-        <p class="text-sm text-muted mt-1">Posted on {{ .Date.Format "Jan 2, 2006" }}</p>
+        <p class="text-sm text-muted mt-1">{{ T "postedOn" }} {{ .Date.Format "Jan 2, 2006" }}</p>
       </header>
 
       {{ with .Params.image }}
       <img src="{{ . }}" alt="{{ $.Title }}" class="w-full rounded-xl border border-border shadow-sm mb-6"/>
       {{ end }}
 
-      <article class="text-foreground leading-relaxed space-y-4">
+      <article class="content-body text-foreground leading-relaxed">
         {{ .Content }}
       </article>
     </div>

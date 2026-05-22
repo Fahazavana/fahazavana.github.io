@@ -1,0 +1,49 @@
+{{ $lang := .Site.Language.Lang }}
+{{ $education := index .Site.Data.home $lang "education" }}
+
+{{ if and $education (or (not (isset $education "enable")) $education.enable) }}
+<section id="education" class="container mx-auto w-full bg-surface py-12 transition-colors duration-300 md:py-16">
+  <div class="px-4">
+    <div class="mb-12 text-center">
+      <h2 class="section-title text-3xl font-bold text-foreground">
+        {{ $education.title | default "Education" }}
+      </h2>
+    </div>
+
+    <div class="timeline relative mx-auto w-full">
+      <div class="timeline-line"></div>
+
+      <ul class="space-y-10 border-l border-border px-3 md:space-y-12 md:border-0">
+        {{ range $i, $e := $education.items }}
+        {{ $isEven := eq (mod $i 2) 0 }}
+        <li class="reveal relative md:flex md:items-start md:justify-between">
+          <span class="timeline-dot absolute -left-[19px] top-2 h-3 w-3 rounded-full border-none bg-primary ring-4 ring-border md:left-1/2 md:-translate-x-1/2"></span>
+
+          <div class="w-full md:relative md:w-6/12 {{ if $isEven }}md:mr-auto md:pr-12 md:text-right{{ else }}md:ml-auto md:pl-12{{ end }}">
+            {{ if $isEven }}
+            <span class="timeline-connector absolute right-2.5 hidden md:block"></span>
+            {{ else }}
+            <span class="timeline-connector absolute left-2.5 hidden md:block"></span>
+            {{ end }}
+            {{ with $e.duration }}
+            <div class="mb-2 block rounded-full border border-border bg-surface px-2 py-1 text-xs text-muted md:text-sm">
+              {{ . | markdownify }}
+            </div>
+            {{ end }}
+            <div class="timeline-card mt-2 rounded-lg border border-border bg-elevated p-6 leading-relaxed shadow-sm">
+              <h3 class="mb-1 text-xl font-semibold md:text-2xl">{{ $e.degree | markdownify }}</h3>
+              {{ with $e.institution }}
+              <span class="mb-2 block text-sm text-muted">{{ . | markdownify }}</span>
+              {{ end }}
+              {{ with $e.content }}
+              <p class="mt-2 text-base text-muted">{{ . | markdownify }}</p>
+              {{ end }}
+            </div>
+          </div>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+</section>
+{{ end }}

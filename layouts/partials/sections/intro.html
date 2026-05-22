@@ -1,0 +1,68 @@
+{{ $lang := .Site.Language.Lang }}
+{{ $intro := index .Site.Data.home $lang "intro" }}
+
+<header id="home" class="relative flex min-h-[78vh] items-center py-20 pt-32 md:pt-24">
+  <canvas id="particle" class="absolute inset-0 z-0 hidden h-full w-full md:block" aria-hidden="true"></canvas>
+
+  <div class="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 items-center gap-10 md:grid-cols-[1.2fr_.8fr] md:gap-8">
+      <div class="order-2 flex flex-col space-y-5 text-center md:order-1 md:text-left">
+        <div>
+          <h1 class="mb-2 text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
+            {{ $intro.name | markdownify | emojify }}
+          </h1>
+          <strong class="flex h-8 items-center justify-center text-base text-muted sm:text-lg md:justify-start md:text-xl">
+            <span id="typing-text" class="typing-text inline-block max-w-full overflow-hidden whitespace-nowrap"></span>
+          </strong>
+          <div id="typing-data" class="hidden">
+            {{ range $intro.occupations }}
+            <span>{{ . }}</span>
+            {{ end }}
+          </div>
+        </div>
+
+        <p class="mx-auto max-w-2xl text-sm leading-relaxed text-muted sm:text-base md:mx-0 md:text-lg">
+          {{ $intro.intro | markdownify | emojify }}
+        </p>
+
+        {{ with $intro.resume }}
+        {{ if .enable }}
+        <div>
+          <a
+            href="{{ .link }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            download="Jean_Lucien_Randrianantenaina_CV_{{ $lang }}.pdf"
+            class="btn btn-primary w-full sm:w-auto"
+          >
+            {{ .label | markdownify }}
+            <i class="fa {{ .icon }} ml-2"></i>
+          </a>
+        </div>
+        {{ end }}
+        {{ end }}
+      </div>
+
+      <div class="order-1 flex flex-col items-center justify-center gap-5 md:order-2">
+        <img
+          class="mx-auto w-36 max-w-full rounded-full border-2 border-border object-cover shadow-lg sm:w-40 md:w-48"
+          src="{{ $intro.image | relURL }}"
+          alt="{{ $intro.alt }}"
+        />
+
+        <div class="text-center">
+          <div class="mb-4 text-muted">
+            <i class="{{ .Site.Params.location.icon }} mr-2 text-primary" aria-hidden="true"></i>
+            <span>{{ $intro.location }}</span>
+          </div>
+          {{ partial "social-links.html" (dict
+            "social" .Site.Params.social
+            "listClass" "flex items-center justify-center gap-6"
+            "linkClass" "transition-colors duration-300 ease-in-out transform hover:scale-110 text-muted hover:text-primary"
+            "iconClass" "fa-2x"
+          ) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

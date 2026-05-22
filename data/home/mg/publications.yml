@@ -1,0 +1,14 @@
+title: "Famoahana sy Fizarana"
+enable: true
+publications:
+  title: "Famoahana"
+  items:
+    - title: "Florian Luca sy Jean Lucien Randrianantenaina, Tsy Misy Isa Carmichael amin'ny Endrika \\(2^np^2+1\\) miaraka amin'ny \\(p\\) isa tsimivaky, INTEGER, Boky 23 (2023)"
+      icon: "fa-book"
+      link: "https://math.colgate.edu/~integers/x51/x51.pdf"
+talks:
+  title: "Fizarana"
+  items:
+    - title: "Teôrema farany an'i Fermat, miaraka amin'ny \\(n=4\\)."
+      info: "Naseho tamin'ireo mpianatra AIMS Cameroun, 2023"
+      icon: "fa-comment"

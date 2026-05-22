@@ -5,6 +5,7 @@
     <div class="container mx-auto px-4">
       <header class="text-center mb-10">
         <h1 class="text-3xl font-bold text-foreground">{{ .Title }}</h1>
+        {{ with .Content }}<div class="mx-auto mt-3 max-w-2xl text-muted">{{ . }}</div>{{ end }}
       </header>
 
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -16,7 +17,7 @@
             {{ end }}
             <div class="p-5">
               <h2 class="text-xl font-semibold text-foreground group-hover:text-primary">{{ .Title }}</h2>
-              <p class="text-xs text-muted mt-1">{{ .Date.Format "Jan 2, 2006" }}</p>
+              <p class="text-xs text-muted mt-1">{{ T "postedOn" }} {{ .Date.Format "Jan 2, 2006" }}</p>
               {{ with .Description }}
                 <p class="text-muted mt-3 leading-relaxed">{{ . }}</p>
               {{ end }}
@@ -25,6 +26,12 @@
         </a>
         {{ end }}
       </div>
+
+      {{ if eq (len .Pages) 0 }}
+      <div class="card mx-auto mt-10 max-w-2xl p-6 text-center text-muted">
+        {{ T "blogEmptyState" }}
+      </div>
+      {{ end }}
     </div>
   </section>
 

@@ -1,0 +1,16 @@
+name: "Jean Lucien Randrianantenaina"
+image: "images/profile.webp"
+alt: "Jean Lucien Randrianantenaina portrait"
+occupations:
+  - "PhD Student in Computer Science, U. Bath"
+  - "Mathematician"
+  - "AI/ML developer"
+  - "Python developer"
+  - "Web developer"
+intro: "Hi, thank you for taking a look around my website. If you have any questions, feel free to reach out on [LinkedIn or by email](#contact)!"
+resume:
+  enable: true
+  label: "DOWNLOAD MY RESUME"
+  link: "https://raw.githubusercontent.com/Fahazavana/Curriculum_Vitae/main/Jean_Lucien_Randrianantenaina_CV.pdf"
+  icon: "fa-download"
+location: "Fianarantsoa, Madagascar"

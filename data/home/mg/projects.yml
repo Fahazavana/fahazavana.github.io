@@ -1,0 +1,71 @@
+enable: true
+title: "Tetikasa"
+items:
+  - name: "N-Gram LMs and BPE"
+    description: "Fampiharana nosoratana avy amin'ny aotra amin'ny Python ho an'ny modely trigramme amin'ny litera sy Byte-Pair Encoding ho an'ny famantarana teny sy fampitahana fitoviana."
+    url: "https://github.com/Fahazavana/NGramLMs_BPE"
+    stack:
+      - name: "Python"
+        icon: "python"
+        color: "3776AB"
+
+  - name: "Mk-Forum"
+    description: "Fananganana forum natokana ho an'ny matematika miaraka amin'ny HTML, CSS/Bootstrap ary JavaScript ho an'ny front-end, ary Python3/Django miaraka amin'ny MySQL ho an'ny back-end."
+    url: "https://github.com/Fahazavana/MK-Forum"
+    stack:
+      - name: "HTML5"
+        icon: "html5"
+        color: "E34F26"
+      - name: "CSS"
+        icon: "css"
+        color: "1572B6"
+      - name: "Bootstrap"
+        icon: "bootstrap"
+        color: "7952B3"
+      - name: "JavaScript"
+        icon: "javascript"
+        color: "F7DF1E"
+      - name: "Django"
+        icon: "django"
+        color: "092E20"
+      - name: "MySQL"
+        icon: "mysql"
+        color: "4479A1"
+
+  - name: "FCryptos"
+    description: "Fampiharana fomba kriptografia amin'ny Python (console): shift cipher, Vigenere, SPN, RSA ary milina Enigma."
+    url: "https://github.com/Fahazavana/FCryptos"
+    stack:
+      - name: "Python"
+        icon: "python"
+        color: "3776AB"
+
+  - name: "Pendu Malagasy"
+    description: "Dikan-teny malagasy amin'ny lalao Hangman, novolavolaina tamin'ny Python/Tkinter."
+    url: "https://github.com/Fahazavana/Pendu_Malagasy"
+    stack:
+      - name: "Python"
+        icon: "python"
+        color: "3776AB"
+
+  - name: "Unbeatable TicTacToe"
+    description: "Lalao Tic-Tac-Toe vita amin'ny HTML, CSS ary JavaScript, miaraka amin'ny mpilalao mandeha ho azy mampiasa safidy kisendrasendra sy algoritma minimax."
+    url: "https://github.com/Fahazavana/SAYNA-JAVASCRIPT-MORPION-042022"
+    stack:
+      - name: "HTML5"
+        icon: "html5"
+        color: "E34F26"
+      - name: "CSS"
+        icon: "css"
+        color: "1572B6"
+      - name: "JavaScript"
+        icon: "javascript"
+        color: "F7DF1E"
+
+  - name: "Bellman-Kalaba"
+    description: "Sehatra misy kisary ho an'ny algoritma Bellman-Kalaba momba ny lalana fohy indrindra, vita amin'ny Python3/Tkinter."
+    url: "https://github.com/Fahazavana/Bellma-Kalaba"
+    stack:
+      - name: "Python"
+        icon: "python"
+        color: "3776AB"

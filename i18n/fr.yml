@@ -1,34 +1,50 @@
 Home:
   other: "Accueil"
-About me:
-  other: "À propos de moi"
-Educations:
-  other: "Éducation"
-Publications:
-  other: "Publications"
-Skills:
-  other: "Compétences"
-Portfolio:
-  other: "Portfolio"
-Contact:
-  other: "Contact"
-toggleNavigation:
-  other: "Basculer la navigation"
+menuLabel:
+  other: "Menu"
+navigationListLabel:
+  other: "Liste de navigation"
 toggleTheme:
   other: "Basculer le thème"
-altProfilePic:
-  other: "Une photo de moi"
-seeOnGitHub:
-  other: "Voir sur GitHub"
+selectLanguage:
+  other: "Choisir la langue"
+openMobileMenu:
+  other: "Ouvrir le menu mobile"
+closeMenu:
+  other: "Fermer le menu"
+openProjectOnGitHub:
+  other: "Ouvrir %s sur GitHub"
+technologiesUsed:
+  other: "Technologies utilisées"
 contactMe:
   other: "Contactez-moi"
+languageLabel:
+  other: "Langue"
 formNameLabel:
   other: "Nom et prénom"
+formNamePlaceholder:
+  other: "Jean Dupont"
 formEmailLabel:
   other: "Votre adresse email"
+formEmailPlaceholder:
+  other: "vous@exemple.com"
 formMessageLabel:
   other: "Votre message"
+formMessagePlaceholder:
+  other: "Comment puis-je vous aider ?"
 formSendButton:
   other: "Envoyer"
+notificationTitle:
+  other: "Notification"
+closeButtonLabel:
+  other: "OK"
+contactFormSuccess:
+  other: "Merci, votre message a bien été envoyé."
+contactFormError:
+  other: "Désolé, une erreur est survenue."
+postedOn:
+  other: "Publié le"
+blogEmptyState:
+  other: "Aucun article n'a encore été publié."
 copyrightText:
   other: "Jean Lucien Randrianantenaina ©"

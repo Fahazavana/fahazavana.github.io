@@ -1,0 +1,54 @@
+{{ $lang := .Site.Language.Lang }}
+{{ $pubtalk := index .Site.Data.home $lang "publications" }}
+
+{{ if and $pubtalk (or (not (isset $pubtalk "enable")) $pubtalk.enable) }}
+<section id="publications" class="py-12 transition-colors duration-300 md:py-16">
+  <div class="container mx-auto px-4">
+    <div class="mb-12 text-center">
+      <h2 class="section-title text-3xl font-bold text-foreground">{{ $pubtalk.title }}</h2>
+    </div>
+
+    {{ with $pubtalk.publications }}
+    <div class="mb-12">
+      {{ with .title }}
+      <h3 class="mb-6 text-center text-2xl font-semibold text-foreground md:text-left">{{ . }}</h3>
+      {{ end }}
+      <div class="space-y-6">
+        {{ range .items }}
+        <div class="card reveal flex items-start gap-4 p-6">
+          <i class="fa {{ .icon }} mt-1 fa-lg text-muted" aria-hidden="true"></i>
+          <div>
+            <p class="leading-relaxed text-muted">
+              {{ if .link }}
+              <a href="{{ .link }}" target="_blank" rel="noopener noreferrer">{{ .title | safeHTML }}</a>
+              {{ else }}
+              {{ .title | safeHTML }}
+              {{ end }}
+            </p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{ with $pubtalk.talks }}
+    <div class="mb-12">
+      {{ with .title }}
+      <h3 class="mb-6 text-center text-2xl font-semibold text-foreground md:text-left">{{ . }}</h3>
+      {{ end }}
+      <div class="space-y-6">
+        {{ range .items }}
+        <div class="card reveal flex items-start gap-4 p-6">
+          <i class="fa {{ .icon }} mt-1 fa-lg text-muted" aria-hidden="true"></i>
+          <div>
+            <p class="leading-relaxed text-muted">{{ .title | safeHTML }} {{ .info | markdownify }}</p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

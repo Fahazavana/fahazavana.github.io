@@ -1,0 +1,90 @@
+{{ $siteTitle := .Site.Title | default .Site.Params.title }}
+{{ $pageTitle := .Title }}
+{{ $isHome := .IsHome }}
+{{ $title := cond $isHome $siteTitle (printf "%s | %s" $pageTitle $siteTitle) }}
+{{ $desc := or .Description .Params.description .Summary .Site.Params.description }}
+{{ $desc = $desc | plainify | htmlUnescape | truncate 180 }}
+{{ $url := .Permalink }}
+{{ $type := cond .IsPage "article" "website" }}
+{{ $imagePath := .Site.Params.screenshot | default "images/og_image.png" }}
+{{ $image := $imagePath | relURL | absURL }}
+{{ $noindex := or .Params.noindex .Params.draft }}
+{{ $sameAs := slice }}
+{{ range .Site.Params.social }}
+  {{ with .link }}{{ $sameAs = $sameAs | append . }}{{ end }}
+{{ end }}
+
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}" />
+{{ with .Site.Params.author }}<meta name="author" content="{{ . }}" />{{ end }}
+{{ with .Site.Params.googleSiteVerification }}
+<meta name="{{ .name }}" content="{{ .content }}" />
+{{ end }}
+<link rel="canonical" href="{{ $url }}" />
+{{ if $noindex }}
+<meta name="robots" content="noindex,nofollow" />
+{{ else }}
+<meta name="robots" content="index,follow" />
+{{ end }}
+
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $desc }}" />
+<meta property="og:type" content="{{ $type }}" />
+<meta property="og:url" content="{{ $url }}" />
+<meta property="og:image" content="{{ $image }}" />
+<meta property="og:site_name" content="{{ $siteTitle }}" />
+<meta property="og:locale" content="{{ (or .Site.Language.LanguageCode .Site.Language.Lang) | replace "-" "_" }}" />
+{{ range .AllTranslations }}
+<meta property="og:locale:alternate" content="{{ (or .Language.LanguageCode .Language.Lang) | replace "-" "_" }}" />
+{{ end }}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $desc }}" />
+<meta name="twitter:image" content="{{ $image }}" />
+{{ with .Site.Params.twitter }}<meta name="twitter:site" content="@{{ . }}" />{{ end }}
+
+<link rel="alternate" href="{{ .Permalink }}" hreflang="{{ or .Site.Language.LanguageCode .Site.Language.Lang }}" />
+{{ range .AllTranslations }}
+<link rel="alternate" href="{{ .Permalink }}" hreflang="{{ or .Language.LanguageCode .Language.Lang }}" />
+{{ end }}
+<link rel="alternate" href="{{ .Site.Home.Permalink }}" hreflang="x-default" />
+
+<script type="application/ld+json">
+{{ jsonify (dict
+  "@context" "https://schema.org"
+  "@type" "WebSite"
+  "name" $siteTitle
+  "url" .Site.BaseURL
+  "sameAs" $sameAs
+) | safeJS }}
+</script>
+
+{{ with .Site.Params.author }}
+<script type="application/ld+json">
+{{ jsonify (dict
+  "@context" "https://schema.org"
+  "@type" "Person"
+  "name" .
+  "url" $.Site.BaseURL
+  "image" (("images/profile.webp" | relURL) | absURL)
+  "sameAs" $sameAs
+) | safeJS }}
+</script>
+{{ end }}
+
+{{ if .IsPage }}
+<script type="application/ld+json">
+{{ jsonify (dict
+  "@context" "https://schema.org"
+  "@type" "Article"
+  "headline" $pageTitle
+  "description" $desc
+  "image" (slice $image)
+  "datePublished" (.Date | time.Format "2006-01-02T15:04:05Z07:00")
+  "dateModified" (.Lastmod | time.Format "2006-01-02T15:04:05Z07:00")
+  "author" (dict "@type" "Person" "name" (.Site.Params.author | default $siteTitle))
+  "mainEntityOfPage" (dict "@type" "WebPage" "@id" $url)
+) | safeJS }}
+</script>
+{{ end }}

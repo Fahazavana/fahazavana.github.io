@@ -1,34 +1,50 @@
 Home:
   other: "An-trano"
-About me:
-  other: "Momba ahy"
-Educations:
-  other: "Fanabeazana"
-Publications:
-  other: "Famoahana"
-Skills:
-  other: "Fahaizana"
-Portfolio:
-  other: "Portfolio"
-Contact:
-  other: "Fifandraisana"
-toggleNavigation:
-  other: "Hifindra navigation"
+menuLabel:
+  other: "Safidy"
+navigationListLabel:
+  other: "Lisitr'ireo rohy"
 toggleTheme:
-  other: "Hifindra thème"
-altProfilePic:
-  other: "Sary momba ahy"
-seeOnGitHub:
-  other: "Jereo ao amin'ny GitHub"
+  other: "Hanova ny lohahevitra"
+selectLanguage:
+  other: "Hisafidy fiteny"
+openMobileMenu:
+  other: "Hanokatra ny menio finday"
+closeMenu:
+  other: "Hanidy ny menio"
+openProjectOnGitHub:
+  other: "Hanokatra an'i %s ao amin'ny GitHub"
+technologiesUsed:
+  other: "Teknolojia nampiasaina"
 contactMe:
   other: "Mifandraisa amiko"
+languageLabel:
+  other: "Fiteny"
 formNameLabel:
   other: "Anarana sy fanampin'anarana"
+formNamePlaceholder:
+  other: "Jean Rakoto"
 formEmailLabel:
   other: "Ny adiresy mailakao"
+formEmailPlaceholder:
+  other: "ianao@ohatra.com"
 formMessageLabel:
   other: "Ny hafatrao"
+formMessagePlaceholder:
+  other: "Ahoana no ahafahako manampy anao?"
 formSendButton:
   other: "Alefaso"
+notificationTitle:
+  other: "Fampahafantarana"
+closeButtonLabel:
+  other: "OK"
+contactFormSuccess:
+  other: "Misaotra, lasa soa aman-tsara ny hafatrao."
+contactFormError:
+  other: "Miala tsiny, nisy olana nitranga."
+postedOn:
+  other: "Navoaka tamin'ny"
+blogEmptyState:
+  other: "Mbola tsy misy lahatsoratra navoaka."
 copyrightText:
   other: "Jean Lucien Randrianantenaina ©"

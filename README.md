@@ -1,56 +1,54 @@
 # Personal Website
 
-Portfolio built with Hugo and Tailwind CSS v4.
+Portfolio and blog scaffold built with Hugo and Tailwind CSS v4.
 
 ## Stack
-- Hugo (templating, data-driven sections)
-- Tailwind CSS v4 (CSS-first, JIT via Hugo’s Tailwind pipeline)
-- Vanilla JS (interactions, typing, particles)
+
+- Hugo extended for templating, multilingual routing, feeds, and static generation
+- Tailwind CSS v4 through Hugo's asset pipeline
+- Vanilla JavaScript modules for UI interactions
 
 ## Development
-Prereqs: Hugo extended, Node (optional for local PostCSS/Tailwind CLI)
 
-- Run dev server: `hugo server -D`
-- Build production: `hugo --minify`
+Prerequisites:
 
-CSS is compiled by Hugo using `assets/css/main.css` with `@import "tailwindcss"` and `@source "hugo_stats.json"`.
+- Hugo extended
+- Node.js
 
-## Theming and Colors
-Colors are centralized as design tokens in `assets/css/main.css`.
+Commands:
 
-- Light/Dark variables live under `:root` and `.dark`.
-- Tailwind aliases are exposed via `@theme` so you can use native utilities:
-  - `text-foreground`, `text-muted`, `text-primary`
-  - `bg-background`, `bg-surface`, `bg-elevated`
-  - `border-border`, `ring-primary`
+- `hugo server -D`
+- `hugo --minify`
 
-Edit these in one place:
-- `assets/css/main.css:1`
+## Structure
 
-Recommended usage patterns:
-- Headings/content: `text-foreground`
-- Secondary text: `text-muted`
-- Cards/containers: `card` (or `bg-elevated border-border` if not using `.card`)
-- Sections: `bg-surface`
-- Accents/actions: `text-primary`, `.btn.btn-primary`
+- `config.toml`: site, language, menu, SEO, and analytics configuration
+- `data/home/*.yml`: homepage section content
+- `layouts/partials/sections/*`: homepage section templates
+- `layouts/_default/*`: default layouts for content pages, including blog pages
+- `assets/css/main.css`: design tokens and shared component styles
+- `assets/js/*.js`: modular frontend behavior
+- `content/blog/*`: blog list and future posts
 
-Dark mode is toggled by the `dark` class on `<html>`; variables update automatically and utilities reflect the new values.
+## Content Workflow
 
-## Project Structure
-- Templates: `layouts/partials/*`, `layouts/index.html`
-- Styles: `assets/css/main.css`
-- Scripts: `assets/js/*`
-- Data: `data/content.yml`
+Homepage content is data-driven:
+
+- `data/home/intro.yml`
+- `data/home/experience.yml`
+- `data/home/education.yml`
+- `data/home/skills.yml`
+- `data/home/projects.yml`
+- `data/home/publications.yml`
+- `data/home/contact.yml`
+
+Blog posts are content-driven:
+
+- Create a post with `hugo new blog/my-post.en.md --kind blog`
+- Add matching `.fr.md` or `.mg.md` translations when needed
 
 ## Notes
-- Legacy, hard-coded color classes have been replaced by semantic tokens for consistency.
-- If you add new UI, prefer the token utilities over raw grays (e.g., `text-gray-700`).
 
-## SEO
-- Meta/OG/Twitter handled in `layouts/partials/seo.html` and included from `layouts/partials/head.html`.
-- Configure Twitter handle in `config.toml` under `[params] twitter = "your_handle"`.
-- Sitemap is enabled via `[sitemap]` and Hugo outputs; Robots.txt is generated from `layouts/robots.txt`.
-
-## Credits
-- Theme inspiration: [hugo-port](https://github.com/tylerlaws0n/port-hugo)
-- Typing effect: [Medium article](https://medium.com/front-end-weekly/how-to-create-typing-effect-in-css-and-js-3252dd807f0a)
+- The homepage and blog now share the same top-level site shell.
+- RSS and sitemap use Hugo defaults instead of custom hardcoded templates.
+- Social links, SEO metadata, and analytics are centralized in shared partials.

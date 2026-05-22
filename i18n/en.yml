@@ -1,34 +1,50 @@
 Home:
   other: "Home"
-About me:
-  other: "About me"
-Educations:
-  other: "Educations"
-Publications:
-  other: "Publications"
-Skills:
-  other: "Skills"
-Portfolio:
-  other: "Project"
-Contact:
-  other: "Contact"
-toggleNavigation:
-  other: "Toggle navigation"
+menuLabel:
+  other: "Menu"
+navigationListLabel:
+  other: "Navigation list"
 toggleTheme:
   other: "Toggle theme"
-altProfilePic:
-  other: "A picture of me"
-seeOnGitHub:
-  other: "See on GitHub"
+selectLanguage:
+  other: "Select language"
+openMobileMenu:
+  other: "Open mobile menu"
+closeMenu:
+  other: "Close menu"
+openProjectOnGitHub:
+  other: "Open %s on GitHub"
+technologiesUsed:
+  other: "Technologies used"
 contactMe:
   other: "Contact me"
+languageLabel:
+  other: "Language"
 formNameLabel:
   other: "Name and First name"
+formNamePlaceholder:
+  other: "John Doe"
 formEmailLabel:
   other: "Your email address"
+formEmailPlaceholder:
+  other: "you@example.com"
 formMessageLabel:
   other: "Your message"
+formMessagePlaceholder:
+  other: "How can I help you?"
 formSendButton:
   other: "Send"
+notificationTitle:
+  other: "Notification"
+closeButtonLabel:
+  other: "OK"
+contactFormSuccess:
+  other: "Thank you, your message has been sent!"
+contactFormError:
+  other: "Sorry! Something went wrong."
+postedOn:
+  other: "Posted on"
+blogEmptyState:
+  other: "No blog posts have been published yet."
 copyrightText:
   other: "Jean Lucien Randrianantenaina ©"

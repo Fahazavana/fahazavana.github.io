@@ -1,6 +1,3 @@
-<!-- Navbar -->
-
-<!-- Navbar -->
 <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center container mx-auto" aria-label="Main navigation">
     <div
             id="navbar"
@@ -9,9 +6,9 @@
         <!-- Logo -->
         <a
                 class="w-10 h-10 flex items-center justify-center rounded-full shadow-lg bg-surface text-foreground hover:scale-110 transition-transform duration-200 focus:outline-none font-bold min-w-10"
-                href="{{ .Site.BaseURL | relLangURL }}"
-                aria-label="Home"
-                title="Home"
+                href="{{ .Site.Home.RelPermalink }}"
+                aria-label='{{ T "Home" }}'
+                title='{{ T "Home" }}'
         >
             JL
         </a>
@@ -19,12 +16,15 @@
         <!-- Links + Lang switch -->
         <div class="hidden md:flex items-center space-x-6 px-2 menu-list">
             <!-- Navigation Links -->
-            <ul class="flex space-x-6 justify-around" aria-label="navigation list">
+            <ul class="flex space-x-6 justify-around" aria-label='{{ T "navigationListLabel" }}'>
                 {{ range $i, $e := .Site.Menus.main }}
                 <li>
+                    {{ $href := $e.URL }}
+                    {{ with $e.Page }}{{ $href = .RelPermalink }}{{ end }}
+                    {{ if and (not $.IsHome) (hasPrefix $href "#") }}{{ $href = printf "%s%s" $.Site.Home.RelPermalink $href }}{{ end }}
                     <a
                             class="nav-link block whitespace-nowrap px-3 rounded text-muted hover:bg-surface py-2"
-                            href="{{ $e.URL }}"
+                            href="{{ $href }}"
                     >
                         {{ if $e.Params.icon }}
                         <i class="fa-solid fa-{{ $e.Params.icon }} mr-1"></i>
@@ -43,7 +43,7 @@
                         aria-expanded="false"
                         aria-controls="lang-menu"
                         class="cursor-pointer w-10 h-10 flex shadow-lg bg-surface text-foreground items-center rounded-full justify-center"
-                        title="Select language"
+                        title='{{ T "selectLanguage" }}'
                 >
                     <i class="fa-solid fa-globe text-sm"></i>
                 </button>
@@ -74,7 +74,7 @@
                 <button
                         id="mobile-toggle"
                         class="w-10 h-10 flex items-center justify-center rounded-full shadow-lg bg-surface text-foreground cursor-pointer"
-                        aria-label="Open mobile menu"
+                        aria-label='{{ T "openMobileMenu" }}'
                 >
                     <i class="md:hidden fas fa-bars"></i>
                 </button>
@@ -95,11 +95,11 @@
             onclick="event.stopPropagation()"
     >
         <div class="flex justify-between items-center mb-6">
-            <h2 id="mobile-menu-title" class="text-lg font-semibold text-foreground">Menu</h2>
+            <h2 id="mobile-menu-title" class="text-lg font-semibold text-foreground">{{ T "menuLabel" }}</h2>
             <button
                     id="mobile-close"
                     class="text-muted hover:text-foreground"
-                    aria-label="Close menu"
+                    aria-label='{{ T "closeMenu" }}'
             >
                 <i class="fas fa-times fa-lg"></i>
             </button>
@@ -110,8 +110,11 @@
             <ul class="space-y-2">
                 {{ range $i, $e := .Site.Menus.main }}
                 <li>
+                    {{ $href := $e.URL }}
+                    {{ with $e.Page }}{{ $href = .RelPermalink }}{{ end }}
+                    {{ if and (not $.IsHome) (hasPrefix $href "#") }}{{ $href = printf "%s%s" $.Site.Home.RelPermalink $href }}{{ end }}
                     <a
-                            href="{{ $e.URL }}"
+                            href="{{ $href }}"
                             class="nav-link block w-full text-left text-lg py-3 px-4 rounded-lg text-foreground hover:bg-surface"
                     >
                         {{ $e.Name }}
@@ -124,7 +127,7 @@
         <!-- Language + Theme -->
         <div class="border-t border-border pt-6 space-y-4">
             <div>
-                <span class="text-sm font-medium text-muted">Language</span>
+                <span class="text-sm font-medium text-muted">{{ T "languageLabel" }}</span>
                 <div class="mt-2 flex rounded-lg shadow-sm bg-surface p-1 border border-border">
                     {{ $currentPage := . }}
                     {{ range .Site.Home.AllTranslations }}
@@ -143,7 +146,7 @@
                         id="theme-toggle-2"
                         class="w-full flex justify-between items-center px-4 py-3 rounded-lg bg-surface cursor-pointer border border-border"
                 >
-                    <span class="text-foreground">Light</span>
+                    <span class="text-foreground">{{ T "toggleTheme" }}</span>
                     <i id="theme-icon-2" class="fa-solid fa-moon text-primary"></i>
                 </button>
             </div>
@@ -156,7 +159,7 @@
     <button
             id="theme-toggle"
             class="w-10 h-10 flex items-center justify-center rounded-full shadow-lg bg-surface text-foreground hover:scale-110 transition-transform duration-200 focus:outline-none border border-border"
-            title="Toggle theme"
+            title='{{ T "toggleTheme" }}'
             aria-pressed="false"
     >
         <i id="theme-icon" class="fas fa-moon text-sm"></i>
