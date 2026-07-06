@@ -7,7 +7,7 @@ items:
     institution_url: "https://www.bath.ac.uk/"
     duration: "Sept. 2025 - Présent"
     current: true
-    content: "Études doctorales en cours au sein du groupe de recherche en IA/ML du département d'informatique. Financement complet via l'University Research Studentship Award (URSA)."
+    content: "Études doctorales en cours au sein du groupe de recherche en IA/ML du département d'informatique." #" Financement complet via l'University Research Studentship Award (URSA)."
   - degree: "Master en Apprentissage Automatique et IA"
     institution: "Université de Stellenbosch, Afrique du Sud"
     logo: "images/education/stellenbosch.jpg"

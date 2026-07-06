@@ -49,10 +49,10 @@ disableKinds = ["taxonomy", "term"]
       name = "Projects"
       url = "#projects"
       weight = 5
-    [[languages.en.menu.main]]
-      name = "Blog"
-      pageRef = "/blog"
-      weight = 6
+#    [[languages.en.menu.main]]
+#      name = "Blog"
+#      pageRef = "/blog"
+#      weight = 6
     [[languages.en.menu.main]]
       name = "Contact"
       url = "#contact"
@@ -83,10 +83,10 @@ disableKinds = ["taxonomy", "term"]
       name = "Projets"
       url = "#projects"
       weight = 5
-    [[languages.fr.menu.main]]
-      name = "Blog"
-      pageRef = "/blog"
-      weight = 6
+#    [[languages.fr.menu.main]]
+#      name = "Blog"
+#      pageRef = "/blog"
+#      weight = 6
     [[languages.fr.menu.main]]
       name = "Contact"
       url = "#contact"
@@ -117,10 +117,10 @@ disableKinds = ["taxonomy", "term"]
       name = "Tetikasa"
       url = "#projects"
       weight = 5
-    [[languages.mg.menu.main]]
-      name = "Bilaogy"
-      pageRef = "/blog"
-      weight = 6
+#    [[languages.mg.menu.main]]
+#      name = "Bilaogy"
+#      pageRef = "/blog"
+#      weight = 6
     [[languages.mg.menu.main]]
       name = "Fifandraisana"
       url = "#contact"
