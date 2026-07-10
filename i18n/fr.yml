@@ -18,14 +18,14 @@ technologiesUsed:
   other: "Technologies utilisées"
 contactMe:
   other: "Contactez-moi"
-experienceIntro:
-  other: "Un aperçu de mes expériences récentes autour de l'IA, des systèmes backend et de l'enseignement."
-educationIntro:
-  other: "Mon parcours académique entre mathématiques, apprentissage automatique et informatique."
-projectsIntro:
-  other: "Une sélection de travaux qui reflètent mes intérêts actuels en recherche et en ingénierie."
-publicationsIntro:
-  other: "Publications et présentations mises en valeur avec des résumés courts et lisibles."
+# experienceIntro:
+#   other: "Un aperçu de mes expériences récentes autour de l'IA, des systèmes backend et de l'enseignement."
+# educationIntro:
+#   other: "Mon parcours académique entre mathématiques, apprentissage automatique et informatique."
+# projectsIntro:
+#   other: "Une sélection de travaux qui reflètent mes intérêts actuels en recherche et en ingénierie."
+# publicationsIntro:
+#   other: "Publications et présentations mises en valeur avec des résumés courts et lisibles."
 contactIntro:
   other: "Si vous souhaitez collaborer, discuter de recherche ou simplement échanger, je serai ravi de vous lire."
 readPublication:

@@ -18,16 +18,16 @@ technologiesUsed:
   other: "Teknolojia nampiasaina"
 contactMe:
   other: "Mifandraisa amiko"
-experienceIntro:
-  other: "Topimaso fohy momba ireo traikefa vao haingana mifantoka amin'ny AI, backend ary fampianarana."
-educationIntro:
-  other: "Ny dian'ny fianarako eo anelanelan'ny matematika, fianarana milina ary siansa informatika."
-projectsIntro:
-  other: "Santionan'asa maneho ny fikarohana sy ny injeniera mahaliana ahy amin'izao fotoana izao."
-publicationsIntro:
-  other: "Famoahana sy famelabelarana aseho amin'ny famintinana fohy sy mora vakiana."
-contactIntro:
-  other: "Raha te hiara-hiasa, hiresaka fikarohana, na hifampiarahaba fotsiny ianao, dia faly aho handre anao."
+# experienceIntro:
+#   other: "Topimaso fohy momba ireo traikefa vao haingana mifantoka amin'ny AI, backend ary fampianarana."
+# educationIntro:
+#   other: "Ny dian'ny fianarako eo anelanelan'ny matematika, fianarana milina ary siansa informatika."
+# projectsIntro:
+#   other: "Santionan'asa maneho ny fikarohana sy ny injeniera mahaliana ahy amin'izao fotoana izao."
+# publicationsIntro:
+#   other: "Famoahana sy famelabelarana aseho amin'ny famintinana fohy sy mora vakiana."
+# contactIntro:
+#   other: "Raha te hiara-hiasa, hiresaka fikarohana, na hifampiarahaba fotsiny ianao, dia faly aho handre anao."
 readPublication:
   other: "Vakio ny lahatsoratra"
 viewTalk:
