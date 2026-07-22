@@ -11,7 +11,7 @@
       {{ range $skills.items }}
       <div class="flex items-center gap-2 rounded-lg border border-border bg-elevated px-3 py-1 transition-transform hover:scale-105">
         {{ if .icon }}
-        <img class="h-6 w-6 shrink-0" src="https://cdn.simpleicons.org/{{ .icon }}/{{ .color }}" alt="{{ .name }} logo" />
+        <img class="h-6 w-6 shrink-0" src="https://cdn.simpleicons.org/{{ .icon }}/{{ .color }}" alt="{{ .name }} logo" loading="lazy" decoding="async" />
         {{ else if .svg }}
         {{ .svg | safeHTML }}
         {{ end }}

@@ -12,7 +12,9 @@
 		})();
 	</script>
 	{{ partial "seo.html" . }}
+	{{ if .IsHome }}
 	<link rel="preload" as="image" href="{{ "images/profile.webp" | relURL }}" type="image/webp" />
+	{{ end }}
 	<meta name="color-scheme" content="light dark" />
 	{{ range .Site.Params.plugins.css }}
 	<link rel="stylesheet" href="{{ .link | relURL }}" />
@@ -25,6 +27,9 @@
 	<link rel="preconnect" href="https://cdn.simpleicons.org" crossorigin />
 	<link rel="manifest" href="{{ "manifest.webmanifest" | relURL }}" />
 	<link rel="icon" type="image/png" href="{{ .Site.Params.favicon }}" />
-	<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
-	<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220" />
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ "images/favicon_io/favicon-32x32.png" | relURL }}" />
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ "images/favicon_io/favicon-16x16.png" | relURL }}" />
+	<link rel="apple-touch-icon" href="{{ "images/favicon_io/apple-touch-icon.png" | relURL }}" />
+	<meta name="theme-color" media="(prefers-color-scheme: light)" content="{{ .Site.Params.themeColor.light }}" />
+	<meta name="theme-color" media="(prefers-color-scheme: dark)" content="{{ .Site.Params.themeColor.dark }}" />
 </head>

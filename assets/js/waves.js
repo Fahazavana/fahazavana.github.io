@@ -78,7 +78,7 @@
 
   const render = () => {
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = document.documentElement.classList.contains("dark") ? "#cbd5e1" : "#0f172a";
+    ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue("--text").trim();
 
     particles.forEach((particle) => {
       particle.y =
@@ -150,12 +150,6 @@
   };
 
   window.addEventListener("resize", onResize);
-  document.addEventListener("visibilitychange", () => {
-    running = !document.hidden;
-    if (running && shouldEnable()) {
-      animate();
-    }
-  });
   prefersReducedMotion.addEventListener("change", init);
 
   init();

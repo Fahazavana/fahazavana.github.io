@@ -43,7 +43,7 @@
     if (!input) return;
 
     const errorElement = document.getElementById(`${input.id}-error`);
-    input.classList.add("border-red-500");
+    input.classList.add("border-danger");
     input.setAttribute("aria-invalid", "true");
 
     if (errorElement) {
@@ -56,7 +56,7 @@
     if (!input) return;
 
     const errorElement = document.getElementById(`${input.id}-error`);
-    input.classList.remove("border-red-500");
+    input.classList.remove("border-danger");
     input.removeAttribute("aria-invalid");
 
     if (errorElement) {

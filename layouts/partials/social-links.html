@@ -13,11 +13,11 @@
     {{ else if or (in .icon "envelope") (hasPrefix .link "mailto:") }}{{ $label = "Email" }}
     {{ else }}{{ $label = "External link" }}{{ end }}
   {{ end }}
+  {{ $isAppLink := or (hasPrefix .link "mailto:") (hasPrefix .link "tel:") }}
   <li>
     <a
       href="{{ .link | safeURL }}"
-      target="_blank"
-      rel="noopener noreferrer"
+      {{ if not $isAppLink }}target="_blank" rel="noopener noreferrer"{{ end }}
       class="{{ $linkClass }} {{ .class }}"
       aria-label="{{ $label }}"
       title="{{ $label }}"

@@ -3,6 +3,14 @@ enable: true
 publications:
   title: "Publications"
   items:
+    - title: "HASTE : entraînement parcimonieux dynamique adapté au matériel pour de grands espaces de sortie"
+      authors: "Nasib Ullah, Jinbin Zhang, Jean Lucien Randrianantenaina, Erik Schultheis et Rohit Babbar"
+      venue: "Forty-third International Conference on Machine Learning (ICML 2026)"
+      year: "2026"
+      abstract: "La classification multi-étiquettes extrême nécessite d'apprendre sur des espaces de sortie comportant des millions d'étiquettes, ce qui fait de la couche de sortie un goulot d'étranglement mémoire et calcul. Nous introduisons une parcimonie à fan-in fixe et partagé par groupes, associée à des noyaux CUDA adaptés au matériel, atteignant des accélérations jusqu'à 4,4x et 25x sur les passes avant et arrière tout en conservant la précision d'un modèle dense."
+      icon: "fa-microchip"
+      link: "https://openreview.net/forum?id=PAOhstVuIt"
+      link_label: "Lire l'article"
     - title: "Il n'existe pas de nombre de Carmichael de la forme \\(2^np^2+1\\)"
       authors: "Florian Luca et Jean Lucien Randrianantenaina"
       venue: "INTEGERS, Volume 23"

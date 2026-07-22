@@ -10,9 +10,6 @@ disableKinds = ["taxonomy", "term"]
   [[build.cachebusters]]
     source = "assets/notwatching/hugo_stats\\.json"
     target = "css"
-  [[build.cachebusters]]
-    source = "(postcss|tailwind)\\.config\\.js"
-    target = "css"
 
 [module]
   [[module.mounts]]
@@ -68,7 +65,7 @@ disableKinds = ["taxonomy", "term"]
       url = "#home"
       weight = 1
     [[languages.fr.menu.main]]
-      name = "Expériences"
+      name = "Expérience"
       url = "#experience"
       weight = 2
     [[languages.fr.menu.main]]
@@ -92,40 +89,6 @@ disableKinds = ["taxonomy", "term"]
       url = "#contact"
       weight = 7
 
-  [languages.mg]
-    disabled = false
-    languageName = "Malagasy"
-    languageCode = "mg-MG"
-    weight = 3
-    [[languages.mg.menu.main]]
-      name = "Fandraisana"
-      url = "#home"
-      weight = 1
-    [[languages.mg.menu.main]]
-      name = "Traikefa"
-      url = "#experience"
-      weight = 2
-    [[languages.mg.menu.main]]
-      name = "Fianarana"
-      url = "#education"
-      weight = 3
-    [[languages.mg.menu.main]]
-      name = "Asa soratra"
-      url = "#publications"
-      weight = 4
-    [[languages.mg.menu.main]]
-      name = "Tetikasa"
-      url = "#projects"
-      weight = 5
-#    [[languages.mg.menu.main]]
-#      name = "Bilaogy"
-#      pageRef = "/blog"
-#      weight = 6
-    [[languages.mg.menu.main]]
-      name = "Fifandraisana"
-      url = "#contact"
-      weight = 7
-
 [params]
   logo_light = "images/favicon_io/android-chrome-192x192.png"
   logo_dark = "images/favicon_io/android-chrome-192x192.png"
@@ -146,12 +109,14 @@ disableKinds = ["taxonomy", "term"]
   [params.preloader]
     enable = true
 
+  # Must mirror --bg in :root / .dark in assets/css/main.css — browsers read
+  # this before any CSS loads, so it can't reference the CSS custom property.
+  [params.themeColor]
+    light = "#f9fafb"
+    dark = "#0b1220"
+
   [params.location]
     icon = "fa-solid fa-location-dot"
-
-  [params.sitemap]
-    changefreq = "weekly"
-    priority = 0.5
 
   [[params.plugins.css]]
     link = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"

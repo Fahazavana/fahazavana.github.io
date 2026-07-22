@@ -17,7 +17,7 @@
       <ul class="space-y-6 pl-8 sm:space-y-8 md:space-y-6 md:pl-0">
         {{ range $e := $education.items }}
         <li class="timeline-entry reveal {{ if $e.current }}timeline-current{{ end }}">
-          <span class="timeline-dot absolute left-[-1.65rem] top-2 h-3.5 w-3.5 rounded-full border border-white bg-primary"></span>
+          <span class="timeline-dot absolute left-[-1.65rem] top-2 h-3.5 w-3.5 rounded-full border border-surface bg-primary"></span>
           <div class="timeline-entry-date">
             {{ with $e.duration }}
             <div class="timeline-date mb-3 px-3 py-1.5 text-xs md:text-sm">

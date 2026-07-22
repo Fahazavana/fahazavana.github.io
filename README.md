@@ -32,20 +32,22 @@ Commands:
 
 ## Content Workflow
 
-Homepage content is data-driven:
+Homepage content is data-driven, per language (`en`, `fr`):
 
-- `data/home/intro.yml`
-- `data/home/experience.yml`
-- `data/home/education.yml`
-- `data/home/skills.yml`
-- `data/home/projects.yml`
-- `data/home/publications.yml`
-- `data/home/contact.yml`
+- `data/home/<lang>/intro.yml`
+- `data/home/<lang>/experience.yml`
+- `data/home/<lang>/education.yml`
+- `data/home/<lang>/skills.yml`
+- `data/home/<lang>/projects.yml`
+- `data/home/<lang>/publications.yml`
+- `data/home/contact.yml` (shared across languages)
+
+UI strings live in `i18n/en.yml` and `i18n/fr.yml`.
 
 Blog posts are content-driven:
 
 - Create a post with `hugo new blog/my-post.en.md --kind blog`
-- Add matching `.fr.md` or `.mg.md` translations when needed
+- Add a matching `.fr.md` translation when needed
 
 ## Notes
 

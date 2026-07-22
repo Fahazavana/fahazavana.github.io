@@ -33,9 +33,9 @@
 <meta property="og:url" content="{{ $url }}" />
 <meta property="og:image" content="{{ $image }}" />
 <meta property="og:site_name" content="{{ $siteTitle }}" />
-<meta property="og:locale" content="{{ (or .Site.Language.LanguageCode .Site.Language.Lang) | replace "-" "_" }}" />
-{{ range .AllTranslations }}
-<meta property="og:locale:alternate" content="{{ (or .Language.LanguageCode .Language.Lang) | replace "-" "_" }}" />
+<meta property="og:locale" content="{{ replace (or .Site.Language.LanguageCode .Site.Language.Lang) "-" "_" }}" />
+{{ range .Translations }}
+<meta property="og:locale:alternate" content="{{ replace (or .Language.LanguageCode .Language.Lang) "-" "_" }}" />
 {{ end }}
 
 <meta name="twitter:card" content="summary_large_image" />
@@ -44,11 +44,17 @@
 <meta name="twitter:image" content="{{ $image }}" />
 {{ with .Site.Params.twitter }}<meta name="twitter:site" content="@{{ . }}" />{{ end }}
 
-<link rel="alternate" href="{{ .Permalink }}" hreflang="{{ or .Site.Language.LanguageCode .Site.Language.Lang }}" />
+{{/* .AllTranslations includes the current page, so each language is emitted exactly once. */}}
 {{ range .AllTranslations }}
 <link rel="alternate" href="{{ .Permalink }}" hreflang="{{ or .Language.LanguageCode .Language.Lang }}" />
 {{ end }}
-<link rel="alternate" href="{{ .Site.Home.Permalink }}" hreflang="x-default" />
+{{/* x-default points to the default content language (.Sites is ordered by weight; index 0 is the default) version of this page, consistently across languages. */}}
+{{ $default := (index .Sites 0).Language.Lang }}
+{{ range .AllTranslations }}
+{{ if eq .Language.Lang $default }}
+<link rel="alternate" href="{{ .Permalink }}" hreflang="x-default" />
+{{ end }}
+{{ end }}
 
 <script type="application/ld+json">
 {{ jsonify (dict

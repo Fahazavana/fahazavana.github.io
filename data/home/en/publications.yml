@@ -1,8 +1,16 @@
-title: "Publication & Talk"
+title: "Publications & Talks"
 enable: true
 publications:
   title: "Publications"
   items:
+    - title: "HASTE: Hardware-Aware Dynamic Sparse Training for Large Output Spaces"
+      authors: "Nasib Ullah, Jinbin Zhang, Jean Lucien Randrianantenaina, Erik Schultheis, and Rohit Babbar"
+      venue: "Forty-third International Conference on Machine Learning (ICML 2026)"
+      year: "2026"
+      abstract: "Extreme multi-label classification requires learning over output spaces with millions of labels, making the output layer a memory and compute bottleneck. We introduce group-shared fixed fan-in sparsity with hardware-aware CUDA kernels, achieving up to 4.4x and 25x speedups in the forward and backward passes while matching dense-model accuracy."
+      icon: "fa-microchip"
+      link: "https://openreview.net/forum?id=PAOhstVuIt"
+      link_label: "Read paper"
     - title: "There Is No Carmichael Number of the Form \\(2^np^2+1\\)"
       authors: "Florian Luca and Jean Lucien Randrianantenaina"
       venue: "INTEGERS, Volume 23"

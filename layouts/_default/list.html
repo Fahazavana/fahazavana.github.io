@@ -14,7 +14,7 @@
         <a href="{{ .RelPermalink }}" class="block group">
           <div class="card overflow-hidden h-full">
             {{ with $page.Params.image }}
-              <img src="{{ . }}" alt="{{ $page.Title }}" class="w-full h-44 object-cover"/>
+              <img src="{{ . }}" alt="{{ $page.Title }}" class="w-full h-44 object-cover" loading="lazy" decoding="async"/>
             {{ end }}
             <div class="p-5">
               <h2 class="text-xl font-semibold text-foreground group-hover:text-primary">{{ .Title }}</h2>

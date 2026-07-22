@@ -1,6 +1,7 @@
 ---
 title: "Blog"
-description: "Articles sur les mathématiques, l'apprentissage automatique, le logiciel et la recherche."
+description: "Articles sur les mathématiques, l'apprentissage automatique, le développement logiciel et la recherche."
+draft: true
 ---
 
-Les articles plus détaillés seront publiés ici.
+Réflexions, notes et articles de fond trouveront leur place ici.
