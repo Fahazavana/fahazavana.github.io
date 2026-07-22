@@ -16,15 +16,13 @@
 	<link rel="preload" as="image" href="{{ "images/profile.webp" | relURL }}" type="image/webp" />
 	{{ end }}
 	<meta name="color-scheme" content="light dark" />
-	{{ range .Site.Params.plugins.css }}
-	<link rel="stylesheet" href="{{ .link | relURL }}" />
-	{{ end }}
-	{{ partialCached "css.html" . }}
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-	<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-	<link rel="preconnect" href="https://cdn.simpleicons.org" crossorigin />
+	{{ partialCached "css.html" . }}
+	{{/* Third-party stylesheets (Font Awesome) loaded async so they don't block first paint. */}}
+	{{ range .Site.Params.plugins.css }}
+	<link rel="stylesheet" href="{{ .link | relURL }}" media="print" onload="this.media='all'" />
+	<noscript><link rel="stylesheet" href="{{ .link | relURL }}" /></noscript>
+	{{ end }}
 	<link rel="manifest" href="{{ "manifest.webmanifest" | relURL }}" />
 	<link rel="icon" type="image/png" href="{{ .Site.Params.favicon }}" />
 	<link rel="icon" type="image/png" sizes="32x32" href="{{ "images/favicon_io/favicon-32x32.png" | relURL }}" />

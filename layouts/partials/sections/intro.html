@@ -48,6 +48,10 @@
           class="mx-auto w-36 max-w-full rounded-full border-2 border-border object-cover shadow-lg sm:w-40 md:w-48"
           src="{{ $intro.image | relURL }}"
           alt="{{ $intro.alt }}"
+          width="480"
+          height="480"
+          fetchpriority="high"
+          decoding="async"
         />
 
         <div class="text-center">

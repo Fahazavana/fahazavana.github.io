@@ -60,9 +60,14 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
+          # Pages reports the base URL as http:// when Enforce HTTPS is off
+          # (e.g. behind a Cloudflare proxy); force https so generated absolute
+          # URLs (og, sitemap, robots, JSON-LD) match the served scheme.
+          BASE_URL="${{ steps.pages.outputs.base_url }}/"
+          BASE_URL="https://${BASE_URL#*://}"
           hugo \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            --baseURL "$BASE_URL"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
